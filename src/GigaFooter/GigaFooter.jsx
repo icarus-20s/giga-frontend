@@ -37,11 +37,10 @@ const ProfessionalFooter = () => {
     { name: 'GDPR Compliance', href: '#gdpr' }
   ];
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#facebook', color: 'hover:text-blue-500' },
-    { name: 'Twitter', icon: Twitter, href: '#twitter', color: 'hover:text-sky-400' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#linkedin', color: 'hover:text-blue-600' },
-    { name: 'Instagram', icon: Instagram, href: '#instagram', color: 'hover:text-pink-500' },
-    { name: 'YouTube', icon: Youtube, href: '#youtube', color: 'hover:text-red-500' }
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/GigaErpSoftwareNepal', color: 'hover:text-blue-500' },
+    { name: 'Twitter', icon: Twitter, href: 'https://www.facebook.com/GigaErpSoftwareNepal', color: 'hover:text-sky-400' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/gigainfosoft/about/', color: 'hover:text-blue-600' },
+    { name: 'YouTube', icon: Youtube, href: 'https://www.facebook.com/GigaErpSoftwareNepal', color: 'hover:text-red-500' }
   ];
 
   return (

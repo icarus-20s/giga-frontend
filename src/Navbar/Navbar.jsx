@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import {useNavigate} from "react-router-dom"
+import logo from "../assets/logo.jpg";
 const Navbar = () => {
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +61,7 @@ const Navbar = () => {
                                 className="flex items-center space-x-2 group"
                             >
                                 <img
-                                    src="https://gigainfosoft.com.np/frontend/images/company/logo/t74Xe444t5DOcOHrUeO8NqKLreyRcVfmw19HCfvV.png"
+                                    src={logo}
                                     alt="Company Logo"
                                     className="w-20 h-20 lg:w-28 lg:h-28 rounded-xl object-contain transform group-hover:scale-105 transition-transform duration-200"
                                 />

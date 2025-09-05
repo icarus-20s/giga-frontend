@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Shield, Mail, Globe, Code, BookOpen, Award, ArrowRight, CheckCircle, Star, Building2, Target, Eye } from 'lucide-react';
+import Clients from '../Components/Clients';
+import sandip from "../assets/Team/sandip.jpg";
+import saurav from "../assets/Team/saurav.jpg";
+import yogesh from "../assets/Team/yogesh.jpg";
+import suman from "../assets/Team/suman.jpg";
+import santosh from "../assets/Team/santosh.jpg";
+import logo from '../assets/logo.jpg';
+
 
 const About = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -19,33 +27,40 @@ const About = () => {
     document.querySelectorAll('[id]').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+const teamMembers = [
+  {
+    name: "Saurav Bhattarai",
+    position: "Co-Founder",
+    image: saurav,
+    description: "Visionary leader with 10+ years in educational technology"
+  },
+  {
+    name: "Yogesh Sapkota",
+    position: "Senior Developer",
+    image: yogesh,
+    description: "Full-stack expert specializing in scalable solutions"
+  },
+  {
+    name: "Suman Paudyal",
+    position: "Senior Developer",
+    image: suman,
+    description: "Backend architect with expertise in system optimization"
+  },
+  {
+    name: "Santosh Pandey",
+    position: "Software Implementation Specialist",
+    image: santosh,
+    description: "Expert in seamless software deployment and training"
+  },
+  {
+    name: "Sandip Sharma",
+    position: "Developer",
+    image: sandip,
+    description: "Frontend and backend developer focusing on clean, efficient code"
+  }
+];
 
-  const teamMembers = [
-    {
-      name: "Saurav Bhattarai",
-      position: "Co-Founder & CEO",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-      description: "Visionary leader with 10+ years in educational technology"
-    },
-    {
-      name: "Yogesh Sapkota",
-      position: "Senior Developer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      description: "Full-stack expert specializing in scalable solutions"
-    },
-    {
-      name: "Suman Paudyal",
-      position: "Senior Developer",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-      description: "Backend architect with expertise in system optimization"
-    },
-    {
-      name: "Santosh Pandey",
-      position: "Implementation Specialist",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
-      description: "Expert in seamless software deployment and training"
-    }
-  ];
+
 
   const stats = [
     { number: "50+", label: "Educational Institutions", icon: Building2 },
@@ -81,10 +96,7 @@ const About = () => {
     }
   ];
 
-  const clients = [
-    "Global Tech Academy", "Modern Education Institute", "Future Learning Center",
-    "Innovation University", "Digital School Network", "Smart Campus Solutions"
-  ];
+
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -124,7 +136,7 @@ const About = () => {
       {/* Logo with professional bounce */}
       <div className="inline-flex items-center justify-center mb-8 relative">
         <img
-          src="https://gigainfosoft.com.np/frontend/images/company/logo/t74Xe444t5DOcOHrUeO8NqKLreyRcVfmw19HCfvV.png"
+          src={logo}
           alt="Company Logo"
           className="w-24 h-24 lg:w-32 lg:h-32 object-contain drop-shadow-2xl animate-smooth-bounce"
         />
@@ -154,7 +166,6 @@ const About = () => {
 
 
 </section>
-
 
       {/* Stats Section */}
       <section id="stats" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
@@ -362,74 +373,84 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Meet Our Experts</h2>
-            <p className="text-xl text-gray-600">The brilliant minds behind our innovative solutions</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className={`group transform transition-all duration-700 delay-${index * 150} ${
-                  isVisible.team ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                }`}
-              >
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  <div className="relative mb-6">
-                    <div className="w-32 h-32 mx-auto relative overflow-hidden rounded-full">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                    <p className="text-blue-600 font-semibold mb-3">{member.position}</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-    {/* Clients Section */}
-<section id="clients" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+ {/* Team Section */}
+<section
+  id="team"
+  className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50"
+>
   <div className="max-w-7xl mx-auto">
-    {/* Section Header */}
+    {/* Header */}
     <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Trusted Worldwide</h2>
-      <p className="text-xl text-gray-600">Leading educational institutions choose our solutions</p>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Meet Our Experts
+      </h2>
+      <p className="text-xl text-gray-600">
+        The brilliant minds behind our innovative solutions
+      </p>
     </div>
 
-    {/* Clients Grid */}
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-      {clients.map((client, index) => (
+    {/* Custom 3x3 Centered Grid */}
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: "2rem",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {teamMembers.map((member, index) => (
         <div
           key={index}
-          className={`transform transition-all duration-700 delay-${index * 100} ${
-            isVisible.clients ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
+          style={{
+            transform: isVisible.team ? "translateY(0)" : "translateY(20px)",
+            opacity: isVisible.team ? 1 : 0,
+            transition: `all 0.7s ease ${index * 0.15}s`,
+          }}
         >
-          <div className="relative group bg-white rounded-2xl p-8 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 flex items-center justify-center h-40">
-            {/* Logo */}
-            <img
-              src={client.logo} // <-- client logo URL
-              alt={client.name}
-              className="max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition duration-300"
-            />
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "1rem",
+              padding: "1.5rem",
+              boxShadow:
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+              transition: "all 0.5s ease",
+            }}
+            className="hover:-translate-y-2 hover:shadow-2xl"
+          >
+            {/* Avatar */}
+            <div className="relative mb-6">
+              <div
+                style={{
+                  width: "8rem",
+                  height: "8rem",
+                  margin: "0 auto",
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </div>
 
-            {/* Name overlay */}
-            <div className="absolute inset-0 flex items-center justify-center bg-black/70 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-white text-lg font-semibold">{client.name}</p>
+            {/* Text */}
+            <div style={{ textAlign: "center" }}>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                {member.name}
+              </h3>
+              <p className="text-blue-600 font-semibold mb-3">
+                {member.position}
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {member.description}
+              </p>
             </div>
           </div>
         </div>
@@ -438,6 +459,7 @@ const About = () => {
   </div>
 </section>
 
+    <Clients />
 
             
    

@@ -143,7 +143,7 @@ const Services = () => {
                     {service.features.map((feature, idx) => (
                       <span
                         key={idx}
-                        className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium border border-white/10"
+                        className="px-4 py-2 bg-white/10 rounded-full text-blue-200 text-sm font-medium border border-white/10"
                       >
                         {feature}
                       </span>
