@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import {
   ChevronRight,
@@ -105,90 +106,104 @@ const Home = () => {
     }, 6000);
     return () => clearInterval(interval);
   }, []);
+  
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
-          style={{
-            backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.8) 50%, rgba(15, 23, 42, 0.9) 100%), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        />
-        
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Hero Content */}
-            <div className="space-y-8 text-white">
-              <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full text-sm font-medium text-blue-300 border border-blue-500/30">
-                  <Zap size={16} className="mr-2" />
-                  Trusted by 150+ Companies
-                </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                  Transform Your Business with{" "}
-                  <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                    Smart Technology
-                  </span>
-                </h1>
-                <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl">
-                  We deliver enterprise-grade software solutions, web applications, and digital transformation services that drive measurable business growth.
-                </p>
-              </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/contactus"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-semibold shadow-2xl hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-200"
-                >
-                  Start Your Project
-                  <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a
-                  href="/about"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-semibold border border-white/20 hover:bg-white/20 transition-all duration-200"
-                >
-                  <Play size={18} className="mr-2" />
-                  Watch Demo
-                </a>
-              </div>
+{/* Hero Section */}
+<section className="relative min-h-screen flex items-center overflow-hidden">
+  <div 
+    className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+    style={{
+      backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.8) 50%, rgba(15, 23, 42, 0.9) 100%), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed'
+    }}
+  />
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-8">
-                {stats.map((stat, i) => (
-                  <div key={i} className="text-center lg:text-left">
-                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                      {stat.number}
-                    </div>
-                    <div className="text-sm text-gray-400 font-medium mt-1">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Hero Services Grid */}
-            <div className="grid grid-cols-2 gap-4 lg:gap-6">
-              {services.slice(0, 4).map((service, i) => (
-                <div 
-                  key={i}
-                  className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-105"
-                >
-                  <div className="mb-4">{service.icon}</div>
-                  <h3 className="font-bold text-white text-lg mb-2">{service.name}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{service.desc}</p>
-                </div>
-              ))}
-            </div>
+  <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      {/* Hero Content (Left Side) */}
+      <motion.div
+        className="space-y-8 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        {/* Intro */}
+        <div className="space-y-4">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full text-sm font-medium text-blue-300 border border-blue-500/30">
+            <Zap size={16} className="mr-2" />
+            Trusted by 150+ Companies
           </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+            Transform Your Business with{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              Smart Technology
+            </span>
+          </h1>
+          <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+            We deliver enterprise-grade software solutions, web applications, and digital transformation services that drive measurable business growth.
+          </p>
         </div>
-      </section>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          {/* ...buttons here... */}
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-8">
+          {stats.map((stat, i) => (
+            <motion.div 
+              key={i} 
+              className="text-center lg:text-left"
+              variants={fadeUp}
+              transition={{ delay: i * 0.2 }}
+            >
+              <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                {stat.number}
+              </div>
+              <div className="text-sm text-gray-400 font-medium mt-1">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Hero Services Grid (Right Side) */}
+      <div className="grid grid-cols-2 gap-4 lg:gap-6">
+        {services.slice(0, 4).map((service, i) => (
+          <div
+            key={i}
+            className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+          >
+            <div className="mb-4">{service.icon}</div>
+            <h3 className="font-bold text-white text-lg mb-2">{service.name}</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">{service.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
 {/* About Section */}
+      <motion.div
+        className="space-y-8 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
 <section className="py-16 lg:py-28 bg-gray-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -255,8 +270,18 @@ const Home = () => {
     </div>
   </div>
 </section>
+      </motion.div>
+
 
 {/* service section */}
+      <motion.div
+        className="space-y-8 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+
 
 <section className="py-16 lg:py-28 bg-gradient-to-b from-blue-50 via-blue-100 to-gray-100"
   >
@@ -308,8 +333,17 @@ const Home = () => {
     </div>
   </div>
 </section>
+    </motion.div>
 
 {/* Products Section */}
+      <motion.div
+        className="space-y-8 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+
 <section className="py-20 lg:py-28 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
 
@@ -328,8 +362,8 @@ const Home = () => {
          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
       {products.map((product, i) => (
         <div
-          key={i}
-          className="flex flex-col bg-white rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-1 w-full"
+        key={i}
+        className="flex flex-col bg-white rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-1 w-full"
         >
           {/* Icon */}
           <div className="mb-6 flex justify-center text-5xl sm:text-6xl text-blue-600">
@@ -373,6 +407,7 @@ const Home = () => {
   </div>
 </section>
 
+              </motion.div>
 {/* Testimonials Section */}
 <section className="py-20 lg:py-32 text-center relative overflow-hidden">
   {/* Background */}
@@ -387,15 +422,15 @@ const Home = () => {
   />
 
   {/* Content */}
-  <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+  <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
 
     {/* Header */}
-    <div className="mb-16">
+    <div className="mb-12 sm:mb-16">
       <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold text-white mb-4">
         <Star size={16} className="mr-2" />
         Client Success Stories
       </div>
-      <h2 className="py-10 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
         What Our Clients Say
       </h2>
     </div>
@@ -427,12 +462,12 @@ const Home = () => {
     </div>
 
     {/* Navigation Dots */}
-    <div className="py-10 flex justify-center space-x-5 mt-10">
+    <div className="flex justify-center space-x-4 mt-10">
       {testimonials.map((_, i) => (
         <button
           key={i}
           onClick={() => setCurrentTestimonial(i)}
-          className={`w-4 h-4 rounded-full transition-all duration-200 ${
+          className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-200 ${
             i === currentTestimonial 
               ? "bg-white scale-125 shadow-lg" 
               : "bg-white/40 hover:bg-white/60"

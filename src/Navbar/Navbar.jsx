@@ -43,7 +43,7 @@ const Navbar = () => {
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                     isScrolled
-                        ? "bg-white/50 backdrop-blur-md shadow-lg"
+                        ? "bg-white/90 backdrop-blur-md shadow-lg"
                         : "bg-transparent"
                 }`}
             >
@@ -67,38 +67,43 @@ const Navbar = () => {
                             </a>
                         </div>
 
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center space-x-1">
-                            {navItems.map((item) => (
-                                <a
-                                    key={item.name}
-                                    href={item.path}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        handleNavClick(item.path);
-                                    }}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative group ${
-                                        isActive(item.path)
-                                            ? isScrolled
-                                                ? "text-blue-600 bg-blue-50"
-                                                : "text-blue-300 bg-white/10"
-                                            : isScrolled
-                                                ? "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                                                : "text-white hover:text-blue-300 hover:bg-white/10"
-                                    }`}
-                                >
-                                    {item.name}
-                                    {isActive(item.path) && (
-                                        <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${
-                                            isScrolled ? "bg-blue-600" : "bg-blue-300"
-                                        }`}></div>
-                                    )}
-                                    <div className={`absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${
-                                        isScrolled ? "via-blue-500" : "via-blue-300"
-                                    }`}></div>
-                                </a>
-                            ))}
-                        </div>
+                      {/* Desktop Navigation */}
+<div className="hidden lg:flex items-center space-x-1">
+  {navItems.map((item) => (
+    <a
+      key={item.name}
+      href={item.path}
+      onClick={(e) => {
+        e.preventDefault();
+        handleNavClick(item.path);
+      }}
+      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative group ${
+        isActive(item.path)
+          ? isScrolled
+            ? "text-blue-600"
+            : "text-blue-300"
+          : isScrolled
+            ? "text-gray-700 hover:text-blue-600"
+            : "text-white hover:text-blue-300"
+      }`}
+    >
+      {item.name}
+      {isActive(item.path) && (
+        <div
+          className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-[2px] rounded-full ${
+            isScrolled ? "bg-blue-600" : "bg-blue-300"
+          }`}
+        ></div>
+      )}
+      <div
+        className={`absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${
+          isScrolled ? "via-blue-500" : "via-blue-300"
+        }`}
+      ></div>
+    </a>
+  ))}
+</div>
+
 
                         {/* Mobile menu button */}
                         <div className="lg:hidden">

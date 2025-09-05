@@ -2,13 +2,25 @@
 *{
   margin: 0px;
 }
-:root {
-  --brand-dark: #154D71;
-  --brand-primary: #1C6EA4;
-  --brand-accent: #33A1E0;
-  --brand-highlight: #FFF9AF;
-}
+
 body {
   font-family: 'Inter', sans-serif;
 
+}
+@keyframes smooth-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-smooth-bounce {
+  animation: smooth-bounce 3s ease-in-out infinite;
+}
+  
+.text-shadow {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), 
+               0px 4px 12px rgba(0, 0, 0, 0.4);
 }
