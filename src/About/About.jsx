@@ -124,7 +124,7 @@ const teamMembers = [
 {/* Hero Section */}
 <section
   id="hero"
-  className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+  className="relative z-10 h-[500px] flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
 >
   <div className="max-w-7xl mx-auto text-center">
     {/* Fade-up container */}

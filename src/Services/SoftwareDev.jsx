@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import soft1 from "../assets/ServicesImg/softdev/soft1.jpg";
 import soft2 from "../assets/ServicesImg/softdev/soft2.jpg";
 import soft3 from "../assets/ServicesImg/softdev/soft3.jpg";
@@ -32,48 +31,51 @@ const sections = [
 ];
 
 const SoftDev = () => {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
-    },
-  };
+  const sectionRefs = useRef([]);
+  const [visibleSections, setVisibleSections] = useState({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => ({ ...prev, [entry.target.dataset.id]: true }));
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sectionRefs.current.forEach((ref) => ref && observer.observe(ref));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
       <div className="relative z-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
         {/* Header */}
-        <motion.header
-          className="text-center mb-16 sm:mb-20 lg:mb-24"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
+        <header
+          className={`text-center mb-16 sm:mb-20 lg:mb-24 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
+            visibleSections["header"] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+          ref={(el) => (sectionRefs.current[0] = el)}
+          data-id="header"
         >
-          <motion.h1
-            className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6"
-          >
+          <h1 className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6">
             Software Development
-          </motion.h1>
-        </motion.header>
+          </h1>
+        </header>
 
         {/* Sections */}
-        <motion.div
-          className="max-w-7xl mx-auto space-y-20 sm:space-y-24 lg:space-y-32"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={fadeUp}
-        >
+        <div className="max-w-7xl mx-auto space-y-20 sm:space-y-24 lg:space-y-32">
           {sections.map((section, index) => (
-            <motion.article
+            <article
               key={section.id}
-              className={`flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16 xl:gap-20 ${
-                index % 2 !== 0 ? "lg:flex-row-reverse" : ""
-              }`}
-              variants={fadeUp}
+              data-id={section.id}
+              ref={(el) => (sectionRefs.current[index + 1] = el)}
+              className={`flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16 xl:gap-20 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
+                visibleSections[section.id] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              } ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
             >
               {/* Image */}
               <div className="w-full lg:w-1/2">
@@ -90,24 +92,15 @@ const SoftDev = () => {
 
               {/* Content */}
               <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 sm:space-y-8">
-                <motion.h2
-                  className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
-                  variants={fadeUp}
-                >
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
                   {section.title}
-                </motion.h2>
-                <motion.p
-                  className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0"
-                  variants={fadeUp}
-                >
+                </h2>
+                <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   {section.description}
-                </motion.p>
+                </p>
 
                 {/* Features */}
-                <motion.div
-                  className="py-5 flex flex-wrap justify-center lg:justify-start gap-3"
-                  variants={fadeUp}
-                >
+                <div className="py-5 flex flex-wrap justify-center lg:justify-start gap-3">
                   {section.features.map((feature, idx) => (
                     <span
                       key={idx}
@@ -116,12 +109,21 @@ const SoftDev = () => {
                       {feature}
                     </span>
                   ))}
-                </motion.div>
+                </div>
               </div>
-            </motion.article>
+            </article>
           ))}
-        </motion.div>
+        </div>
       </div>
+       {/* Floating Elements */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
+    <div className="absolute top-1/3 right-20 w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+    <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
+  </div>
+     <div className="absolute top-[-100px] left-[-100px] w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-[-120px] right-[-120px] w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-full animate-pulse delay-2000"></div>
+
     </section>
   );
 };

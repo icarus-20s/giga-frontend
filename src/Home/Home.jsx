@@ -13,6 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import soft3 from "../assets/ServicesImg/softdev/soft3.jpg";
+import home from "../assets/home.avif";
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -258,7 +259,7 @@ return (
         {/* Image */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
           <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+            src={home}
             alt="Professional team collaboration"
             className="w-full h-full object-cover object-center"
           />
