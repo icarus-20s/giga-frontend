@@ -115,7 +115,7 @@ return (
   <main className="min-h-screen bg-white">
 
     {/* Hero Section */}
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div
         className="absolute inset-0"
@@ -192,7 +192,6 @@ return (
         </div>
       </div>
     </section>
-);
 
 
 {/* About Section */}
@@ -282,8 +281,7 @@ return (
       >
 
 
-<section className="py-16 lg:py-28 bg-gradient-to-b from-blue-50 via-blue-100 to-gray-100"
-  >
+     <section className="py-16 lg:py-28 bg-gradient-to-b from-blue-50 via-blue-100 to-gray-100 relative min-h-screen flex items-center justify-center overflow-hidden">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
     
     {/* Header */}
@@ -296,40 +294,43 @@ return (
       </p>
     </div>
 
-    {/* Services Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full justify-items-center">
-      {services.map((service, i) => (
-        <div
-          key={i}
-          className="group flex flex-col h-full bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-gray-100 transition-transform duration-300 hover:shadow-2xl hover:border-blue-200 hover:-translate-y-2"
-        >
-          {/* Icon */}
-          <div className="mb-6 text-blue-600 text-4xl sm:text-5xl flex justify-center">
-            {service.icon}
-          </div>
-
-          {/* Service Title */}
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 text-center">
-            {service.name}
-          </h3>
-
-          {/* Description */}
-          <p className="text-gray-600 mb-6 flex-grow leading-relaxed text-center">
-            {service.desc}
-          </p>
-
-          {/* Features */}
-          <ul className="mt-auto space-y-2">
-            {service.features.map((feature, j) => (
-              <li key={j} className="flex items-center text-sm sm:text-base text-gray-500">
-                <CheckCircle size={16} className="text-green-500 mr-2 flex-shrink-0" />
-                {feature}
-              </li>
-            ))}
-          </ul>
+{/* Services Grid */}
+<div className="flex justify-center w-full">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-[1400px]">
+    {services.map((service, i) => (
+      <div
+        key={i}
+        className="group flex flex-col h-full bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-gray-100 transition-transform duration-300 hover:shadow-2xl hover:border-blue-200 hover:-translate-y-2"
+      >
+        {/* Icon */}
+        <div className="mb-6 text-blue-600 text-4xl sm:text-5xl flex justify-center">
+          {service.icon}
         </div>
-      ))}
-    </div>
+
+        {/* Service Title */}
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 text-center">
+          {service.name}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-600 mb-6 flex-grow leading-relaxed text-center">
+          {service.desc}
+        </p>
+
+        {/* Features */}
+        <ul className="mt-auto space-y-2">
+          {service.features.map((feature, j) => (
+            <li key={j} className="flex items-center text-sm sm:text-base text-gray-500">
+              <CheckCircle size={16} className="text-green-500 mr-2 flex-shrink-0" />
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</div>
+
   </div>
 </section>
     </motion.div>
@@ -343,7 +344,8 @@ return (
         variants={fadeInUp}
       >
 
-<section className="py-20 lg:py-28 bg-white">
+{/* Products Section */}
+<section className="py-20 lg:py-28 bg-white relative min-h-screen flex items-center justify-center overflow-hidden">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
 
     {/* Header */}
@@ -357,12 +359,11 @@ return (
     </div>
 
     {/* Products Grid */}
-    <div className="grid gap-10 w-full justify-center"
-         style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+    <div className="grid gap-10 w-full sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
       {products.map((product, i) => (
         <div
-        key={i}
-        className="flex flex-col bg-white rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-2xl border border-gray-200 transition-all duration-300 hover:-translate-y-1 w-full"
+          key={i}
+          className="flex flex-col bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl border border-gray-200 transition-transform duration-300 hover:-translate-y-1 w-full max-w-sm"
         >
           {/* Icon */}
           <div className="mb-6 flex justify-center text-5xl sm:text-6xl text-blue-600">
@@ -379,104 +380,108 @@ return (
             {product.desc}
           </p>
 
-          {/* Price & Features */}
-          <div className="mb-6 text-center">
-            {product.price && (
-              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-4">
-                {product.price}
-              </div>
-            )}
-            <ul className="space-y-2">
-              {product.features.map((feature, j) => (
-                <li key={j} className="flex items-center justify-center text-sm sm:text-base text-gray-600">
-                  <CheckCircle size={16} className="text-green-500 mr-2 flex-shrink-0" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Button */}
-          <button className="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors">
-            Learn More
-          </button>
+          {/* Features */}
+          <ul className="space-y-2 text-center">
+            {product.features.map((feature, j) => (
+              <li key={j} className="flex items-center justify-center text-sm sm:text-base text-gray-600">
+                <CheckCircle size={16} className="text-green-500 mr-2 flex-shrink-0" />
+                {feature}
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
+
   </div>
 </section>
 
+
+
               </motion.div>
 {/* Testimonials Section */}
-<section className="py-20 lg:py-32 text-center relative overflow-hidden">
+   <section className="relative min-h-screen flex items-center justify-center py-20 lg:py-32 overflow-hidden">
   {/* Background */}
-  <div 
+  <div
     className="absolute inset-0"
     style={{
-      backgroundImage: `linear-gradient(135deg, rgba(59,130,246,0.85) 0%, rgba(147,51,234,0.85) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundImage: `linear-gradient(135deg, rgba(59,130,246,0.9) 0%, rgba(147,51,234,0.9) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80')`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
     }}
   />
 
   {/* Content */}
-  <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
     {/* Header */}
-    <div className="mb-12 sm:mb-16">
-      <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold text-white mb-4">
+    <div className="text-center mb-16">
+      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold text-white mb-4">
         <Star size={16} className="mr-2" />
-        Client Success Stories
-      </div>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
         What Our Clients Say
+      </span>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+        Client Testimonials
       </h2>
     </div>
 
-    {/* Testimonial Card */}
-    <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-white/20 shadow-lg flex flex-col items-center text-center max-w-2xl w-full transition-all duration-300 hover:scale-[1.02]">
-      
-      {/* Rating */}
-      <div className="flex justify-center mb-6">
-        {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-          <Star key={i} className="text-yellow-400 w-6 h-6" />
-        ))}
-      </div>
+    {/* Carousel */}
+    <div className="py-5 relative flex justify-center flex-wrap gap-8">
+      {[
+        testimonials[currentTestimonial],
+        testimonials[(currentTestimonial + 1) % testimonials.length],
+      ].map((testimonial, idx) => (
+        <div
+          key={idx}
+          className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg flex flex-col max-w-md w-full transition-all duration-500 hover:scale-[1.02]"
+        >
+          {/* Rating */}
+          <div className="flex mb-4 justify-center">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <Star key={i} className="text-yellow-400 w-5 h-5 sm:w-6 sm:h-6" />
+            ))}
+          </div>
 
-      {/* Quote */}
-      <blockquote className="text-xl lg:text-2xl text-white leading-relaxed mb-8 font-medium">
-        "{testimonials[currentTestimonial].text}"
-      </blockquote>
+          {/* Quote */}
+          <blockquote className="text-lg sm:text-xl lg:text-2xl leading-relaxed font-medium text-white mb-6 flex-grow text-center">
+            "{testimonial.text}"
+          </blockquote>
 
-      {/* Client Info */}
-      <div className="space-y-1">
-        <div className="font-bold text-xl sm:text-2xl text-white">
-          {testimonials[currentTestimonial].name}
+          {/* Client Info */}
+          <div className="flex items-center gap-4 justify-center">
+            <div className="text-center">
+              <h3 className="font-bold text-lg">{testimonial.name}</h3>
+              <p className="text-blue-200 text-sm">{testimonial.role}</p>
+            </div>
+          </div>
         </div>
-        <div className="text-blue-200 font-medium sm:text-lg">
-          {testimonials[currentTestimonial].role}
-        </div>
-      </div>
-    </div>
-
-    {/* Navigation Dots */}
-    <div className="flex justify-center space-x-4 mt-10">
-      {testimonials.map((_, i) => (
-        <button
-          key={i}
-          onClick={() => setCurrentTestimonial(i)}
-          className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-200 ${
-            i === currentTestimonial 
-              ? "bg-white scale-125 shadow-lg" 
-              : "bg-white/40 hover:bg-white/60"
-          }`}
-          aria-label={`View testimonial ${i + 1}`}
-        />
       ))}
     </div>
+
+    {/* Navigation Arrows */}
+    <button
+      onClick={() =>
+        setCurrentTestimonial(
+          (currentTestimonial - 2 + testimonials.length) % testimonials.length
+        )
+      }
+      className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg"
+      aria-label="Previous"
+    >
+      ‹
+    </button>
+    <button
+      onClick={() =>
+        setCurrentTestimonial((currentTestimonial + 2) % testimonials.length)
+      }
+      className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg"
+      aria-label="Next"
+    >
+      ›
+    </button>
   </div>
 </section>
+
 
     </main>
   );

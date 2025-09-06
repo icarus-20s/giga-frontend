@@ -68,42 +68,35 @@ const Clients = () => {
             </span>
           </motion.div>
           
-          <h1
-            className="py-5 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight"
-            style={{
-              background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Our Valued Clients
+          <h1 className="py-5 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white font-bold mb-4 sm:mb-6 leading-tight">
+            Our <span className="text-blue-300">Clients</span>
           </h1>
         </motion.header>
 
         {/* Clients Grid */}
-<div className="max-w-7xl mx-auto">
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 sm:gap-8 justify-center justify-items-center">
+ {/* Clients Grid */}
+<div className="flex justify-center">
+  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 w-fit place-items-center">
     {clients.map((client, idx) => (
       <motion.div
         key={client.id}
-        className="relative group flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg aspect-square overflow-hidden transition-all duration-300"
-        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        className="relative group flex items-center justify-center w-60 h-60 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 shadow-xl overflow-hidden transition-all duration-300"
+        initial={{ opacity: 0, scale: 0.9, y: 12 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: idx * 0.05, ease: "easeOut" }}
+        transition={{ duration: 0.5, delay: idx * 0.05, ease: "easeOut" }}
         viewport={{ once: true, margin: "-50px" }}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.08 }}
       >
         <img
           src={client.logo}
           alt={`${client.name} logo`}
-          className="max-h-16 sm:max-h-20 lg:max-h-24 max-w-full object-contain transition-all duration-300 group-hover:opacity-30"
+          className="max-h-28 max-w-full object-contain transition-all duration-300 group-hover:opacity-30"
           loading="lazy"
           decoding="async"
         />
 
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
-          <span className="text-white text-sm sm:text-base font-semibold px-2 text-center">
+          <span className="text-white text-base sm:text-lg font-semibold px-3 text-center">
             {client.name}
           </span>
         </div>
@@ -111,6 +104,8 @@ const Clients = () => {
     ))}
   </div>
 </div>
+
+
         {/* Bottom section */}
         <motion.div
           className="text-center mt-12 sm:mt-16 lg:mt-20"

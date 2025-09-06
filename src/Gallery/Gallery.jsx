@@ -61,15 +61,9 @@ const Gallery = () => {
 
         {/* Header */}
 <h1
-  className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-[#57d8d3]"
-  style={{
-    background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  }}
+  className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white"
 >
-  Memories
+  Me<span className="text-blue-300" >Mories</span>
 </h1>
 </div>
       {/* Masonry Grid using Tailwind columns */}

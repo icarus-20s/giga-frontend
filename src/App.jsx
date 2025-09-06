@@ -17,6 +17,7 @@ import GigaAccounting from "./Components/Features/GigaAccounting";
 import GigaERP from "./Components/Features/GigaErp";
 import GigaHRMS from "./Components/Features/GigaHrms";
 import GigaIMS from "./Components/Features/GigaIms";
+import FadeUp from "./Components/Fadeup";
 
 const App = () => {
     return (
@@ -53,7 +54,7 @@ const App = () => {
                 <Route path="/career" element={<Career />} />
             </Routes>
 
-            <GigaFooter />
+            <FadeUp><GigaFooter /></FadeUp>
         </>
     );
 };

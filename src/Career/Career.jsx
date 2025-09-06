@@ -84,26 +84,51 @@ const Career = () => {
           </div>
         </FadeUp>
       </section>
+<main className="bg-gradient-to-b from-blue-50 via-blue-100 to-gray-100 w-full flex flex-col items-center">
+  {/* Vision */}
+  <FadeUp delay={100}>
+    <section className="py-16 w-full flex justify-center">
+      <div className="max-w-6xl text-center px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          Our Vision & Mission
+        </h2>
 
-      <main className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8 py-16">
-        {/* Breadcrumb */}
-        <FadeUp>
-          <nav className="py-5 text-gray-500 mb-12 text-sm flex justify-center items-center tracking-wide">
-            <span className="hover:text-indigo-500 cursor-pointer transition">Home</span>
-            <span className="mx-2">/</span>
-            <span className="text-indigo-600 font-semibold">Careers</span>
-          </nav>
-        </FadeUp>
+        {/* Paragraph */}
+        <p className="text-gray-700 mb-12 text-lg sm:text-xl leading-relaxed">
+          We are a technology organization at the forefront of digital transformation, delivering innovative solutions that redefine industries.
+        </p>
 
-        {/* Vision */}
-        <FadeUp delay={100}>
-          <section className="mb-20 text-center  ">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Our Vision & Mission</h2>
-            <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto text-lg sm:text-xl">
-              We are a technology organization at the forefront of digital transformation, delivering innovative solutions that redefine industries.
+        {/* Core Values */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition transform hover:-translate-y-1">
+            <h3 className="font-bold text-xl mb-2">Innovation</h3>
+            <p className="text-gray-600 text-sm">
+              Continuously pushing boundaries with cutting-edge solutions.
             </p>
-          </section>
-        </FadeUp>
+          </div>
+          <div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition transform hover:-translate-y-1">
+            <h3 className="font-bold text-xl mb-2">Integrity</h3>
+            <p className="text-gray-600 text-sm">
+              Upholding transparency, honesty, and ethics in every project.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition transform hover:-translate-y-1">
+            <h3 className="font-bold text-xl mb-2">Excellence</h3>
+            <p className="text-gray-600 text-sm">
+              Delivering high-quality solutions that exceed expectations.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition transform hover:-translate-y-1">
+            <h3 className="font-bold text-xl mb-2">Collaboration</h3>
+            <p className="text-gray-600 text-sm">
+              Working closely with clients and teams to achieve shared goals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </FadeUp>
 
         {/* Benefits */}
         <FadeUp delay={200}>
@@ -126,7 +151,7 @@ const Career = () => {
 
         {/* Traits + Hiring */}
         <FadeUp delay={300}>
-          <section className="py-5 mb-20 text-center w-full">
+          <section className="py-5 mb-20  text-center w-full">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-12">Who We’re Looking For</h2>
             <div className="py-5 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 justify-items-center mb-12">
               {traits.map((t, idx) => (

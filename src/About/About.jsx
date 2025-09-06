@@ -167,31 +167,34 @@ const teamMembers = [
 
 </section>
 
-      {/* Stats Section */}
-      <section id="stats" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className={`text-center transform transition-all duration-700 delay-${index * 100} ${
-                  isVisible.stats ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                }`}
-              >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-4">
-                    <stat.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </div>
-              </div>
-            ))}
+{/* Stats Section */}
+<section id="stats" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+      {stats.map((stat, index) => (
+        <div
+          key={index}
+          style={{
+            transform: isVisible.stats ? 'translateY(0)' : 'translateY(20px)',
+            opacity: isVisible.stats ? 1 : 0,
+            transition: `all 0.7s ease ${index * 0.15}s`,
+          }}
+        >
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 w-64 sm:w-72 text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-4">
+              <stat.icon className="h-8 w-8 text-white" />
+            </div>
+            <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+              {stat.number}
+            </div>
+            <div className="text-gray-600 font-medium">{stat.label}</div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Mission & Vision */}
       <section id="mission" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
@@ -262,12 +265,9 @@ const teamMembers = [
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why Choose Us</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine technical excellence with deep understanding of educational needs
-            </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="py-5 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -298,12 +298,9 @@ const teamMembers = [
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Meet <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Giga ERP</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The comprehensive educational management system that transforms how institutions operate
-            </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="py-5 grid lg:grid-cols-2 gap-16 items-center">
             <div className={`transform transition-all duration-700 ${isVisible.erp ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
               <div className="space-y-8">
                 {[
@@ -373,7 +370,7 @@ const teamMembers = [
         </div>
       </section>
 
- {/* Team Section */}
+{/* Team Section */}
 <section
   id="team"
   className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50"
@@ -389,69 +386,32 @@ const teamMembers = [
       </p>
     </div>
 
-    {/* Custom 3x3 Centered Grid */}
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "2rem",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    {/* Flex grid with equal cards */}
+    <div className="py-5 flex flex-wrap justify-center gap-x-8 gap-y-8">
       {teamMembers.map((member, index) => (
         <div
           key={index}
           style={{
-            transform: isVisible.team ? "translateY(0)" : "translateY(20px)",
+            transform: isVisible.team ? 'translateY(0)' : 'translateY(20px)',
             opacity: isVisible.team ? 1 : 0,
             transition: `all 0.7s ease ${index * 0.15}s`,
           }}
         >
-          <div
-            style={{
-              backgroundColor: "white",
-              borderRadius: "1rem",
-              padding: "1.5rem",
-              boxShadow:
-                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-              transition: "all 0.5s ease",
-            }}
-            className="hover:-translate-y-2 hover:shadow-2xl"
-          >
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:-translate-y-2 hover:shadow-2xl w-72 h-full flex flex-col items-center text-center">
             {/* Avatar */}
-            <div className="relative mb-6">
-              <div
-                style={{
-                  width: "8rem",
-                  height: "8rem",
-                  margin: "0 auto",
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
+            <div className="relative mb-6 w-32 h-32 rounded-full overflow-hidden">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             {/* Text */}
-            <div style={{ textAlign: "center" }}>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {member.name}
-              </h3>
-              <p className="text-blue-600 font-semibold mb-3">
-                {member.position}
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {member.description}
-              </p>
-            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+            <p className="text-blue-600 font-semibold mb-3">{member.position}</p>
+            <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
           </div>
         </div>
       ))}
@@ -459,10 +419,10 @@ const teamMembers = [
   </div>
 </section>
 
-    <Clients />
 
-            
-   
+
+
+    <Clients />
 
       <style jsx>{`
         @keyframes float {
