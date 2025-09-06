@@ -63,14 +63,9 @@ const Services = () => {
         {/* Header */}
 <h1
   className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white"
-  style={{
-    background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  }}
+
 >
-  Our Services
+  Our <span className="text-blue-300">Services</span>
 </h1>
 
 
@@ -103,7 +98,7 @@ const Services = () => {
               {/* Content */}
               <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 sm:space-y-8 text-white">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                  {service.title}
+                  <span className="text-blue-300">{service.title}</span>
                 </h2>
                 <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   {service.description}

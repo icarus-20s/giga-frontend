@@ -2,11 +2,19 @@
 *{
   margin: 0px;
 }
-
 body {
   font-family: 'Inter', sans-serif;
-
 }
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+code, pre {
+  font-family: 'Roboto Mono', monospace;
+}
+
+
 @keyframes smooth-bounce {
   0%, 100% {
     transform: translateY(0);

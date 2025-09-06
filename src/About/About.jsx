@@ -144,7 +144,7 @@ const teamMembers = [
 
       {/* Title */}
       <h1 className="text-5xl md:text-7xl font-bold bg-white bg-clip-text text-transparent mb-6 leading-tight">
-        Giga Infosoft
+        Giga <span className="text-blue-300">Infosoft</span>
       </h1>
 
       {/* Subtitle */}

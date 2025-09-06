@@ -38,14 +38,9 @@ const Products = () => {
         {/* Header */}
 <h1
   className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white"
-  style={{
-    background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  }}
+  
 >
-  Our Products
+  Our <span className="text-blue-300">Products</span>
 </h1>
 
         {/* Products Grid */}
@@ -77,7 +72,7 @@ const Products = () => {
               {/* Content */}
               <div className="w-full lg:w-1/2 text-center lg:text-left mt-4 lg:mt-0 space-y-4 sm:space-y-6 text-white">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                  {product.name}
+                  <span className="text-blue-300">{product.name}</span>
                 </h2>
                 <p className="text-slate-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-lg mx-auto lg:mx-0">
                   Explore the features and capabilities of {product.name}.
