@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import ERP from "../assets/Products/ERP.png";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Components/Context/AuthContextProvider";
+import api from "../Components/Api"
 
 const themes = [
   { bg: "bg-[#1A1A2E]", text: "text-white", primary: "bg-gradient-to-r from-[#35c3c1] to-[#00d6b7]" },
@@ -8,14 +11,44 @@ const themes = [
   { bg: "bg-[#F7B267]", text: "text-black", primary: "bg-gradient-to-r from-[#F4845F] to-[#FFB347]" },
 ];
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = () => {
+  const navigate = useNavigate();
+  const auth = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [theme, setTheme] = useState(themes[0]);
   const [isVisible, setIsVisible] = useState(false);
 
-  const formRef = useRef(null);
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+        const response = await api.post("/login/", { email, password });
+        console.log("Login Response:", response);
 
+        if (response.status === 200) {
+            const { user, token, role, product } = response.data;
+
+            auth.login(user, token, role, product);
+            if (product === "giga-accounting") {
+                navigate("/products/giga-accounting", { replace: true });
+            } else if (product === "giga-erp") {
+                navigate("/products/giga-erp", { replace: true });
+            } else if (product === "giga-hrms") {
+                navigate("/products/giga-hrms", { replace: true });
+            } else if (product === "giga-ims") {
+                navigate("/products/giga-ims", { replace: true });
+            } else {
+                navigate("/", { replace: true }); 
+            }
+        }
+    } catch (error) {
+        setError("Login Failed. Please check your email and password.");
+        console.error("Login Failed:", error);
+    }
+};
+
+
+  const formRef = useRef(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
@@ -24,11 +57,6 @@ const LoginForm = ({ onLogin }) => {
     if (formRef.current) observer.observe(formRef.current);
     return () => observer.disconnect();
   }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onLogin({ email, password });
-  };
 
   return (
     <div
@@ -59,20 +87,21 @@ const LoginForm = ({ onLogin }) => {
         {/* Login Form */}
         <form className="space-y-5" onSubmit={handleSubmit}>
           {/* Username */}
-          <div className="flex flex-col space-y-1">
-            <label htmlFor="username" className={`text-sm font-medium ${theme.text}`}>
-              Username
-            </label>
-            <input
-              id="username"
-              type="text"
-              placeholder="Username"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1 px-4 py-3 rounded-md bg-white/5 border border-white/20 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 transition-all duration-200"
-            />
-          </div>
+<div className="flex flex-col space-y-1">
+  <label htmlFor="email" className={`text-sm font-medium ${theme.text}`}>
+    Email
+  </label>
+  <input
+    id="email"
+    type="email"
+    placeholder="Email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+    className="flex-1 px-4 py-3 rounded-md bg-white/5 border border-white/20 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 transition-all duration-200"
+  />
+</div>
+
 
           {/* Password */}
           <div className="flex flex-col space-y-1">
@@ -97,18 +126,7 @@ const LoginForm = ({ onLogin }) => {
           >
             LOGIN
           </button>
-
-          {/* Forgot link */}
-          <a href="#" className="block text-center text-sm text-cyan-400 hover:text-cyan-300 transition">
-            Forgot password?
-          </a>
-        </form>
-
-        {/* Footer Links */}
-        <div className={`flex justify-between text-sm mt-6 ${theme.text} text-opacity-80`}>
-          <a href="#" className="hover:text-opacity-100 transition">Forgot Password?</a>
-          <a href="#" className="hover:text-opacity-100 transition">Create Account</a>
-        </div>
+        </form> 
 
         {/* Theme Switcher */}
         <div className="flex gap-3 mt-6 justify-center">
@@ -122,7 +140,6 @@ const LoginForm = ({ onLogin }) => {
           ))}
         </div>
       </div>
-
       {/* Decorative circles */}
       <div className="absolute w-24 h-24 bg-cyan-500/10 rounded-full -top-8 -left-8 animate-pulse"></div>
       <div className="absolute w-32 h-32 bg-purple-500/10 rounded-full -bottom-12 -right-12 animate-pulse delay-1000"></div>

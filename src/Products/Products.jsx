@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ERP from "../assets/Products/ERP.png";
+import CallToAction from "../Components/CallToAction";
+import FadeUp from "../Components/Fadeup";
 
 const products = [
   { id: 1, name: "GigaAccounting", path: "giga-accounting", image: ERP },
@@ -88,6 +90,10 @@ const Products = () => {
           ))}
         </div>
       </div>
+      <FadeUp>
+
+        <CallToAction />
+      </FadeUp>
 
       {/* Floating Elements */}
       <div className="absolute inset-0 pointer-events-none">

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Send, Clock, Globe } from "lucide-react";
 import FadeUp from "../Components/Fadeup";
+import FAQPage from "../Components/FAQPage";
+import api from "../Components/Api";
+import Loader from "../Components/Loader";
 const Contactus = () => {
   
   const [formData, setFormData] = useState({
@@ -17,17 +20,24 @@ const Contactus = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    setTimeout(() => {
-      console.log("Message submitted:", formData);
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      setIsSubmitting(false);
-      alert("✅ Thank you! Your message has been sent successfully.");
-    }, 1500);
-  };
+  try {
+    const response = await api.post("contact/", formData);
+    console.log("Response:", response.data);
+
+    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    alert("✅ Thank you! Your message has been sent successfully.");
+  } catch (error) {
+    console.error("❌ Failed to send message:", error);
+    alert("❌ Something went wrong. Please try again later.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const contactInfo = [
     {
@@ -171,7 +181,7 @@ const Contactus = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition"
-                    placeholder="Phone (Optional)"
+                    placeholder="Phone"
                   />
                   <select
                     name="subject"
@@ -200,9 +210,9 @@ const Contactus = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? <Loader /> : "Send Message"}
                 </button>
               </form>
               </FadeUp>
@@ -237,6 +247,10 @@ const Contactus = () => {
           </div>
         </div>
       </section>
+      <FadeUp>
+
+      <FAQPage />
+      </FadeUp>
     </div>
   );
 };

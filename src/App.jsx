@@ -18,7 +18,9 @@ import GigaERP from "./Components/Features/GigaErp";
 import GigaHRMS from "./Components/Features/GigaHrms";
 import GigaIMS from "./Components/Features/GigaIms";
 import FadeUp from "./Components/Fadeup";
-
+import ProtectedRoutes from "./Components/Context/ProtectedRoutes";
+import LoginForm from "./Components/LoginForm";
+import QuotationForm from "./Components/QuotationForm";
 const App = () => {
     return (
         <>
@@ -28,14 +30,19 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/contactus" element={<Contactus />} />
                 <Route path="/products" element={<Products />} />
+
+                    <Route element={<ProtectedRoutes />}>
+                    
                 <Route path="/products/giga-accounting" element={<GigaAccounting />} />
                 <Route path="/products/giga-erp" element={<GigaERP />} />
                 <Route path="/products/giga-hrms" element={<GigaHRMS />} />
                 <Route path="/products/giga-ims" element={<GigaIMS />} />
+                </Route>
 
                 <Route path="/about" element={<About />} />
 
                 <Route path="/services" element={<Services />} />
+                <Route path="/quotation" element={<QuotationForm />} />
 
                 <Route
                  path="/services/web-development"
@@ -52,6 +59,7 @@ const App = () => {
 
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/career" element={<Career />} />
+                <Route path="/login" element={<LoginForm />} />
             </Routes>
 
             <FadeUp><GigaFooter /></FadeUp>

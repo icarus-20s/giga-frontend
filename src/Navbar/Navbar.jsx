@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import {useNavigate} from "react-router-dom"
 import logo from "../assets/logo.jpg";
+import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "../Components/Context/AuthContextProvider";
+
 const Navbar = () => {
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeItem, setActiveItem] = useState("/");
-
-    // Handle scroll effect
+    const auth = useAuth();
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
@@ -38,6 +40,11 @@ const Navbar = () => {
         navigate(path)
       
     };
+
+      const handleLogout = () => {
+    auth.logout();
+    navigate("/");
+  };
 
     return (
         <>
@@ -103,29 +110,48 @@ const Navbar = () => {
       ></div>
     </a>
   ))}
+
+              {/* Logout button only if logged in */}
+              {auth.isAuthenticated && (
+                <button
+                  onClick={handleLogout}
+                  className="ml-4 px-4 py-2 rounded-lg text-sm font-medium bg-blue-500 text-white hover:bg-red-600 transition cursor-pointer"
+                >
+                  Logout
+                </button>
+              )}
 </div>
 
-
-                        {/* Mobile menu button */}
-                        <div className="lg:hidden">
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className={`p-2 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                                    isScrolled
-                                        ? "text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:ring-blue-500"
-                                        : "text-white hover:text-blue-300 hover:bg-white/10 focus:ring-blue-300"
-                                }`}
-                                aria-label="Toggle menu"
-                                aria-expanded={isOpen}
-                            >
-                                {isOpen ? (
-                                    <X className="h-6 w-6" />
-                                ) : (
-                                    <Menu className="h-6 w-6" />
-                                )}
-                            </button>
-                        </div>
-                    </div>
+{/* Mobile menu button */}
+<div className="lg:hidden">
+  <button
+    onClick={() => setIsOpen(!isOpen)}
+    className={`relative flex flex-col justify-center items-center w-10 h-10 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+      isScrolled
+        ? "bg-white/80 text-gray-700 shadow hover:bg-gray-100 focus:ring-blue-500"
+        : "bg-white/10 text-white backdrop-blur-md hover:bg-white/20 focus:ring-blue-300"
+    }`}
+    aria-label="Toggle menu"
+    aria-expanded={isOpen}
+  >
+    <span
+      className={`block h-0.5 w-6 rounded-sm bg-current transform transition duration-300 ease-in-out ${
+        isOpen ? "rotate-45 translate-y-1.5" : "-translate-y-1.5"
+      }`}
+    />
+    <span
+      className={`block h-0.5 w-6 rounded-sm bg-current transition-all duration-300 ease-in-out ${
+        isOpen ? "opacity-0" : "opacity-100"
+      }`}
+    />
+    <span
+      className={`block h-0.5 w-6 rounded-sm bg-current transform transition duration-300 ease-in-out ${
+        isOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-1.5"
+      }`}
+    />
+  </button>
+</div>
+</div>
 
                     {/* Mobile Navigation Menu */}
                     <div
@@ -135,7 +161,7 @@ const Navbar = () => {
                                 : "max-h-0 opacity-0 overflow-hidden"
                         }`}
                     >
-                        <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-lg mt-2 shadow-lg border border-gray-100">
+                        <div className="px-2 pt-2 pb-3 space-y-1 bg-amber-50/90 rounded-lg mt-2 shadow-lg border border-gray-100">
                             {navItems.map((item, index) => (
                                 <a
                                     key={item.name}
@@ -161,8 +187,20 @@ const Navbar = () => {
                                     </span>
                                 </a>
                             ))}
+
+                                          {/* Logout button only if logged in */}
+              {auth.isAuthenticated && (
+                <button
+                  onClick={handleLogout}
+                  className="w-full mt-2 px-4 py-3 rounded-lg text-base font-medium bg-blue-500 text-white hover:bg-red-600 transition"
+                >
+                  Logout
+                </button>
+              )}
                         </div>
+
                     </div>
+                    
                 </div>
                 {/* Mobile menu overlay */}
                 {isOpen && (
