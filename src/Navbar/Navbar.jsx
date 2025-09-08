@@ -19,14 +19,14 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Navigation items
     const navItems = [
         { name: "Home", path: "/" },
-        { name: "About", path: "/about" },
         { name: "Services", path: "/services" },
         { name: "Products", path: "/products" },
         { name: "Gallery", path: "/gallery" },
         { name: "Career", path: "/career" },
+        { name: "Notices", path: "/notices" },
+        { name: "About", path: "/about" },
         { name: "Contact Us", path: "/contactus" },
     ];
 

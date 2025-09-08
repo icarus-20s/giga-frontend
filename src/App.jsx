@@ -8,6 +8,7 @@ import Services from "./Services/Services";
 import Gallery from "./Gallery/Gallery";
 import Career from "./Career/Career";
 import Navbar from "./Navbar/Navbar";
+import Notices from "./Notices/Notices";
 import GigaFooter from "./GigaFooter/GigaFooter";
 import ScrollToTop from "./Components/ScrollToTop";
 import SoftwareDev from "./Services/SoftwareDev";
@@ -43,6 +44,7 @@ const App = () => {
 
                 <Route path="/services" element={<Services />} />
                 <Route path="/quotation" element={<QuotationForm />} />
+                <Route path="/notices" element={<Notices/>} />
 
                 <Route
                  path="/services/web-development"
