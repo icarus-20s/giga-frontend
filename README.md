@@ -1,42 +1,11 @@
-Perfect! Here's the **updated `README.md` with badges** at the top for a more professional look:
-
 ```markdown
 # 🚀 GigaTech Frontend
-
-[![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-4.5.0-brightgreen?logo=vite)](https://vitejs.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-20.5.1-green?logo=node.js)](https://nodejs.org/)
 
 This is the **frontend** of the GigaTech project, built with **React**.  
 It provides a modern, responsive, and interactive user interface.
 
 ---
 
-## 📂 Project Structure
-
-```
-
-giga-frontend/
-├── eslint.config.js
-├── index.html
-├── package.json
-├── vite.config.js
-├── public/
-│   └── favicon.ico
-└── src/
-├── App.jsx
-├── main.jsx
-├── assets/
-│   └── Screenshots/   # Project screenshots
-├── components/        # Reusable components
-├── pages/             # Page-level components
-├── styles/            # CSS styles
-└── utils/             # Helper functions
-
-````
-
----
 
 ## ⚡ Features
 
@@ -142,5 +111,3 @@ This project is licensed under the **MIT License**.
   [GitHub](https://github.com/icarus-20s)
 
 ```
-
----
