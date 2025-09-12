@@ -1,162 +1,146 @@
-Based on the available information, here's a comprehensive documentation for the Giga Infosoft frontend repository:
+Perfect! Here's the **updated `README.md` with badges** at the top for a more professional look:
 
----
+```markdown
+# 🚀 GigaTech Frontend
 
-## 📁 Repository Overview
+[![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-4.5.0-brightgreen?logo=vite)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-20.5.1-green?logo=node.js)](https://nodejs.org/)
 
-**Repository Name:** `giga-frontend`
-**Owner:** `icarus-20s`
-**URL:** [https://github.com/icarus-20s/giga-frontend](https://github.com/icarus-20s/giga-frontend)
-
-This repository hosts the frontend codebase for Giga Infosoft Pvt. Ltd., a leading software company offering high-quality, cost-efficient software applications and business technology solutions. ([gigainfosoft.com.np][1])
-
----
-
-## 🛠️ Technologies Used
-
-* **React:** A JavaScript library for building user interfaces.
-* **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
-* **React Icons:** A library for including customizable icons in React applications.
-* **React Router:** A standard library for routing in React applications.
-* **Axios:** A promise-based HTTP client for the browser and Node.js.
+This is the **frontend** of the GigaTech project, built with **React**.  
+It provides a modern, responsive, and interactive user interface.
 
 ---
 
 ## 📂 Project Structure
 
-The repository follows a modular structure to ensure scalability and maintainability:
+```
 
-```
 giga-frontend/
+├── eslint.config.js
+├── index.html
+├── package.json
+├── vite.config.js
 ├── public/
-│   ├── assets/              # Static assets like images and fonts
-│   └── index.html           # Main HTML file
-├── src/
-│   ├── components/          # Reusable UI components
-│   ├── pages/               # Page components corresponding to routes
-│   ├── services/            # API service functions
-│   ├── App.js               # Main application component
-│   └── index.js             # Entry point for React
-├── .gitignore               # Specifies files to be ignored by Git
-├── package.json             # Project metadata and dependencies
-└── tailwind.config.js       # Tailwind CSS configuration
-```
+│   └── favicon.ico
+└── src/
+├── App.jsx
+├── main.jsx
+├── assets/
+│   └── Screenshots/   # Project screenshots
+├── components/        # Reusable components
+├── pages/             # Page-level components
+├── styles/            # CSS styles
+└── utils/             # Helper functions
+
+````
 
 ---
 
-## 🚀 Setup and Installation
+## ⚡ Features
 
-1. **Clone the repository:**
+- Responsive and modern UI  
+- Organized file structure  
+- Built with React + Vite  
+- Multiple pages (Home, About, Products, Careers, Login, etc.)  
+- Ready for backend integration  
 
+---
+
+## 🛠️ Tech Stack
+
+- **React 18**  
+- **Vite** (fast dev server & build tool)  
+- **JavaScript (ES6+)**  
+- **CSS Modules / Plain CSS**  
+- **Node.js + npm** for package management  
+
+---
+
+## 📦 Installation & Setup
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/icarus-20s/giga-frontend.git
    cd giga-frontend
-   ```
+````
 
-2. **Install dependencies:**
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-3. **Start the development server:**
+3. **Start development server**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
-   The application will be accessible at [http://localhost:3000](http://localhost:3000).
+4. Open in browser: **[http://localhost:5173/](http://localhost:5173/)** 🚀
 
 ---
 
-## 🧩 Components
+## 📸 Screenshots
 
-The `components` directory contains reusable UI components such as:
+<p align="center">
+  <img src="src/assets/Screenshots/home.png" width="400"/>
+  <img src="src/assets/Screenshots/aboutus.png" width="400"/>
+</p>
 
-* **Navbar:** Navigation bar for the application.
-* **Footer:** Footer section with company information and links.
-* **Button:** Customizable button component.
-* **Card:** Card component for displaying content in a structured manner.
+<p align="center">
+  <img src="src/assets/Screenshots/products.png" width="400"/>
+  <img src="src/assets/Screenshots/clients.png" width="400"/>
+</p>
+
+<p align="center">
+  <img src="src/assets/Screenshots/career.png" width="400"/>
+  <img src="src/assets/Screenshots/notices.png" width="400"/>
+</p>
+
+<p align="center">
+  <img src="src/assets/Screenshots/jobform.png" width="400"/>
+  <img src="src/assets/Screenshots/appform.png" width="400"/>
+</p>
+
+<p align="center">
+  <img src="src/assets/Screenshots/login.png" width="400"/>
+  <img src="src/assets/Screenshots/map.png" width="400"/>
+</p>
+
+<p align="center">
+  <img src="src/assets/Screenshots/memories.png" width="400"/>
+  <img src="src/assets/Screenshots/software.png" width="400"/>
+</p>
+
+<p align="center">
+  <img src="src/assets/Screenshots/testimonial.png" width="400"/>
+  <img src="src/assets/Screenshots/footer2.png" width="400"/>
+</p>
 
 ---
 
-## 🗺️ Pages
+## 🤝 Contributing
 
-The `pages` directory includes components corresponding to different routes:
-
-* **Home:** Landing page of the application.
-* **About:** Page providing information about the company.
-* **Services:** Page detailing the services offered.
-* **Contact:** Page with contact information and form.
+1. Fork the repository
+2. Create a new branch (`feature/your-feature`)
+3. Commit your changes
+4. Push and open a Pull Request
 
 ---
 
-## 🔗 Services
+## 📜 License
 
-The `services` directory contains functions for interacting with APIs:
-
-* **api.js:** Contains functions for making HTTP requests using Axios.
+This project is licensed under the **MIT License**.
 
 ---
 
-## 🧪 Testing
+## 👨‍💻 Author
 
-The project uses Jest for unit testing and React Testing Library for component testing.
+* **Ayush (Icarus)** ✨
+  [GitHub](https://github.com/icarus-20s)
 
-To run tests:
-
-```bash
-npm test
 ```
 
 ---
-
-## 📦 Deployment
-
-The application is deployed using Vercel, ensuring continuous deployment from the main branch.
-
----
-
-## 📝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. **Fork the repository.**
-
-2. **Create a new branch:**
-
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-
-3. **Make your changes and commit:**
-
-   ```bash
-   git commit -am 'Add new feature'
-   ```
-
-4. **Push to the branch:**
-
-   ```bash
-   git push origin feature/your-feature
-   ```
-
-5. **Create a new Pull Request.**
-
----
-
-## 📞 Contact
-
-For more information or inquiries, visit [Giga Infosoft Pvt. Ltd.](https://gigainfosoft.com.np/) or contact via:
-
-* **Email:** [info@gigainfosoft.com.np](mailto:info@gigainfosoft.com.np)
-* **Phone:** +977 9840073584
-
----
-
-For a visual overview, you can refer to the video gallery showcasing Giga Infosoft's projects and services: ([gigainfosoft.com.np][2])
-
----
-
-[1]: https://gigainfosoft.com.np/?utm_source=chatgpt.com "Home | Giga Infosoft Pvt. Ltd."
-[2]: https://gigainfosoft.com.np/video-gallery?utm_source=chatgpt.com "Video Gallery | Giga Infosoft Pvt. Ltd."

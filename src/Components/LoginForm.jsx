@@ -60,7 +60,7 @@ const handleSubmit = async (event) => {
 
   return (
     <div
-      className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 ${theme.bg}`}
+      className={`relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 ${theme.bg} overflow-hidden`}
       style={{
         backgroundImage: `url(${ERP})`,
         backgroundSize: "cover",

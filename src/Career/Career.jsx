@@ -146,11 +146,7 @@ const Career = () => {
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                                 Our Vision & Mission
                             </h2>
-                            <p className="text-gray-700 mb-8 sm:mb-12 text-base sm:text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto">
-                                We are a technology organization at the forefront of digital transformation, delivering innovative solutions that redefine industries.
-                            </p>
-
-                            <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center">
+                            <div className="py-5 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center">
                                 {["Innovation","Integrity","Excellence","Collaboration"].map((title, idx) => (
                                     <div key={title} className="bg-white rounded-2xl p-4 sm:p-6 shadow hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                                         <h3 className="font-bold text-lg sm:text-xl mb-2">{title}</h3>
