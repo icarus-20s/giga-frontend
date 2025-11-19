@@ -168,8 +168,9 @@ const teamMembers = [
 </section>
 
 {/* Stats Section */}
-<section id="stats" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-  <div className="max-w-7xl mx-auto">
+<section id="stats" className="py-20 md:py-24 bg-gradient-to-b from-white to-blue-50/50">
+  {/* Full-width background */}
+  <div className="w-full">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
       {stats.map((stat, index) => (
         <div
@@ -197,8 +198,9 @@ const teamMembers = [
 
 
       {/* Mission & Vision */}
-      <section id="mission" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+<section id="mission" className="py-20 md:py-28 bg-white overflow-hidden">
+  {/* Full-width container */}
+  <div className="w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className={`transform transition-all duration-700 ${isVisible.mission ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
               <div className="flex items-center mb-8">
@@ -262,7 +264,7 @@ const teamMembers = [
 
       {/* Features Grid */}
       <section id="features" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto">
+<div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why Choose Us</h2>
           </div>
@@ -293,7 +295,7 @@ const teamMembers = [
 
       {/* Giga ERP Showcase */}
       <section id="erp" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+<div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Meet <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Giga ERP</span>
@@ -375,7 +377,7 @@ const teamMembers = [
   id="team"
   className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-blue-50"
 >
-  <div className="max-w-7xl mx-auto">
+<div className="w-full px-4 sm:px-6 lg:px-8">
     {/* Header */}
     <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

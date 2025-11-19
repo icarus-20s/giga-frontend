@@ -14,30 +14,33 @@ import {
 } from "lucide-react";
 import soft3 from "../assets/ServicesImg/softdev/soft3.jpg";
 import home from "../assets/home.avif";
+
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO, TechCorp Solutions",
-      text: "Giga Infosoft transformed our entire business process with their comprehensive ERP solution. The level of professionalism and technical expertise exceeded our expectations.",
-      rating: 5,
-    },
-    {
-      name: "Michael Chen",
-      role: "CTO, InnovateLab",
-      text: "Outstanding development team with exceptional project management. They delivered our mobile app ahead of schedule and within budget.",
-      rating: 5,
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Operations Director, GlobalTech",
-      text: "The accounting system they developed has streamlined our financial operations significantly. Highly recommended for enterprise solutions.",
-      rating: 5,
-    },
-  ];
-
+  {
+    name: "Sarah Johnson",
+    role: "CEO, TechCorp Solutions",
+    text: "Giga Infosoft transformed our entire business process with their comprehensive ERP solution. The level of professionalism and technical expertise exceeded our expectations.",
+    rating: 5,
+    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face", // professional woman
+  },
+  {
+    name: "Michael Chen",
+    role: "CTO, InnovateLab",
+    text: "Outstanding development team with exceptional project management. They delivered our mobile app ahead of schedule and within budget.",
+    rating: 5,
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face", // professional man
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Operations Director, GlobalTech",
+    text: "The accounting system they developed has streamlined our financial operations significantly. Highly recommended for enterprise solutions.",
+    rating: 5,
+    photo: "https://images.unsplash.com/photo-1580489940927-6a38d32f61e6?w=400&h=400&fit=crop&crop=face", // professional woman
+  },
+];
   const stats = [
     { number: "500+", label: "Projects Completed" },
     { number: "150+", label: "Happy Clients" },
@@ -400,7 +403,7 @@ return (
 
               </motion.div>
 {/* Testimonials Section */}
-   <section className="relative min-h-screen flex items-center justify-center py-20 lg:py-32 overflow-hidden">
+<section className="relative min-h-screen flex items-center justify-center py-20 lg:py-32 overflow-hidden">
   {/* Background */}
   <div
     className="absolute inset-0"
@@ -417,7 +420,6 @@ return (
     {/* Header */}
     <div className="text-center mb-16">
       <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold text-white mb-4">
-        <Star size={16} className="mr-2" />
         What Our Clients Say
       </span>
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
@@ -435,11 +437,16 @@ return (
           key={idx}
           className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg flex flex-col max-w-md w-full transition-all duration-500 hover:scale-[1.02]"
         >
-          {/* Rating */}
-          <div className="flex mb-4 justify-center">
-            {[...Array(testimonial.rating)].map((_, i) => (
-              <Star key={i} className="text-yellow-400 w-5 h-5 sm:w-6 sm:h-6" />
-            ))}
+          {/* Photo instead of stars */}
+          <div className="flex mb-6 justify-center">
+            <img
+              src={
+                testimonial.photo ||
+                `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=ffffff&color=6366f1&size=128&bold=true`
+              }
+              alt={testimonial.name}
+              className="w-20 h-20 rounded-full object-cover border-4 border-white/30 shadow-xl"
+            />
           </div>
 
           {/* Quote */}
@@ -457,29 +464,29 @@ return (
         </div>
       ))}
     </div>
-
-    {/* Navigation Arrows */}
-    <button
-      onClick={() =>
-        setCurrentTestimonial(
-          (currentTestimonial - 2 + testimonials.length) % testimonials.length
-        )
-      }
-      className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg"
-      aria-label="Previous"
-    >
-      ‹
-    </button>
-    <button
-      onClick={() =>
-        setCurrentTestimonial((currentTestimonial + 2) % testimonials.length)
-      }
-      className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg"
-      aria-label="Next"
-    >
-      ›
-    </button>
   </div>
+
+  {/* Navigation Arrows */}
+  <button
+    onClick={() =>
+      setCurrentTestimonial(
+        (currentTestimonial - 2 + testimonials.length) % testimonials.length
+      )
+    }
+    className="absolute left-4 lg:left-12 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg text-4xl transition-all"
+    aria-label="Previous"
+  >
+    ‹
+  </button>
+  <button
+    onClick={() =>
+      setCurrentTestimonial((currentTestimonial + 2) % testimonials.length)
+    }
+    className="absolute right-4 lg:right-12 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg text-4xl transition-all"
+    aria-label="Next"
+  >
+    ›
+  </button>
 </section>
 
 

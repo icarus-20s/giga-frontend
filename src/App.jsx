@@ -18,7 +18,6 @@ import GigaAccounting from "./Components/Features/GigaAccounting";
 import GigaERP from "./Components/Features/GigaErp";
 import GigaHRMS from "./Components/Features/GigaHrms";
 import GigaIMS from "./Components/Features/GigaIms";
-import FadeUp from "./Components/Fadeup";
 import ProtectedRoutes from "./Components/Context/ProtectedRoutes";
 import LoginForm from "./Components/LoginForm";
 import QuotationForm from "./Components/QuotationForm";
@@ -64,7 +63,7 @@ const App = () => {
                 <Route path="/login" element={<LoginForm />} />
             </Routes>
 
-            <FadeUp><GigaFooter /></FadeUp>
+            <GigaFooter />
         </>
     );
 };
