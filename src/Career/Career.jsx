@@ -178,20 +178,32 @@ const Career = () => {
   }, [resetForm]);
 
   return (
-    <div className="w-full min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center text-center py-12 sm:py-20 overflow-hidden">
-        <FadeUp>
-          <div className="relative z-10 max-w-4xl px-4 sm:px-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
-              Shape the <span className="text-blue-300">Future</span>
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed px-2">
-              Join a team of visionaries, innovators, and leaders dedicated to transforming technology and creating extraordinary impact.
-            </p>
-          </div>
-        </FadeUp>
-      </section>
+<div className="w-full min-h-screen bg-gray-50">
+  <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    {/* Animated Background */}
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+      </div>
+    </div>
+
+    <FadeUp>
+      <div className="relative z-10 max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-12 tracking-tight text-white">
+          Shape the{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+            Future
+          </span>
+        </h1>
+
+        <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto mb-16 leading-relaxed py-5">
+          Join a team of visionaries, innovators, and leaders dedicated to transforming technology and creating extraordinary impact.
+        </p>
+      </div>
+    </FadeUp>
+  </section>
 
       <main className="bg-gradient-to-b from-blue-50 via-blue-100 to-gray-100 w-full flex flex-col items-center">
         {/* Vision & Mission */}

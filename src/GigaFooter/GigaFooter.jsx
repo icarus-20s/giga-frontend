@@ -313,12 +313,6 @@ const ProfessionalFooter = () => {
                                     reserved.
                                 </p>
                                 <div className="hidden sm:block w-1 h-1 bg-slate-600 rounded-full"></div>
-                                <p className="text-slate-500 text-xs">
-                                    Crafted with ❤️ by{" "}
-                                    <span className="text-slate-300 font-medium">
-                                        Ayush
-                                    </span>
-                                </p>
                             </div>
 
                             {/* Legal Links */}
