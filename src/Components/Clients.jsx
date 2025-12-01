@@ -19,7 +19,7 @@ import reliance from "../assets/Clients/reliancecollege.png";
 import vinaySidha from "../assets/Clients/vinaysidha-college.png";
 import vsNiketan from "../assets/Clients/VS-Niketan.png";
 
-const clients = [
+export const clients = [
   { id: 1, name: "ACE College", logo: aceCollege },
   { id: 2, name: "Ambition College", logo: ambitionCollege },
   { id: 3, name: "Asha", logo: asha },

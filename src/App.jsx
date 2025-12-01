@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import Home from "./Home/Home";
 import Contactus from "./Contactus/Contactus";
 import Products from "./Products/Products";

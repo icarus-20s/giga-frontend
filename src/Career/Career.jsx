@@ -206,34 +206,6 @@ const Career = () => {
   </section>
 
       <main className="bg-gradient-to-b from-blue-50 via-blue-100 to-gray-100 w-full flex flex-col items-center">
-        {/* Vision & Mission */}
-        <FadeUp delay={100}>
-          <section className="py-12 sm:py-16 w-full flex justify-center">
-            <div className="max-w-7xl text-center px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Our Vision & Mission
-              </h2>
-              <div className="py-5 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center">
-                {["Innovation", "Integrity", "Excellence", "Collaboration"].map((title, idx) => (
-                  <div
-                    key={title}
-                    className="bg-white rounded-2xl p-4 sm:p-6 shadow hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                  >
-                    <h3 className="font-bold text-lg sm:text-xl mb-2">{title}</h3>
-                    <p className="text-gray-600 text-sm sm:text-base">
-                      {[
-                        "Continuously pushing boundaries with cutting-edge solutions.",
-                        "Upholding transparency, honesty, and ethics in every project.",
-                        "Delivering high-quality solutions that exceed expectations.",
-                        "Working closely with clients and teams to achieve shared goals.",
-                      ][idx]}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </FadeUp>
 
         {/* Benefits */}
         <FadeUp delay={200}>

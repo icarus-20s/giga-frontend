@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../Components/Api";
+import FadeUp from "../Components/Fadeup";
 
 const Notices = () => {
   const [notices, setNotices] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,93 +25,115 @@ const Notices = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-16 px-4">
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
-        <div className="absolute top-1/3 right-20 w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
-      </div>
-      <div className="absolute top-[-100px] left-[-100px] w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-[-120px] right-[-120px] w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-full animate-pulse delay-2000"></div>
-
-      {/* Title */}
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-center text-white">
-        Official <span className="text-blue-300">notices</span>
-      </h1>
-
-      {/* Loading */}
-      {loading && (
-        <div className="flex flex-col items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mb-4"></div>
-          <p className="text-gray-300 text-base">Loading notices...</p>
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
         </div>
-      )}
-
-      {/* Error */}
-      {error && !loading && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg mb-8 text-center">
-          {error}
-        </div>
-      )}
-
-      {/* No notices */}
-      {!loading && !error && notices.length === 0 && (
-        <div className="bg-blue-50 border border-blue-200 text-blue-700 px-6 py-4 rounded-lg text-center">
-          No notices available at the moment. Please check back later.
-        </div>
-      )}
-
-      {/* Notices Grid */}
-      {!loading && !error && notices.length > 0 && (
-       <div className="py-5 grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl justify-items-stretch">
-  {notices.map((notice) => (
-    <div
-      key={notice.id}
-      className="bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transform transition-all duration-300 flex flex-col overflow-hidden w-full"
-    >
-      {/* Card Header */}
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-5 flex flex-col gap-1">
-        <h3 className="text-white text-lg sm:text-xl font-bold truncate">
-          {notice.title}
-        </h3>
-        <time className="text-indigo-200 text-xs">
-          {new Date(notice.date).toLocaleDateString()}
-        </time>
       </div>
 
-      {/* Card Body */}
-      <div className="p-6 flex flex-col flex-1 gap-4">
-        <p className="text-gray-700 text-sm sm:text-base line-clamp-5">
-          {notice.description}
-        </p>
+      {/* Main Content */}
+      <div className="relative z-10 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="w-full mx-auto">
+          {/* Header */}
+          <div className="mb-16 lg:mb-20">
+            <FadeUp>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-5xl font-bold tracking-tighter">
+                <span className="text-white">Latest </span>
+                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                  Notices
+                </span>
+              </h1>
+            </FadeUp>
+            <p className="mt-6 text-lg sm:text-xl lg:text-2xl text-gray-300 font-medium tracking-wider py-2">
+              Stay updated • Informed • Connected
+            </p>
+          </div>
 
-        {/* PDF Button */}
-        {notice.pdf && (
-          <a
-            href={`${api.defaults.baseURL}${notice.pdf}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-indigo-600 text-white rounded-xl text-sm sm:text-base font-medium hover:bg-indigo-700 transition-colors shadow-md"
-          >
-            <svg
-              className="w-4 h-4 sm:w-5 sm:h-5"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 0L11.29.29 4 7.59V22h16V7.59L12 0zm5 20H7v-1h10v1zm0-3H7v-1h10v1zm0-3H7v-1h10v1zm-5-7l5 5H12V7z"/>
-            </svg>
-            View PDF
-          </a>
-        )}
+          {/* Loading */}
+          {loading && (
+            <div className="flex flex-col items-center justify-center py-32">
+              <div className="animate-spin rounded-full h-14 w-14 border-4 border-cyan-500 border-t-transparent"></div>
+              <p className="mt-6 text-gray-300 text-lg">Loading notices...</p>
+            </div>
+          )}
+
+          {/* Error */}
+          {error && !loading && (
+            <div className="max-w-2xl mx-auto bg-red-900/30 backdrop-blur-sm border border-red-500/50 text-red-300 px-8 py-8 rounded-2xl text-center">
+              <p className="text-xl font-medium">{error}</p>
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!loading && !error && notices.length === 0 && (
+            <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-md border border-white/20 text-gray-300 px-8 py-16 rounded-3xl text-center">
+              <p className="text-2xl font-semibold">No notices available</p>
+              <p className="mt-3 text-lg opacity-80">Please check back later for updates.</p>
+            </div>
+          )}
+
+          {/* Notices List – 4 per row, clean & scalable */}
+          {!loading && !error && notices.length > 0 && (
+            <div className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {notices.map((notice, index) => (
+                  <div
+                    key={notice.id}
+                    className={`
+                      group relative p-6 sm:p-8 border-b border-r border-white/10
+                      hover:bg-white/10 transition-all duration-300
+                      ${index >= notices.length - (notices.length % 4 || 4) ? "border-b-0" : ""}
+                      ${index % 4 === 3 ? "border-r-0" : ""}
+                      ${index % 4 === 0 ? "sm:border-l-0" : ""}
+                    `}
+                  >
+                    {/* Date Badge */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-xs font-medium text-cyan-300 bg-cyan-500/20 px-3 py-1 rounded-full">
+                        {new Date(notice.date).toLocaleDateString("en-US", {
+                          day: "numeric",
+                          month: "short",
+                          year: "2-digit",
+                        })}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-white font-semibold text-lg leading-tight line-clamp-2 group-hover:text-cyan-300 transition-colors">
+                      {notice.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="mt-3 text-gray-300 text-sm leading-relaxed line-clamp-3">
+                      {notice.description}
+                    </p>
+
+                    {/* View PDF Button */}
+                    {notice.pdf && (
+                      <a
+                        href={`${api.defaults.baseURL}${notice.pdf}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium text-sm group"
+                      >
+                        View PDF
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  ))}
-</div>
-
-      )}
-    </div>
+    </section>
   );
 };
 

@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
     Users,
-    Shield,
-    Code,
     BookOpen,
     Award,
-    ArrowRight,
     CheckCircle,
-    Star,
     Building2,
     Target,
     Eye,
-    Zap,
     TrendingUp,
     Layers,
     Heart,
@@ -297,195 +292,7 @@ const WhatSetsUsApartSection = ({ items, isVisible }) => (
     </section>
 );
 
-// ==================== LONG-TERM SOLUTIONS ====================
-const LongTermSolutionsSection = ({ solutions, isVisible }) => {
-    const colorClasses = {
-        blue: "from-blue-500 to-cyan-500",
-        green: "from-green-500 to-emerald-500",
-        purple: "from-purple-500 to-pink-500",
-        orange: "from-orange-500 to-red-500",
-    };
 
-    return (
-        <section
-            id="solutions"
-            className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50"
-        >
-            <div className="w-full mx-auto ">
-                <SectionHeader
-                    badge="OUR SOLUTIONS"
-                    title="Long-Term Solutions That Drive Success"
-                    description="Our solutions are designed not just to meet immediate needs but to deliver lasting benefits that drive sustainable success."
-                    badgeIcon={Rocket}
-                    badgeColor="blue"
-                />
-
-                <div className="grid md:grid-cols-2 gap-8">
-                    {solutions.map((solution, index) => (
-                        <div
-                            key={index}
-                            className={`group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 ${
-                                isVisible.solutions
-                                    ? "translate-y-0 opacity-100"
-                                    : "translate-y-10 opacity-0"
-                            }`}
-                            style={{ transitionDelay: `${index * 150}ms` }}
-                        >
-                            <div className="flex items-start mb-6">
-                                <div
-                                    className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${
-                                        colorClasses[solution.color]
-                                    } rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform mr-9`}
-                                >
-                                    <solution.icon className="w-8 h-4 text-white" />
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-2 pl-2">
-                                        {solution.title}
-                                    </h3>
-                                </div>
-                            </div>
-
-                            <p className="text-gray-600 leading-relaxed mb-6">
-                                {solution.description}
-                            </p>
-
-                            <div className="grid grid-cols-2 gap-3">
-                                {solution.features.map((feature, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="flex items-center text-sm text-gray-700"
-                                    >
-                                        <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                                        <span>{feature}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
-// ==================== FEATURES ====================
-const FeaturesSection = ({ features, isVisible }) => (
-    <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="w-full mx-auto">
-            <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl py-5 font-bold text-gray-900 mb-6">
-                    Why Choose Giga Infosoft
-                </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {features.map((feature, index) => (
-                    <div
-                        key={index}
-                        className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 ${
-                            isVisible.features
-                                ? "translate-y-0 opacity-100"
-                                : "translate-y-20 opacity-0"
-                        }`}
-                        style={{ transitionDelay: `${index * 100}ms` }}
-                    >
-                        <div
-                            className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`}
-                        ></div>
-
-                        <div className="relative z-10">
-                            <div
-                                className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-xl mb-6 shadow-lg group-hover:scale-110 transition-transform`}
-                            >
-                                <feature.icon className="h-8 w-8 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                {feature.title}
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                {feature.description}
-                            </p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-);
-
-// ==================== IMPACT SECTION ====================
-const ImpactSection = ({ impactStats, isVisible }) => (
-    <section
-        id="impact"
-        className="py-24 px-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden"
-    >
-        <div className="relative w-full inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-        </div>
-
-        <div className="w-full flex flex-col items-center justify-center text-center">
-            <div className="mb-16 flex flex-col items-center justify-center text-center">
-                <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-4">
-                    <Star className="w-5 h-5 mr-2" />
-                    <span className="font-semibold text-sm">OUR IMPACT</span>
-                </div>
-
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Our Unmatched Impact
-                </h2>
-
-                <p className="text-xl text-blue-100 max-w-3xl mx-auto text-center !text-center">
-                    We measure our success by the tangible results our partners
-                    achieve
-                </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16 p-10 w-full max-w-7xl text-center">
-                {impactStats.map((item, index) => (
-                    <div
-                        key={index}
-                        className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all text-center flex flex-col items-center justify-center ${
-                            isVisible.impact
-                                ? "translate-y-0 opacity-100"
-                                : "translate-y-10 opacity-0"
-                        }`}
-                        style={{ transitionDelay: `${index * 150}ms` }}
-                    >
-                        <div className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                            {item.stat}
-                        </div>
-
-                        <div className="text-xl font-semibold mb-2">
-                            {item.label}
-                        </div>
-
-                        <p className="text-blue-200 text-center max-w-xs">
-                            {item.description}
-                        </p>
-                    </div>
-                ))}
-            </div>
-
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 text-center shadow-2xl max-w-4xl w-full flex flex-col items-center justify-center">
-                <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                    Let's Build Your Future Together
-                </h3>
-
-                <p className="text-xl text-blue-100 mb-8 max-w-2xl text-center">
-                    If you're looking for solutions that grow with your
-                    organization and provide sustained value, Giga Infosoft is
-                    here to partner with you.
-                </p>
-
-                <button className="px-8 py-4 bg-white text-blue-600 rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all flex items-center mx-auto">
-                    Get Started Today
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                </button>
-            </div>
-        </div>
-    </section>
-);
 
 // ==================== TEAM SECTION ====================
 const TeamSection = ({ teamMembers, isVisible }) => (
@@ -710,57 +517,6 @@ const About = () => {
         },
     ];
 
-    const features = [
-        {
-            icon: Code,
-            title: "Advanced Technology",
-            description:
-                "Cutting-edge solutions built with modern frameworks and best practices",
-            gradient: "from-blue-500 to-cyan-500",
-        },
-        {
-            icon: Shield,
-            title: "Enterprise Security",
-            description:
-                "Bank-level security with end-to-end encryption and compliance standards",
-            gradient: "from-purple-500 to-pink-500",
-        },
-        {
-            icon: Users,
-            title: "User-Centric Design",
-            description:
-                "Intuitive interfaces designed for seamless user experience across all devices",
-            gradient: "from-green-500 to-teal-500",
-        },
-        {
-            icon: Award,
-            title: "Global Scalability",
-            description:
-                "Cloud-native architecture supporting institutions of all sizes worldwide",
-            gradient: "from-orange-500 to-red-500",
-        },
-    ];
-
-    const impactStats = [
-        {
-            stat: "200+",
-            label: "Schools Transformed",
-            description:
-                "Transformed into models of efficiency and academic excellence",
-        },
-        {
-            stat: "30%",
-            label: "Wastage Reduced",
-            description:
-                "Helping businesses reduce inventory wastage, saving millions annually",
-        },
-        {
-            stat: "100+",
-            label: "Hours Saved/Month",
-            description:
-                "Simplified HR for SMEs while improving employee satisfaction",
-        },
-    ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-x-hidden">
@@ -771,12 +527,6 @@ const About = () => {
                 items={whatSetsUsApart}
                 isVisible={isVisible}
             />
-            <LongTermSolutionsSection
-                solutions={longTermSolutions}
-                isVisible={isVisible}
-            />
-            <FeaturesSection features={features} isVisible={isVisible} />
-            <ImpactSection impactStats={impactStats} isVisible={isVisible} />
             <TeamSection teamMembers={teamMembers} isVisible={isVisible} />
             <Clients />
         </div>
