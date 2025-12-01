@@ -1,43 +1,70 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import softdev from "../assets/ServicesImg/softdev/softdev.jpg";
-import webdev from "../assets/ServicesImg/webdev/webdev.jpg";
-import mobdev from "../assets/ServicesImg/mobdev/mobdev.jpg";
 import FadeUp from "../Components/Fadeup";
+import accounting from "../assets/service/accounting.jpg";
+import erp from "../assets/service/erp.png";
+import hrms from "../assets/service/hrms.png";
+import IMS from "../assets/service/IMS.webp";
+import CallToAction from "../Components/CallToAction";
 
 const services = [
     {
         id: 1,
-        title: "Software Development",
+        title: "GigaAccounting",
         description:
-            "Custom software solutions tailored to your business needs. We deliver scalable, secure, and maintainable applications using modern technologies and best practices.",
-        path: "/services/software-development",
-        image: softdev,
+            "A comprehensive accounting solution designed to simplify your financial management. Track transactions, generate reports, and ensure compliance with ease.",
+        path: "/services/accounting",
+        image: accounting,
         features: [
-            "Custom Applications",
-            "API Development",
-            "System Integration",
+            "Automated Invoicing",
+            "Financial Reporting",
+            "Expense Tracking",
         ],
     },
     {
         id: 2,
-        title: "Mobile Development",
+        title: "GigaHRMS",
         description:
-            "Native and cross-platform mobile applications that deliver exceptional user experiences across iOS and Android platforms with optimal performance.",
-        path: "/services/mobile-development",
-        image: mobdev,
-        features: ["iOS & Android", "Cross-Platform", "App Store Optimization"],
+            "Human Resource Management System to automate HR processes. Manage payroll, employee records, leave, and performance seamlessly.",
+        path: "/services/hrms",
+        image: hrms,
+        features: [
+            "Payroll Automation",
+            "Leave & Attendance Management",
+            "Performance Tracking",
+        ],
     },
     {
         id: 3,
-        title: "Web Development",
+        title: "GigaIMS",
         description:
-            "Modern, responsive websites and web applications built with cutting-edge technologies, optimized for performance and user engagement.",
-        path: "/services/web-development",
-        image: webdev,
-        features: ["Responsive Design", "E-commerce", "Progressive Web Apps"],
+            "Inventory management system to optimize your stock and reduce wastage. Track inventory levels, manage suppliers, and generate reports easily.",
+        path: "/services/ims",
+        image: IMS,
+        features: [
+            "Stock Tracking",
+            "Supplier Management",
+            "Inventory Reports",
+        ],
     },
+    {
+    id: 4,
+    title: "GigaERP",
+    description:
+        "A complete Enterprise Resource Planning solution designed to unify all your business processes. From finance and HR to inventory and operations, GigaERP helps your organization operate efficiently, make data-driven decisions, and scale seamlessly.",
+    path: "/services/erp",
+    image: erp,
+    features: [
+        "Integrated Financial Management",
+        "Human Resource Automation",
+        "Inventory & Supply Chain Management",
+        "Data Analytics & Reporting",
+        "Customizable Workflows",
+    ],
+}
+
 ];
+
 
 const Services = () => {
     const refs = useRef([]);
@@ -94,7 +121,7 @@ const Services = () => {
                 </div>
 
                 {/* Services Grid */}
-                <div className="max-w-7xl mx-auto py-5">
+                <div className="w-full mx-auto py-5">
                     {services.map((service, index) => (
                         <article
                             key={service.id}
@@ -154,6 +181,7 @@ const Services = () => {
                     ))}
                 </div>
             </div>
+            <CallToAction />
         </section>
     );
 };

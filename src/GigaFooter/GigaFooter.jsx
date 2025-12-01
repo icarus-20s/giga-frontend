@@ -53,8 +53,6 @@ const ProfessionalFooter = () => {
   ];
 
   const services = [
-    { name: "Web Development", href: "/services/web-development" },
-    { name: "Software Development", href: "/services/software-development" },
     { name: "Accounting System", href: "/products/giga-accounting" },
     { name: "HRMS System", href: "/products/giga-hrms" },
     { name: "ERP System", href: "/products/giga-erp" },

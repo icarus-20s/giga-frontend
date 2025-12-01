@@ -12,9 +12,8 @@ import Navbar from "./Navbar/Navbar";
 import Notices from "./Notices/Notices";
 import GigaFooter from "./GigaFooter/GigaFooter";
 import ScrollToTop from "./Components/ScrollToTop";
-import SoftwareDev from "./Services/SoftwareDev";
-import WebDev from "./Services/WebDev";
-import MobileDev from "./Services/MobileDev";
+import Accounting from "./Services/Accounting";
+import HRMS from "./Services/HRMS";
 import GigaAccounting from "./Components/Features/GigaAccounting";
 import GigaERP from "./Components/Features/GigaErp";
 import GigaHRMS from "./Components/Features/GigaHrms";
@@ -22,6 +21,9 @@ import GigaIMS from "./Components/Features/GigaIms";
 import ProtectedRoutes from "./Components/Context/ProtectedRoutes";
 import LoginForm from "./Components/LoginForm";
 import QuotationForm from "./Components/QuotationForm";
+import ERP from "./Services/ERP";
+import IMS from "./Services/IMS";
+import Clients from "./Components/Clients";
 const App = () => {
     return (
         <>
@@ -41,23 +43,28 @@ const App = () => {
                 </Route>
 
                 <Route path="/about" element={<About />} />
+                <Route path="/clients" element={<Clients display="grid" />} />
 
                 <Route path="/services" element={<Services />} />
                 <Route path="/quotation" element={<QuotationForm />} />
                 <Route path="/notices" element={<Notices/>} />
 
                 <Route
-                 path="/services/web-development"
-                  element={<WebDev />} 
+                 path="/services/erp"
+                    element={<ERP />}
                 />
                 <Route
-                    path="/services/mobile-development"
-                    element={<MobileDev />}
-                />
+                    path="/services/hrms"
+                    element={<HRMS />}
+                    />
                 <Route
-                    path="/services/software-development"
-                    element={<SoftwareDev />}
-                />
+                    path="/services/ims"
+                    element={<IMS />}
+                    />
+                <Route
+                    path="/services/accounting"
+                    element={<Accounting />}
+                    />
 
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/career" element={<Career />} />

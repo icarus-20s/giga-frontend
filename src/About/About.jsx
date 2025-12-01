@@ -16,6 +16,7 @@ import {
     LifeBuoy,
 } from "lucide-react";
 import Clients from "../Components/Clients";
+import { useNavigate } from "react-router-dom";
 const sandip = "src/assets/Team/sandip.jpg";
 const saurav = "src/assets/Team/saurav.jpg";
 const yogesh = "src/assets/Team/suman.jpg";
@@ -43,7 +44,7 @@ const SectionHeader = ({
                 <BadgeIcon className="w-5 h-5 mr-2" />
                 <span className="font-semibold text-sm">{badge}</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl text-blue-800 font-bold mb-6">
                 {title}
             </h2>
             {description && (
@@ -93,8 +94,7 @@ const HeroSection = ({ isVisible }) => (
                     We are the partner that makes it happen.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center"></div>
             </div>
         </div>
     </section>
@@ -132,7 +132,102 @@ const StatsBanner = ({ stats, isVisible }) => (
         </div>
     </section>
 );
+// ==================== WELCOME SECTION ====================
+const WelcomeSection = () => {
+  const navigate = useNavigate();
 
+  return (
+    <section className="w-full py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+      {/* Full-Width Background with subtle wave or accent */}
+      <div className="absolute inset-0 overflow-hidden opacity-30">
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative w-full max-w-none">
+        <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 px-6 sm:px-12 lg:px-20 xl:px-32">
+          
+          {/* Left: Image */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative mx-auto max-w-2xl lg:max-w-none">
+              <img
+                src="src/assets/work.jpg"
+                alt="Giga Infosoft Team in Action"
+                className="w-full h-auto rounded-3xl shadow-2xl object-cover lg:h-[600px] xl:h-[700px]"
+              />
+              {/* Floating Trust Badge - Updated */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-8 lg:-translate-x-0 lg:bottom-8 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600 font-medium">Trusted by</p>
+                  <p className="text-xl font-bold text-gray-900">Growing Businesses</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Content - Updated Text Only */}
+          <div className="order-1 lg:order-2 text-center lg:text-left space-y-8">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold">
+              <Rocket className="w-5 h-5" />
+              Welcome to Giga Infosoft
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-extrabold text-gray-900 leading-tight mt-6">
+              Elevate Your
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700">
+                Entire Business Operation
+              </span>
+            </h1>
+
+            <div className="space-y-6 text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 py-2">
+              <p>
+                At <span className="font-bold text-blue-700">Giga Infosoft</span>, we deliver powerful, 
+                intelligent software that streamlines accounting, HR, inventory, and operations — 
+                all in one unified platform.
+              </p>
+              <p>
+                Designed for ambitious companies ready to eliminate chaos, boost efficiency, 
+                and scale with confidence.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-6 pt-6 justify-center lg:justify-start">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900">Future-Proof</p>
+                  <p className="text-sm text-gray-600">Built to Scale with You</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 py-5">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Heart className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900">Customer Obsessed</p>
+                  <p className="text-sm text-gray-600">Support That Feels Personal</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              className="mt-8 px-10 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+              onClick={() => navigate("/services")}
+            >
+              Discover Our Solutions
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 // ==================== MISSION & VISION ====================
 const MissionVisionSection = ({ isVisible }) => (
     <section id="mission" className="py-24 px-0">
@@ -278,7 +373,7 @@ const WhatSetsUsApartSection = ({ items, isVisible }) => (
                                 <item.icon className="w-7 h-7 text-white" />
                             </div>
 
-                            <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-indigo-600 transition-all">
+                            <h3 className="text-xl font-bold text-blue-800 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-indigo-600 transition-all">
                                 {item.title}
                             </h3>
                             <p className="text-gray-600 leading-relaxed">
@@ -291,8 +386,6 @@ const WhatSetsUsApartSection = ({ items, isVisible }) => (
         </div>
     </section>
 );
-
-
 
 // ==================== TEAM SECTION ====================
 const TeamSection = ({ teamMembers, isVisible }) => (
@@ -374,12 +467,28 @@ const About = () => {
         return () => observer.disconnect();
     }, []);
 
-    const stats = [
-        { number: "200+", label: "Schools Transformed", icon: Building2 },
-        { number: "10+", label: "Years Experience", icon: Award },
-        { number: "100K+", label: "Students Served", icon: Users },
-        { number: "30%", label: "Efficiency Increase", icon: TrendingUp },
-    ];
+const stats = [
+  {
+    number: "50+",
+    label: "Businesses Powered",
+    icon: Building2,
+  },
+  {
+    number: "4+",
+    label: "Years of Excellence",
+    icon: Award,
+  },
+  {
+    number: "50K+",
+    label: "Active Users Daily",
+    icon: Users,
+  },
+  {
+    number: "40%",
+    label: "Avg. Cost Reduction",
+    icon: TrendingUp,
+  },
+];
 
     const whatSetsUsApart = [
         {
@@ -517,11 +626,11 @@ const About = () => {
         },
     ];
 
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-x-hidden">
             <HeroSection isVisible={isVisible} />
             <StatsBanner stats={stats} isVisible={isVisible} />
+            <WelcomeSection />
             <MissionVisionSection isVisible={isVisible} />
             <WhatSetsUsApartSection
                 items={whatSetsUsApart}

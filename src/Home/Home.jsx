@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
+import Marquee from "react-fast-marquee";
 import {
     ChevronRight,
     Code,
@@ -12,8 +13,8 @@ import {
     CheckCircle,
     Building2,
     TrendingUp,
-    BookOpen,     
-  Layers,
+    BookOpen,
+    Layers,
 } from "lucide-react";
 import { clients } from "../Components/Clients";
 
@@ -41,66 +42,81 @@ const fadeInUp = {
 
 // ==================== DATA ====================
 const STATS_DATA = [
-    { number: "200+", label: "Schools Transformed", icon: Building2 },
-    { number: "10+", label: "Years Experience", icon: Award },
-    { number: "100K+", label: "Students Served", icon: Users },
-    { number: "30%", label: "Efficiency Increase", icon: TrendingUp },
+  {
+    number: "50+",
+    label: "Businesses Powered",
+    icon: Building2,
+  },
+  {
+    number: "4+",
+    label: "Years of Excellence",
+    icon: Award,
+  },
+  {
+    number: "50K+",
+    label: "Active Users Daily",
+    icon: Users,
+  },
+  {
+    number: "40%",
+    label: "Avg. Cost Reduction",
+    icon: TrendingUp,
+  },
 ];
-
 const longTermSolutions = [
-        {
-            title: "School Management System",
-            description:
-                "Revolutionize education management with a comprehensive platform that streamlines everything—from centralizing student data to enhancing parent-staff communication.",
-            icon: BookOpen,
-            color: "blue",
-            features: [
-                "Student Lifecycle Management",
-                "Parent-Teacher Portal",
-                "Attendance Tracking",
-                "Report Card Generation",
-            ],
-        },
-        {
-            title: "Accounting System",
-            description:
-                "Experience financial clarity like never before. Simplify bookkeeping, invoicing, payroll, and analytics, enabling businesses to make informed decisions.",
-            icon: TrendingUp,
-            color: "green",
-            features: [
-                "Real-time Reporting",
-                "Invoice Management",
-                "Payroll Processing",
-                "Tax Compliance",
-            ],
-        },
-        {
-            title: "Inventory & Assets Management",
-            description:
-                "Outsmart inefficiencies with real-time tracking and waste reduction. Designed for dynamic markets to ensure your business stays ahead.",
-            icon: Layers,
-            color: "purple",
-            features: [
-                "Real-time Tracking",
-                "Waste Reduction",
-                "Asset Depreciation",
-                "Smart Alerts",
-            ],
-        },
-        {
-            title: "HR Management System",
-            description:
-                "From recruitment to payroll and compliance, we provide the tools you need to build a thriving workforce and improve employee engagement.",
-            icon: Users,
-            color: "orange",
-            features: [
-                "Recruitment Pipeline",
-                "Performance Reviews",
-                "Leave Management",
-                "Employee Self-Service",
-            ],
-        },
-    ];
+    {
+        title: "School Management System",
+        description:
+            "Revolutionize education management with a comprehensive platform that streamlines everything—from centralizing student data to enhancing parent-staff communication.",
+        icon: BookOpen,
+        color: "blue",
+        features: [
+            "Student Lifecycle Management",
+            "Parent-Teacher Portal",
+            "Attendance Tracking",
+            "Report Card Generation",
+        ],
+    },
+    {
+        title: "Accounting System",
+        description:
+            "Experience financial clarity like never before. Simplify bookkeeping, invoicing, payroll, and analytics, enabling businesses to make informed decisions.",
+        icon: TrendingUp,
+        color: "green",
+        features: [
+            "Real-time Reporting",
+            "Invoice Management",
+            "Payroll Processing",
+            "Tax Compliance",
+        ],
+    },
+    {
+        title: "Inventory & Assets Management",
+        description:
+            "Outsmart inefficiencies with real-time tracking and waste reduction. Designed for dynamic markets to ensure your business stays ahead.",
+        icon: Layers,
+        color: "purple",
+        features: [
+            "Real-time Tracking",
+            "Waste Reduction",
+            "Asset Depreciation",
+            "Smart Alerts",
+        ],
+    },
+    {
+        title: "HR Management System",
+        description:
+            "From recruitment to payroll and compliance, we provide the tools you need to build a thriving workforce and improve employee engagement.",
+        icon: Users,
+        color: "orange",
+        features: [
+            "Recruitment Pipeline",
+            "Performance Reviews",
+            "Leave Management",
+            "Employee Self-Service",
+        ],
+    },
+];
 
 const SERVICES_DATA = [
     {
@@ -449,12 +465,16 @@ const HowWeWorkSection = () => (
                     How We Work
                 </h2>
 
-                <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-5xl mx-auto">
-                    At Giga Infosoft, we have a team of well trained and
-                    experienced information technologists, business consultants,
-                    accountants, analysts, educationists, providing solutions to
-                    various business organizations. We develop high quality
-                    software that meets today's industry standards.
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed w-full mx-auto">
+                    At{" "}
+                    <span className="font-bold text-blue-600">
+                        Giga Infosoft
+                    </span>
+                    , we have a team of well trained and experienced information
+                    technologists, business consultants, accountants, analysts,
+                    educationists, providing solutions to various business
+                    organizations. We develop high quality software that meets
+                    today's industry standards.
                 </p>
             </div>
             <br />
@@ -466,17 +486,6 @@ const HowWeWorkSection = () => (
                         <h3 className="text-3xl font-bold text-blue-800 text-center lg:text-left">
                             We Are Different
                         </h3>
-
-                        <p className="text-lg text-gray-600 leading-relaxed">
-                            At{" "}
-                            <span className="font-bold text-blue-600">
-                                Giga Infosoft
-                            </span>
-                            , we have a team of highly trained and experienced
-                            information technologists, business consultants,
-                            accountants, analysts, and educationists dedicated
-                            to solving real-world challenges.
-                        </p>
 
                         <p className="text-lg text-gray-600 leading-relaxed">
                             We differentiate our service with expertise in
@@ -493,7 +502,7 @@ const HowWeWorkSection = () => (
                     </div>
 
                     {/* Feature Points */}
-                    <div className="space-y-6 w-full max-w-3xl">
+                    <div className="space-y-6 w-full max-w-3xl py-5">
                         {[
                             {
                                 icon: Zap,
@@ -514,7 +523,7 @@ const HowWeWorkSection = () => (
                                 desc: "Premium solutions at realistic prices — without compromising on quality or support.",
                             },
                         ].map((item, i) => (
-                            <div key={i} className="flex gap-4">
+                            <div key={i} className="flex gap-4 py-3">
                                 <div
                                     className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${item.colors} shadow-lg`}
                                 >
@@ -548,7 +557,7 @@ const HowWeWorkSection = () => (
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 blur-3xl -z-10 scale-110" />
 
                     <img
-                        src="/api/placeholder/800/900"
+                        src="src/assets/home.avif"
                         className="w-full h-full object-cover"
                         alt="Giga Infosoft Team Collaboration"
                     />
@@ -564,13 +573,10 @@ const HowWeWorkSection = () => (
         </div>
     </motion.section>
 );
-
 const TopClients = ({ clients }) => {
     const displayedClients = clients?.slice(0, 5) || [];
-
     return (
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
-            {" "}
             <div className="relative w-full text-center mx-auto">
                 {/* Section Header */}
                 <div className="flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
@@ -591,7 +597,8 @@ const TopClients = ({ clients }) => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4"
                     >
-                        Visionary Executives and HR Professionals Trust and Recommend Giga ERP
+                        Visionary Executives and HR Professionals Trust and
+                        Recommend Giga ERP
                     </motion.h2>
 
                     <motion.p
@@ -606,38 +613,40 @@ const TopClients = ({ clients }) => {
                     </motion.p>
                 </div>
 
-                {/* Clients Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 justify-items-center py-5">
-                    {displayedClients.map((client, index) => (
-                        <motion.div
-                            key={client.id}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{
-                                duration: 0.6,
-                                delay: index * 0.05,
-                                ease: "easeOut",
-                            }}
-                            whileHover={{ scale: 1.12, y: -8 }}
-                            className="relative group"
-                        >
-                            <div className="w-56 h-56 sm:w-60 sm:h-60 lg:w-64 lg:h-64 bg-white rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center p-8 transition-all duration-500 hover:shadow-2xl hover:border-blue-200">
-                                <img
-                                    src={client.logo}
-                                    alt={client.name}
-                                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700 filter"
-                                />
-                            </div>
+                {/* Clients Grid with Marquee */}
+                <Marquee gradient={false} speed={50} pauseOnHover>
+                    <div className="flex gap-12 justify-center py-5 pr-12">
+                        {displayedClients.map((client, index) => (
+                            <motion.div
+                                key={client.id}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.6,
+                                    delay: index * 0.05,
+                                    ease: "easeOut",
+                                }}
+                                whileHover={{ scale: 1.12, y: -8 }}
+                                className="relative group"
+                            >
+                                <div className="w-56 h-56 sm:w-60 sm:h-60 lg:w-64 lg:h-64 bg-white rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center p-8 transition-all duration-500 hover:shadow-2xl hover:border-blue-200">
+                                    <img
+                                        src={client.logo}
+                                        alt={client.name}
+                                        className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700 filter"
+                                    />
+                                </div>
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-5">
-                                <p className="text-white text-base font-medium">
-                                    {client.name}
-                                </p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-5">
+                                    <p className="text-white text-base font-medium">
+                                        {client.name}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </Marquee>
             </div>
         </section>
     );
@@ -748,99 +757,108 @@ const ProductsSection = () => (
     </motion.section>
 );
 
-const LongTermSolutionsSection = ( {longTermSolutions}) => {
+const LongTermSolutionsSection = ({ longTermSolutions }) => {
+    const colorMap = {
+        blue: "from-blue-500 to-cyan-500",
+        green: "from-green-500 to-emerald-500",
+        purple: "from-purple-500 to-pink-500",
+        orange: "from-orange-500 to-red-500",
+    };
 
-  const colorMap = {
-    blue: "from-blue-500 to-cyan-500",
-    green: "from-green-500 to-emerald-500",
-    purple: "from-purple-500 to-pink-500",
-    orange: "from-orange-500 to-red-500",
-  };
+    return (
+        <section className="py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50">
+            <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Header - Perfectly Centered */}
+                <div className="flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-100 rounded-full text-sm font-semibold text-blue-800 mb-6"
+                    >
+                        <Star className="w-5 h-5" />
+                        Long-Term Impact
+                    </motion.div>
 
-  return (
-    <section className="py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header - Perfectly Centered */}
- <div className="flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-100 rounded-full text-sm font-semibold text-blue-800 mb-6"
-          >
-            <Star className="w-5 h-5" />
-            Long-Term Impact
-          </motion.div>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4"
+                    >
+                        Long-Term Solutions That Drive Success
+                    </motion.h2>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4"
-          >
-            Long-Term Solutions That Drive Success
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
-          >
-            Our solutions are designed not just to meet immediate needs but to deliver lasting benefits that drive sustainable success.
-          </motion.p>
-        </div>
-
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
-          {longTermSolutions.map((solution, index) => {
-            const Icon = solution.icon;
-            const gradient = colorMap[solution.color] || colorMap.blue;
-
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group bg-white rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-500 hover:-translate-y-2"
-              >
-                <div className="flex items-start gap-5 mb-6">
-                  <div
-                    className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                    {solution.title}
-                  </h3>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                    >
+                        Our solutions are designed not just to meet immediate
+                        needs but to deliver lasting benefits that drive
+                        sustainable success.
+                    </motion.p>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  {solution.description}
-                </p>
+                {/* Cards Grid */}
+                <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
+                    {longTermSolutions.map((solution, index) => {
+                        const Icon = solution.icon;
+                        const gradient =
+                            colorMap[solution.color] || colorMap.blue;
 
-                <div className="space-y-3">
-                  {solution.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3 text-gray-700">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-base">{feature}</span>
-                    </div>
-                  ))}
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.6,
+                                    delay: index * 0.15,
+                                }}
+                                className="group bg-white rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-500 hover:-translate-y-2"
+                            >
+                                <div className="flex items-start gap-5 mb-6">
+                                    <div
+                                        className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}
+                                    >
+                                        <Icon className="w-7 h-7 text-white" />
+                                    </div>
+                                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
+                                        {solution.title}
+                                    </h3>
+                                </div>
+
+                                <p className="text-gray-600 leading-relaxed mb-8">
+                                    {solution.description}
+                                </p>
+
+                                <div className="space-y-3">
+                                    {solution.features.map((feature, i) => (
+                                        <div
+                                            key={i}
+                                            className="flex items-center gap-3 text-gray-700"
+                                        >
+                                            <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                                            <span className="text-base">
+                                                {feature}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 };
-
 
 const ImpactStatCard = ({ item, index }) => (
     <motion.div
@@ -935,7 +953,6 @@ const TestimonialCard = ({ testimonial }) => (
 const TestimonialsSection = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [category, setCategory] = useState(TESTIMONIAL_CATEGORIES.SCHOOL);
-
     const activeList =
         category === TESTIMONIAL_CATEGORIES.SCHOOL
             ? SCHOOL_ERP_TESTIMONIALS
@@ -961,6 +978,15 @@ const TestimonialsSection = () => {
 
     const handleNext = () => {
         setCurrentTestimonial((prev) => (prev + 1) % activeList.length);
+    };
+
+    const getVisibleTestimonials = () => {
+        const visibleCount =
+            window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+        return Array.from(
+            { length: visibleCount },
+            (_, i) => activeList[(currentTestimonial + i) % activeList.length]
+        );
     };
 
     return (
@@ -1005,14 +1031,14 @@ const TestimonialsSection = () => {
                     </button>
                 </div>
 
-                <div className="flex flex-col sm:flex-row justify-center items-stretch gap-8 mt-32 lg:mt-44">
-                    {[
-                        activeList[currentTestimonial],
-                        activeList[
-                            (currentTestimonial + 1) % activeList.length
-                        ],
-                    ].map((testimonial, idx) => (
-                        <TestimonialCard key={idx} testimonial={testimonial} />
+                <div className="flex justify-center items-stretch gap-8 mt-32 lg:mt-44 w-full flex-wrap">
+                    {getVisibleTestimonials().map((testimonial, idx) => (
+                        <div
+                            key={idx}
+                            className="flex-1 min-w-[250px] max-w-[350px]"
+                        >
+                            <TestimonialCard testimonial={testimonial} />
+                        </div>
                     ))}
                 </div>
 
@@ -1046,10 +1072,10 @@ const Home = () => {
             <HeroSection />
             <StatsSection />
             <HowWeWorkSection />
+            <ProductsSection />
             <TopClients clients={clients} />
             <FeaturesSection />
-            <LongTermSolutionsSection  longTermSolutions={longTermSolutions}/>  {/* ← ADD THIS LINE */}
-            <ProductsSection />
+            <LongTermSolutionsSection longTermSolutions={longTermSolutions} />
             <ImpactSection />
             <TestimonialsSection />
         </main>
