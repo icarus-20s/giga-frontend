@@ -98,7 +98,7 @@ return ( <section className="w-full relative py-24 lg:py-32 overflow-hidden bg-g
       >
         Trusted by Nepal's Leading Institutions
       </motion.span>
-      <h2 className="text-5xl sm:text-6xl lg:text-5xl font-black text-white leading-tight">
+      <h2 className="py-5 text-5xl sm:text-6xl lg:text-5xl font-black text-white leading-tight">
         Empowering Our Clients <br />
         <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-300 bg-clip-text text-transparent">
           Shaping the Future
@@ -108,7 +108,7 @@ return ( <section className="w-full relative py-24 lg:py-32 overflow-hidden bg-g
   </div>
 
   {/* Content */}
-  <div className="relative z-10 -mx-4 sm:-mx-6 lg:mx-0 space-y-16 py-5">
+  <div className="relative z-10 -mx-4 sm:-mx-6 lg:mx-0 space-y-16 py-15">
     {isMarquee ? (
       <>
         {renderMarquee([...clients.slice(0, 10), ...clients.slice(0, 10)], "row1")}
@@ -126,7 +126,7 @@ return ( <section className="w-full relative py-24 lg:py-32 overflow-hidden bg-g
   </div>
 
   {/* Trust Counter */}
-  <div className="w-full flex flex-col items-center justify-center mt-12 text-center">
+  <div className="w-full flex flex-col items-center justify-center mt-12 text-center py-15">
     <p className="text-2xl sm:text-3xl font-bold text-white">
       {clients.length}+ <span className="text-cyan-300">Institutions</span> Trust Giga ERP
     </p>

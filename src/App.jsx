@@ -12,8 +12,8 @@ import Navbar from "./Navbar/Navbar";
 import Notices from "./Notices/Notices";
 import GigaFooter from "./GigaFooter/GigaFooter";
 import ScrollToTop from "./Components/ScrollToTop";
-import Accounting from "./Services/Accounting";
-import HRMS from "./Services/HRMS";
+import Accounting from "./Services/GigaAccounting";
+import GigaHR from "./Services/GigaHR";
 import GigaAccounting from "./Components/Features/GigaAccounting";
 import GigaERP from "./Components/Features/GigaErp";
 import GigaHRMS from "./Components/Features/GigaHrms";
@@ -21,8 +21,8 @@ import GigaIMS from "./Components/Features/GigaIms";
 import ProtectedRoutes from "./Components/Context/ProtectedRoutes";
 import LoginForm from "./Components/LoginForm";
 import QuotationForm from "./Components/QuotationForm";
-import ERP from "./Services/ERP";
-import IMS from "./Services/IMS";
+import SchoolERP from "./Services/SchoolERP";
+import GigaCorporateERP from "./Services/GigaCorporateERP";
 import Clients from "./Components/Clients";
 const App = () => {
     return (
@@ -50,16 +50,16 @@ const App = () => {
                 <Route path="/notices" element={<Notices/>} />
 
                 <Route
-                 path="/services/erp"
-                    element={<ERP />}
+                 path="/services/school-erp"
+                    element={<SchoolERP />}
                 />
                 <Route
-                    path="/services/hrms"
-                    element={<HRMS />}
+                    path="/services/giga-hr"
+                    element={<GigaHR />}
                     />
                 <Route
-                    path="/services/ims"
-                    element={<IMS />}
+                    path="/services/corporate-erp"
+                    element={<GigaCorporateERP />}
                     />
                 <Route
                     path="/services/accounting"

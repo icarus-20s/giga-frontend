@@ -1,0 +1,153 @@
+import React, { useEffect, useRef, useState } from "react";
+import work from "../assets/work.jpg";
+
+const sections = [
+  {
+    id: 1,
+    title: "Accounting",
+    description:
+      "Manage your finances efficiently with complete accounting modules, including ledger, billing, and financial reporting for accurate insights.",
+    image: work,
+    features: ["General Ledger", "Billing & Invoicing", "Financial Reports"],
+  },
+  {
+    id: 2,
+    title: "Inventory",
+    description:
+      "Optimize stock levels, manage suppliers, and streamline procurement processes to save costs and improve operational efficiency.",
+    image: work,
+    features: ["Stock Management", "Supplier Management", "Purchase Orders"],
+  },
+  {
+    id: 3,
+    title: "Human Resource",
+    description:
+      "Centralize employee information, manage payroll, leaves, and performance to ensure smooth workforce operations.",
+    image: work,
+    features: ["Employee Records", "Payroll", "Performance Tracking"],
+  },
+  {
+    id: 4,
+    title: "Payroll & Leave Management",
+    description:
+      "Automate salary processing, deductions, and leave management to reduce errors and increase efficiency.",
+    image: work,
+    features: ["Automated Payroll", "Leave & Attendance", "Tax Deductions"],
+  },
+  {
+    id: 5,
+    title: "CRM",
+    description:
+      "Manage customer relationships, track sales leads, and provide better service with integrated CRM tools.",
+    image: work,
+    features: ["Customer Records", "Sales Pipeline", "Analytics & Reports"],
+  },
+  {
+    id: 6,
+    title: "Operations & Reporting",
+    description:
+      "Monitor your business performance in real-time, generate reports, and make data-driven decisions across all departments.",
+    image: work,
+    features: ["Dashboards", "Data Analytics", "Operational Insights"],
+  },
+];
+
+const GigaCorporateERP = () => {
+  const sectionRefs = useRef([]);
+  const [visibleSections, setVisibleSections] = useState({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => ({ ...prev, [entry.target.dataset.id]: true }));
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sectionRefs.current.forEach((ref) => ref && observer.observe(ref));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+      <div className="relative z-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+        {/* Header */}
+        <header
+          className={`text-center mb-16 sm:mb-20 lg:mb-24 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
+            visibleSections["header"] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+          ref={(el) => (sectionRefs.current[0] = el)}
+          data-id="header"
+        >
+          <h1 className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6">
+            Giga Corporate ERP
+          </h1>
+        </header>
+
+        {/* Sections */}
+        <div className="w-full mx-auto space-y-20 sm:space-y-24 lg:space-y-32">
+          {sections.map((section, index) => (
+            <article
+              key={section.id}
+              data-id={section.id}
+              ref={(el) => (sectionRefs.current[index + 1] = el)}
+              className={`flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16 xl:gap-20 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
+                visibleSections[section.id] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              } ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
+            >
+              {/* Image */}
+              <div className="w-full lg:w-1/2">
+                <div className="py-5 relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <img
+                    src={section.image}
+                    alt={`${section.title} illustration`}
+                    className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover rounded-3xl transform transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 sm:space-y-8">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                  {section.title}
+                </h2>
+                <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  {section.description}
+                </p>
+
+                {/* Features */}
+                <div className="py-5 flex flex-wrap justify-center lg:justify-start gap-3">
+                  {section.features.map((feature, idx) => (
+                    <span
+                      key={idx}
+                      className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium border border-white/10"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* Floating Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
+        <div className="absolute top-1/3 right-20 w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
+      </div>
+      <div className="absolute top-[-100px] left-[-100px] w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-[-120px] right-[-120px] w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-full animate-pulse delay-2000"></div>
+    </section>
+  );
+};
+
+export default GigaCorporateERP;

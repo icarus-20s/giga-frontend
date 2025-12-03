@@ -10,61 +10,59 @@ import CallToAction from "../Components/CallToAction";
 const services = [
     {
         id: 1,
-        title: "GigaAccounting",
+        title: "Giga School ERP",
         description:
-            "A comprehensive accounting solution designed to simplify your financial management. Track transactions, generate reports, and ensure compliance with ease.",
-        path: "/services/accounting",
-        image: accounting,
-        features: [
-            "Automated Invoicing",
-            "Financial Reporting",
-            "Expense Tracking",
-        ],
+            "A powerful all-in-one platform that fully covers Academic, Financial, HR, and Administrative operations for schools and colleges, ensuring smooth management of students, staff, finances, and daily workflows within a single integrated system.",
+        path: "/services/school-erp",
+        image: erp,
+        features: ["Academic", "Financials", "Human Resource", "Administration"],
     },
     {
         id: 2,
-        title: "GigaHRMS",
+        title: "Giga Corporate ERP",
         description:
-            "Human Resource Management System to automate HR processes. Manage payroll, employee records, leave, and performance seamlessly.",
-        path: "/services/hrms",
-        image: hrms,
+            "A complete ERP solution that seamlessly integrates Accounting, Inventory, HR, Payroll, and CRM modules, enabling businesses to manage finances, operations, workforce, and customer relationships efficiently from a single unified platform.",
+        path: "/services/corporate-erp",
+        image: IMS,
         features: [
-            "Payroll Automation",
-            "Leave & Attendance Management",
-            "Performance Tracking",
+            "Accounting",
+            "Inventory",
+            "Human Resource",
+            "Payroll",
+            "Leave & Attendance",
+            "CRM",
         ],
     },
     {
         id: 3,
-        title: "GigaIMS",
+        title: "Giga Accounting",
         description:
-            "Inventory management system to optimize your stock and reduce wastage. Track inventory levels, manage suppliers, and generate reports easily.",
-        path: "/services/ims",
-        image: IMS,
+            "A comprehensive accounting system that streamlines Financial Management, Sales and Purchase processes, Inventory control, Pricing, Tax management, and overall business operations—providing accurate insights, smooth transactions, and complete control from a single powerful platform.",
+        path: "/services/accounting",
+        image: accounting,
         features: [
-            "Stock Tracking",
-            "Supplier Management",
-            "Inventory Reports",
+            "Financial Management",
+            "Sales and Purchase Process",
+            "Inventory Tracking",
+            "Multi Branch and Multi Warehouses",
+            "Multi Currency",
         ],
     },
     {
-    id: 4,
-    title: "GigaERP",
-    description:
-        "A complete Enterprise Resource Planning solution designed to unify all your business processes. From finance and HR to inventory and operations, GigaERP helps your organization operate efficiently, make data-driven decisions, and scale seamlessly.",
-    path: "/services/erp",
-    image: erp,
-    features: [
-        "Integrated Financial Management",
-        "Human Resource Automation",
-        "Inventory & Supply Chain Management",
-        "Data Analytics & Reporting",
-        "Customizable Workflows",
-    ],
-}
-
+        id: 4,
+        title: "Giga HR",
+        description:
+            "A complete HR management system that centralizes Personal Information, Leave and Attendance tracking, Payroll processing, Performance Reviews, and overall workforce operations—ensuring smooth, accurate, and efficient HR workflows across the organization.",
+        path: "/services/giga-hr",
+        image: hrms,
+        features: [
+            "Personal Information System (PIS)",
+            "Leave and Attendance Tracking",
+            "Payroll Processing",
+            "Performance Reviews",
+        ],
+    },
 ];
-
 
 const Services = () => {
     const refs = useRef([]);
@@ -75,7 +73,7 @@ const Services = () => {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        const id = entry.target.dataset.id;
+                        const id = Number(entry.target.dataset.id);
                         if (!visibleIds.includes(id)) {
                             setVisibleIds((prev) => [...prev, id]);
                         }
@@ -96,15 +94,14 @@ const Services = () => {
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
                 </div>
             </div>
 
             {/* Main Content Container */}
             <div className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-                {/* Header – Left Aligned */}
+                {/* Header */}
                 <div className="max-w-7xl mx-auto">
                     <FadeUp>
                         <h1 className="text-2xl sm:text-2xl lg:text-2xl xl:text-6xl font-bold tracking-tighter">
@@ -114,7 +111,6 @@ const Services = () => {
                             </span>
                         </h1>
                     </FadeUp>
-
                     <p className="mt-8 text-xl sm:text-2xl text-gray-400 py-2 font-medium tracking-wider uppercase">
                         Innovative • Scalable • Future-ready
                     </p>
@@ -128,7 +124,7 @@ const Services = () => {
                             data-id={service.id}
                             ref={(el) => (refs.current[index] = el)}
                             className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 xl:gap-24 mb-32 lg:mb-40 last:mb-0 transition-all duration-700 ease-out ${
-                                visibleIds.includes(service.id.toString())
+                                visibleIds.includes(service.id)
                                     ? "translate-y-0 opacity-100"
                                     : "translate-y-16 opacity-0"
                             } ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
@@ -153,11 +149,9 @@ const Services = () => {
                                         {service.title}
                                     </span>
                                 </h2>
-
                                 <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                                     {service.description}
                                 </p>
-
                                 <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                                     {service.features.map((feature, idx) => (
                                         <span
@@ -168,19 +162,18 @@ const Services = () => {
                                         </span>
                                     ))}
                                 </div>
-
                                 <Link
                                     to={service.path}
                                     className="inline-flex items-center gap-3 text-blue-400 font-semibold text-lg hover:text-cyan-300 transition-colors duration-300"
                                 >
-                                    Learn More{" "}
-                                    <span className="text-xl">→</span>
+                                    Learn More <span className="text-xl">→</span>
                                 </Link>
                             </div>
                         </article>
                     ))}
                 </div>
             </div>
+
             <CallToAction />
         </section>
     );

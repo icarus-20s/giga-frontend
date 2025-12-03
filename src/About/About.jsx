@@ -14,14 +14,16 @@ import {
     Rocket,
     Brain,
     LifeBuoy,
+    UserRound,
 } from "lucide-react";
 import Clients from "../Components/Clients";
+import welcome from "../assets/welcome.jpg";
 import { useNavigate } from "react-router-dom";
-const sandip = "src/assets/Team/sandip.jpg";
-const saurav = "src/assets/Team/saurav.jpg";
-const yogesh = "src/assets/Team/suman.jpg";
-const suman = "src/assets/Team/yogesh.jpg";
-const santosh = "src/assets/Team/santosh.jpg";
+import sandip from "../assets/Team/sandip.jpg";
+import saurav from "../assets/Team/saurav.jpg";
+import yogesh from "../assets/Team/yogesh.jpg";
+import suman from "../assets/Team/suman.jpg";
+import santosh from "../assets/Team/santosh.jpg";
 
 // ==================== SECTION HEADER COMPONENT ====================
 const SectionHeader = ({
@@ -134,99 +136,115 @@ const StatsBanner = ({ stats, isVisible }) => (
 );
 // ==================== WELCOME SECTION ====================
 const WelcomeSection = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  return (
-    <section className="w-full py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
-      {/* Full-Width Background with subtle wave or accent */}
-      <div className="absolute inset-0 overflow-hidden opacity-30">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative w-full max-w-none">
-        <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 px-6 sm:px-12 lg:px-20 xl:px-32">
-          
-          {/* Left: Image */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative mx-auto max-w-2xl lg:max-w-none">
-              <img
-                src="src/assets/work.jpg"
-                alt="Giga Infosoft Team in Action"
-                className="w-full h-auto rounded-3xl shadow-2xl object-cover lg:h-[600px] xl:h-[700px]"
-              />
-              {/* Floating Trust Badge - Updated */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-8 lg:-translate-x-0 lg:bottom-8 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600 font-medium">Trusted by</p>
-                  <p className="text-xl font-bold text-gray-900">Growing Businesses</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Content - Updated Text Only */}
-          <div className="order-1 lg:order-2 text-center lg:text-left space-y-8">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold">
-              <Rocket className="w-5 h-5" />
-              Welcome to Giga Infosoft
+    return (
+        <section className="w-full py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+            {/* Full-Width Background with subtle wave or accent */}
+            <div className="absolute inset-0 overflow-hidden opacity-30">
+                <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"></div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-extrabold text-gray-900 leading-tight mt-6">
-              Elevate Your
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700">
-                Entire Business Operation
-              </span>
-            </h1>
+            <div className="relative w-full max-w-none">
+                <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 px-6 sm:px-12 lg:px-20 xl:px-32">
+                    {/* Left: Image */}
+                    <div className="relative order-2 lg:order-1">
+                        <div className="relative mx-auto max-w-2xl lg:max-w-none">
+                            <img
+                                src={welcome}
+                                alt="Giga Infosoft Team in Action"
+                                className="w-full h-auto rounded-3xl shadow-2xl object-cover lg:h-[600px] xl:h-[700px]"
+                            />
+                            {/* Floating Trust Badge - Updated */}
+                            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-8 lg:-translate-x-0 lg:bottom-8 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4">
+                                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
+                                    <Sparkles className="w-6 h-6 text-white" />
+                                </div>
+                                <div>
+                                    <p className="text-sm text-gray-600 font-medium">
+                                        Trusted by
+                                    </p>
+                                    <p className="text-xl font-bold text-gray-900">
+                                        Growing Businesses
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <div className="space-y-6 text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 py-2">
-              <p>
-                At <span className="font-bold text-blue-700">Giga Infosoft</span>, we deliver powerful, 
-                intelligent software that streamlines accounting, HR, inventory, and operations — 
-                all in one unified platform.
-              </p>
-              <p>
-                Designed for ambitious companies ready to eliminate chaos, boost efficiency, 
-                and scale with confidence.
-              </p>
+                    {/* Right: Content - Updated Text Only */}
+                    <div className="order-1 lg:order-2 text-center lg:text-left space-y-8">
+                        <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold">
+                            <Rocket className="w-5 h-5" />
+                            Welcome to Giga Infosoft
+                        </div>
+
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-extrabold text-gray-900 leading-tight mt-6">
+                            Elevate Your
+                            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700">
+                                Entire Business Operation
+                            </span>
+                        </h1>
+
+                        <div className="space-y-6 text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 py-2">
+                            <p>
+                                At{" "}
+                                <span className="font-bold text-blue-700">
+                                    Giga Infosoft
+                                </span>
+                                , we deliver powerful, intelligent software that
+                                streamlines accounting, HR, inventory, and
+                                operations — all in one unified platform.
+                            </p>
+                            <p>
+                                Designed for ambitious companies ready to
+                                eliminate chaos, boost efficiency, and scale
+                                with confidence.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-6 pt-6 justify-center lg:justify-start">
+                            <div className="flex items-center gap-4">
+                                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                    <CheckCircle className="w-8 h-8 text-white" />
+                                </div>
+                                <div>
+                                    <p className="font-bold text-gray-900">
+                                        Future-Proof
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        Built to Scale with You
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-4 py-5">
+                                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                    <Heart className="w-8 h-8 text-white" />
+                                </div>
+                                <div>
+                                    <p className="font-bold text-gray-900">
+                                        Customer Obsessed
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        Support That Feels Personal
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            className="mt-8 px-10 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+                            onClick={() => navigate("/services")}
+                        >
+                            Discover Our Solutions
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 pt-6 justify-center lg:justify-start">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <CheckCircle className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">Future-Proof</p>
-                  <p className="text-sm text-gray-600">Built to Scale with You</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 py-5">
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Heart className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">Customer Obsessed</p>
-                  <p className="text-sm text-gray-600">Support That Feels Personal</p>
-                </div>
-              </div>
-            </div>
-
-            <button
-              className="mt-8 px-10 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
-              onClick={() => navigate("/services")}
-            >
-              Discover Our Solutions
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 // ==================== MISSION & VISION ====================
 const MissionVisionSection = ({ isVisible }) => (
@@ -386,61 +404,104 @@ const WhatSetsUsApartSection = ({ items, isVisible }) => (
         </div>
     </section>
 );
-
 // ==================== TEAM SECTION ====================
-const TeamSection = ({ teamMembers, isVisible }) => (
-    <section
-        id="team"
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50"
+const TeamCard = ({ member, delay, isVisible }) => (
+    <div
+        className={`transform transition-all duration-700 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        }`}
+        style={{ transitionDelay: `${delay * 120}ms` }}
     >
-        <div className="w-full mx-auto">
-            <SectionHeader
-                badge="OUR TEAM"
-                title="Meet Our Experts"
-                description="The brilliant minds behind our innovative solutions"
-                badgeIcon={Users}
-                badgeColor="indigo"
-            />
+        <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100">
+            {/* Photo */}
+            <div className="relative w-full h-72 overflow-hidden rounded-t-3xl">
+                <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                {teamMembers.map((member, index) => (
-                    <div
-                        key={index}
-                        className={`group transform transition-all duration-700 ${
-                            isVisible.team
-                                ? "translate-y-0 opacity-100"
-                                : "translate-y-10 opacity-0"
-                        }`}
-                        style={{ transitionDelay: `${index * 100}ms` }}
-                    >
-                        <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                            <div className="relative h-80 overflow-hidden">
-                                <img
-                                    src={member.image}
-                                    alt={member.name}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
-
-                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                                    <h3 className="font-bold text-lg mb-1">
-                                        {member.name}
-                                    </h3>
-                                    <p className="text-blue-400 text-sm font-medium mb-2">
-                                        {member.position}
-                                    </p>
-                                    <p className="text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
-                                        {member.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+            {/* Info */}
+            <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-gray-900">
+                    {member.name}
+                </h3>
+                <p className="text-blue-700 text-sm mt-1 font-medium">
+                    {member.position}
+                </p>
+                {member.description && (
+                    <p className="text-gray-500 text-xs mt-3 leading-relaxed">
+                        {member.description}
+                    </p>
+                )}
             </div>
         </div>
-    </section>
+    </div>
 );
+
+const TeamSection = ({ teamMembers, isVisible }) => {
+    const topTwo = teamMembers.slice(0, 2);
+    const midFive = teamMembers.slice(2, 7);
+    const lastFour = teamMembers.slice(7, 11);
+
+    return (
+        <section
+            id="team"
+            className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50"
+        >
+            <div className="w-full mx-auto text-center">
+                <SectionHeader
+                    badge="OUR TEAM"
+                    title="Meet Our Experts"
+                    description="The brilliant minds behind our innovative solutions"
+                    badgeIcon={Users}
+                    badgeColor="blue"
+                />
+
+                {/* === TOP EXECUTIVES ROW (2) === */}
+                <div className="mt-16 flex justify-center gap-10">
+                    {topTwo.map((member, index) => (
+                        <div className="w-full max-w-xs">
+                            <TeamCard
+                                key={index}
+                                member={member}
+                                delay={index}
+                                isVisible={isVisible.team}
+                                highlight
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                {/* === MID MANAGEMENT ROW (5) === */}
+                <div className="py-10 mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+                    {midFive.map((member, index) => (
+                        <TeamCard
+                            key={index}
+                            member={member}
+                            delay={index + 2}
+                            isVisible={isVisible.team}
+                        />
+                    ))}
+                </div>
+
+                {/* === OTHER TEAM (4) === */}
+                <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                    {lastFour.map((member, index) => (
+                        <TeamCard
+                            key={index}
+                            member={member}
+                            delay={index + 7}
+                            isVisible={isVisible.team}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // ==================== MAIN COMPONENT ====================
 const About = () => {
@@ -467,28 +528,28 @@ const About = () => {
         return () => observer.disconnect();
     }, []);
 
-const stats = [
-  {
-    number: "50+",
-    label: "Businesses Powered",
-    icon: Building2,
-  },
-  {
-    number: "4+",
-    label: "Years of Excellence",
-    icon: Award,
-  },
-  {
-    number: "50K+",
-    label: "Active Users Daily",
-    icon: Users,
-  },
-  {
-    number: "40%",
-    label: "Avg. Cost Reduction",
-    icon: TrendingUp,
-  },
-];
+    const stats = [
+        {
+            number: "300+",
+            label: "Happy Clients",
+            icon: Users, // represents people/clients
+        },
+        {
+            number: "5+",
+            label: "Years of Excellence",
+            icon: Award, // award icon fits excellence/achievement
+        },
+        {
+            number: "200K+",
+            label: "Active Users",
+            icon: Users, // represents active users (slightly different from generic Users)
+        },
+        {
+            number: "40+",
+            label: "Team Members",
+            icon: Building2, // office/team representation
+        },
+    ];
 
     const whatSetsUsApart = [
         {
@@ -535,94 +596,75 @@ const stats = [
         },
     ];
 
-    const longTermSolutions = [
-        {
-            title: "School Management System",
-            description:
-                "Revolutionize education management with a comprehensive platform that streamlines everything—from centralizing student data to enhancing parent-staff communication.",
-            icon: BookOpen,
-            color: "blue",
-            features: [
-                "Student Lifecycle Management",
-                "Parent-Teacher Portal",
-                "Attendance Tracking",
-                "Report Card Generation",
-            ],
-        },
-        {
-            title: "Accounting System",
-            description:
-                "Experience financial clarity like never before. Simplify bookkeeping, invoicing, payroll, and analytics, enabling businesses to make informed decisions.",
-            icon: TrendingUp,
-            color: "green",
-            features: [
-                "Real-time Reporting",
-                "Invoice Management",
-                "Payroll Processing",
-                "Tax Compliance",
-            ],
-        },
-        {
-            title: "Inventory & Assets Management",
-            description:
-                "Outsmart inefficiencies with real-time tracking and waste reduction. Designed for dynamic markets to ensure your business stays ahead.",
-            icon: Layers,
-            color: "purple",
-            features: [
-                "Real-time Tracking",
-                "Waste Reduction",
-                "Asset Depreciation",
-                "Smart Alerts",
-            ],
-        },
-        {
-            title: "HR Management System",
-            description:
-                "From recruitment to payroll and compliance, we provide the tools you need to build a thriving workforce and improve employee engagement.",
-            icon: Users,
-            color: "orange",
-            features: [
-                "Recruitment Pipeline",
-                "Performance Reviews",
-                "Leave Management",
-                "Employee Self-Service",
-            ],
-        },
-    ];
-
     const teamMembers = [
         {
-            name: "Saurav Bhattarai",
-            position: "Co-Founder",
-            image: saurav,
-            description:
-                "Visionary leader with 10+ years in educational technology",
+            name: "Mr. Govinda Pandey",
+            position: "Managing Director",
+            photo: "https://randomuser.me/api/portraits/men/11.jpg",
+            description: "20+ years of experience in educational technology.",
         },
         {
-            name: "Yogesh Sapkota",
+            name: "Mr. Keshav Gautam",
+            position: "Chief Executive Officer (CEO)",
+            photo: "https://randomuser.me/api/portraits/men/22.jpg",
+            description:
+                "15+ years of experience in ERP and educational technology.",
+        },
+        {
+            name: "Mr. Suman Paudyal",
+            position: "Chief Technology Officer (CTO)",
+            photo: "https://randomuser.me/api/portraits/men/33.jpg",
+            description: "10+ years of experience in software development.",
+        },
+        {
+            name: "Mr. Santosh Pandey",
+            position: "Chief Operation Officer (COO)",
+            photo: "https://randomuser.me/api/portraits/men/44.jpg",
+            description:
+                "10+ years of experience in finance and operation management.",
+        },
+        {
+            name: "Mr. Saurav Bhattarai",
+            position: "Chief Implementation Officer (CIO)",
+            photo: "https://randomuser.me/api/portraits/men/55.jpg",
+            description: "8+ years of experience in system implementation.",
+        },
+        {
+            name: "Mr. Ishwor Pandey",
+            position: "Chief Customer Relationship Officer (CRO)",
+            photo: "https://randomuser.me/api/portraits/men/66.jpg",
+            description:
+                "10+ years of experience in system implementation and customer relation.",
+        },
+        {
+            name: "Mr. Gaurav Bhusal",
             position: "Senior Developer",
-            image: yogesh,
-            description: "Full-stack expert specializing in scalable solutions",
+            photo: "https://randomuser.me/api/portraits/men/77.jpg",
+            description: "8+ years of experience in software development.",
         },
         {
-            name: "Suman Paudyal",
+            name: "Mr. Yogesh Sapkota",
             position: "Senior Developer",
-            image: suman,
-            description:
-                "Backend architect with expertise in system optimization",
+            photo: "https://randomuser.me/api/portraits/men/88.jpg",
+            description: "7+ years of experience in software development.",
         },
         {
-            name: "Santosh Pandey",
-            position: "Implementation Specialist",
-            image: santosh,
-            description: "Expert in seamless software deployment and training",
+            name: "Mr. Shandip Sharma",
+            position: "Software Developer",
+            photo: "https://randomuser.me/api/portraits/men/99.jpg",
+            description: "4+ years of experience in software development.",
         },
         {
-            name: "Sandip Sharma",
-            position: "Developer",
-            image: sandip,
-            description:
-                "Frontend and backend developer focusing on clean code",
+            name: "Mr. Ravi Sapkota",
+            position: "Software Implementation Officer",
+            photo: "https://randomuser.me/api/portraits/men/12.jpg",
+            description: "3+ years of experience in software implementation.",
+        },
+        {
+            name: "Ms. Manisha Adhikari",
+            position: "Office Assistant",
+            photo: "https://randomuser.me/api/portraits/women/45.jpg",
+            description: "",
         },
     ];
 

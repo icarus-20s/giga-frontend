@@ -47,47 +47,46 @@ const Contactus = () => {
         {
             icon: Phone,
             title: "Call Us",
-            info: "+977-9802390260",
+            numbers: [
+                "9851341127",
+                "9851341128",
+                "9840073584",
+                "9802390239",
+            ],
             subInfo: "Mon-Fri 9:00 AM - 6:00 PM",
-            link: "tel:+9779802390260",
         },
         {
             icon: Mail,
             title: "Email Us",
-            info: "info@arkbotech.com",
+            info: "info@gigaerp.com",
             subInfo: "We'll respond within 24 hours",
-            link: "mailto:info@arkbotech.com",
         },
         {
             icon: MapPin,
             title: "Visit Us",
             info: "Shankhamul, Kathmandu",
             subInfo: "Nepal 44600",
-            link: "#map",
         },
         {
             icon: Clock,
             title: "Business Hours",
             info: "Mon - Fri: 9:00 AM - 6:00 PM",
             subInfo: "Sat: 10:00 AM - 4:00 PM",
-            link: null,
         },
     ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
             {/* Hero Section */}
-            <section
-                className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900"
-            >
-                              {/* Animated Background */}
-        <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-            </div>
-        </div>
+            <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+                {/* Animated Background */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+                    <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                    </div>
+                </div>
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="relative max-w-4xl mx-auto text-center">
                     <FadeUp
@@ -101,10 +100,11 @@ const Contactus = () => {
                             </span>
                         </h1>
                         <div className="py-5">
-                        <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto mb-12 leading-relaxed">
-                            Ready to transform your ideas into reality? Let’s
-                            start a conversation about your next project.
-                        </p>
+                            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto mb-12 leading-relaxed">
+                                Ready to transform your ideas into reality?
+                                Let’s start a conversation about your next
+                                project.
+                            </p>
                         </div>
                         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-sm">
                             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full text-white">
@@ -118,14 +118,12 @@ const Contactus = () => {
                         </div>
                     </FadeUp>
                 </div>
-
             </section>
 
             {/* Contact Info Cards */}
             <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50/30">
                 <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
                     {" "}
-                    {/* Info Cards */}
                     {/* Card content */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
                         {contactInfo.map((item, index) => (
@@ -139,17 +137,35 @@ const Contactus = () => {
                                             {item.title}
                                         </h3>
                                         <p className="text-blue-600 font-medium mb-1">
-                                            {item.link ? (
-                                                <a
-                                                    href={item.link}
-                                                    className="hover:underline"
-                                                >
-                                                    {item.info}
-                                                </a>
+                                            {item.numbers ? (
+                                                <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                                                    {item.numbers.map(
+                                                        (num, i) => (
+                                                            <a
+                                                                key={i}
+                                                                href={`tel:${num.replace(
+                                                                    /-/g,
+                                                                    ""
+                                                                )}`}
+                                                                className="text-blue-600 font-semibold hover:text-blue-800 transition text-sm sm:text-base whitespace-nowrap"
+                                                            >
+                                                                {num}
+                                                                {i !==
+                                                                    item.numbers
+                                                                        .length -
+                                                                        1 &&
+                                                                    ","}
+                                                            </a>
+                                                        )
+                                                    )}
+                                                </div>
                                             ) : (
-                                                item.info
+                                                <span className="text-blue-600 font-medium">
+                                                    {item.info}
+                                                </span>
                                             )}
                                         </p>
+
                                         <p className="text-gray-500 text-sm">
                                             {item.subInfo}
                                         </p>
@@ -167,7 +183,7 @@ const Contactus = () => {
                                 className="relative max-w-4xl mx-auto text-center"
                             >
                                 <div className="mb-6">
-                                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                                    <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-2">
                                         Send us a Message
                                     </h2>
                                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -265,7 +281,7 @@ const Contactus = () => {
                                 className="relative max-w-4xl mx-auto text-center"
                             >
                                 <div className="p-6 sm:p-8 lg:p-10 pb-0">
-                                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                                    <h2 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-2">
                                         Find Our Office
                                     </h2>
                                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">

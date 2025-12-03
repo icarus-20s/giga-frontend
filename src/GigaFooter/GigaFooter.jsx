@@ -69,7 +69,7 @@ const ProfessionalFooter = () => {
     {
       name: "Twitter",
       icon: FaTwitter,
-      href: "https://twitter.com/GigaInfosoft", // Fixed incorrect link
+      href: "https://twitter.com/GigaInfosoft", 
       color: "hover:text-sky-500",
     },
     {

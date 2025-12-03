@@ -16,7 +16,9 @@ import {
     BookOpen,
     Layers,
 } from "lucide-react";
+import home from "../assets/home.avif";
 import { clients } from "../Components/Clients";
+import FadeUp from "../Components/Fadeup";
 
 // ==================== CONSTANTS ====================
 const ANIMATION_CONFIG = {
@@ -42,79 +44,25 @@ const fadeInUp = {
 
 // ==================== DATA ====================
 const STATS_DATA = [
-  {
-    number: "50+",
-    label: "Businesses Powered",
-    icon: Building2,
-  },
-  {
-    number: "4+",
-    label: "Years of Excellence",
-    icon: Award,
-  },
-  {
-    number: "50K+",
-    label: "Active Users Daily",
-    icon: Users,
-  },
-  {
-    number: "40%",
-    label: "Avg. Cost Reduction",
-    icon: TrendingUp,
-  },
-];
-const longTermSolutions = [
     {
-        title: "School Management System",
-        description:
-            "Revolutionize education management with a comprehensive platform that streamlines everything—from centralizing student data to enhancing parent-staff communication.",
-        icon: BookOpen,
-        color: "blue",
-        features: [
-            "Student Lifecycle Management",
-            "Parent-Teacher Portal",
-            "Attendance Tracking",
-            "Report Card Generation",
-        ],
+        number: "300+",
+        label: "Happy Clients",
+        icon: Users, // represents people/clients
     },
     {
-        title: "Accounting System",
-        description:
-            "Experience financial clarity like never before. Simplify bookkeeping, invoicing, payroll, and analytics, enabling businesses to make informed decisions.",
-        icon: TrendingUp,
-        color: "green",
-        features: [
-            "Real-time Reporting",
-            "Invoice Management",
-            "Payroll Processing",
-            "Tax Compliance",
-        ],
+        number: "5+",
+        label: "Years of Excellence",
+        icon: Award, // award icon fits excellence/achievement
     },
     {
-        title: "Inventory & Assets Management",
-        description:
-            "Outsmart inefficiencies with real-time tracking and waste reduction. Designed for dynamic markets to ensure your business stays ahead.",
-        icon: Layers,
-        color: "purple",
-        features: [
-            "Real-time Tracking",
-            "Waste Reduction",
-            "Asset Depreciation",
-            "Smart Alerts",
-        ],
+        number: "200K+",
+        label: "Active Users",
+        icon: Users, // represents active users (slightly different from generic Users)
     },
     {
-        title: "HR Management System",
-        description:
-            "From recruitment to payroll and compliance, we provide the tools you need to build a thriving workforce and improve employee engagement.",
-        icon: Users,
-        color: "orange",
-        features: [
-            "Recruitment Pipeline",
-            "Performance Reviews",
-            "Leave Management",
-            "Employee Self-Service",
-        ],
+        number: "40+",
+        label: "Team Members",
+        icon: Building2, // office/team representation
     },
 ];
 
@@ -198,68 +146,80 @@ const FEATURES_DATA = [
 
 const PRODUCTS_DATA = [
     {
-        name: "Giga School ERP",
-        desc: "Complete educational management system with student tracking, grade management, and parent communication tools",
+        title: "Giga School ERP",
+        description:
+            "A powerful all-in-one platform that fully covers Academic, Financial, HR, and Administrative operations for schools and colleges — ensuring smooth management of students, staff, finances, and daily workflows within a single integrated system.",
+        icon: BookOpen,
+        color: "blue",
+        features: [
+            "Academic",
+            "Financials",
+            "Human Resource",
+            "Administration",
+        ],
+    },
+    {
+        title: "Giga Corporate ERP",
+        description:
+            "A complete ERP solution that seamlessly integrates Accounting, Inventory, HR, Payroll, and CRM modules — enabling businesses to manage finances, operations, workforce, and customer relationships efficiently from a single unified platform.",
+        icon: Layers,
+        color: "green",
+        features: [
+            "Accounting",
+            "Inventory",
+            "Human Resource",
+            "Payroll",
+            "Leave & Attendance",
+            "CRM",
+        ],
+    },
+    {
+        title: "Giga Accounting",
+        description:
+            "A comprehensive accounting system that streamlines Financial Management, Sales and Purchase processes, Inventory control, Pricing, Tax management, and overall business operations — providing accurate insights, smooth transactions, and complete control from a single powerful platform.",
+        icon: TrendingUp,
+        color: "purple",
+        features: [
+            "Financial Management",
+            "Sales and Purchase Process",
+            "Inventory Tracking",
+            "Multi Branch and Multi Warehouse",
+            "Multi Currency",
+        ],
+    },
+    {
+        title: "Giga HR",
+        description:
+            "A complete HR management system that centralizes Personal Information, Leave and Attendance tracking, Payroll processing, Performance Reviews, and workforce operations — ensuring smooth, accurate, and efficient HR workflows across the organization.",
         icon: Users,
+        color: "orange",
         features: [
-            "Student Management",
-            "Grade Tracking",
-            "Parent Portal",
-            "Attendance System",
-        ],
-    },
-    {
-        name: "Giga Accounting",
-        desc: "Advanced financial management with real-time analytics and automated reporting",
-        icon: Award,
-        features: [
-            "Financial Reporting",
-            "Tax Management",
-            "Audit Trails",
-            "Multi-currency",
-        ],
-    },
-    {
-        name: "Giga HRMS",
-        desc: "Complete human resource management with payroll, attendance, and performance tracking",
-        icon: Shield,
-        features: [
-            "Payroll Management",
+            "Personal Information System (PIS)",
+            "Leave and Attendance Tracking",
+            "Payroll Processing",
             "Performance Reviews",
-            "Leave Management",
-            "Recruitment",
-        ],
-    },
-    {
-        name: "Giga IMS",
-        desc: "Smart inventory and procurement system with predictive analytics",
-        icon: Zap,
-        features: [
-            "Stock Tracking",
-            "Supplier Management",
-            "Order Automation",
-            "Analytics",
         ],
     },
 ];
 
 const IMPACT_STATS = [
     {
-        stat: "98%",
-        label: "Client Retention",
+        stat: "Schools & Corporates",
+        label: "Trusted Partners",
         description:
-            "Our partners stay with us because we deliver consistent value",
+            "Trusted by over 200+ schools and 100+ corporates in Nepal, streamlining education and business operations efficiently.",
     },
     {
-        stat: "10x",
-        label: "Faster Operations",
-        description: "Average efficiency gain reported by our clients",
+        stat: "200K+ Users",
+        label: "Seamless Management",
+        description:
+            "Managing over 200k students and employees seamlessly through a single platform.",
     },
     {
-        stat: "Zero",
-        label: "Downtime Critical Systems",
+        stat: "Millions+",
+        label: "Transactions Processed",
         description:
-            "Thanks to our proactive monitoring and robust infrastructure",
+            "Processed millions of transactions including fees, payrolls, and invoices with accuracy and speed.",
     },
 ];
 
@@ -557,7 +517,7 @@ const HowWeWorkSection = () => (
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 blur-3xl -z-10 scale-110" />
 
                     <img
-                        src="src/assets/home.avif"
+                        src={home}
                         className="w-full h-full object-cover"
                         alt="Giga Infosoft Team Collaboration"
                     />
@@ -685,7 +645,7 @@ const FeaturesSection = () => (
         <div className="w-full mx-auto">
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl py-5 font-bold text-blue-800 mb-6">
-                    Core Values
+                    Our Core Values
                 </h2>
             </div>
 
@@ -700,161 +660,101 @@ const FeaturesSection = () => (
 
 const ProductCard = ({ product }) => {
     const IconComponent = product.icon;
+
+    const colorClasses = {
+        blue: {
+            gradient: "from-blue-500 to-blue-600",
+            text: "text-blue-500",
+            border: "hover:border-blue-200",
+        },
+        green: {
+            gradient: "from-green-500 to-green-600",
+            text: "text-green-500",
+            border: "hover:border-green-200",
+        },
+        purple: {
+            gradient: "from-purple-500 to-purple-600",
+            text: "text-purple-500",
+            border: "hover:border-purple-200",
+        },
+        orange: {
+            gradient: "from-orange-500 to-orange-600",
+            text: "text-orange-500",
+            border: "hover:border-orange-200",
+        },
+    };
+
+    const colors = colorClasses[product.color] || colorClasses.blue;
+
     return (
-        <div className="flex flex-col bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl border border-gray-200 transition-transform duration-300 hover:-translate-y-1 w-full max-w-sm">
-            <div className="mb-6 flex justify-center text-5xl sm:text-6xl text-blue-600">
-                <IconComponent size={60} />
+        <div
+            className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 ${colors.border} transform hover:-translate-y-1 h-full flex flex-col py-2 w-full max-w-md mx-auto`}
+        >
+            <div className="p-6 flex-1 flex flex-col items-center">
+                {/* Icon */}
+                <div
+                    className={`w-16 h-16 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center mb-4 shadow-lg`}
+                >
+                    <IconComponent className="w-8 h-8 text-white" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-blue-800 mb-3 text-center py-5">
+                    {product.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 text-center">
+                    {product.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-2 border-t border-gray-100 pt-4 w-full">
+                    {product.features.map((feature, j) => (
+                        <li
+                            key={j}
+                            className="flex items-start gap-2 text-sm text-gray-600"
+                        >
+                            <span className={`${colors.text} mt-0.5 font-bold`}>
+                                ✓
+                            </span>
+                            <span>{feature}</span>
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 text-center">
-                {product.name}
-            </h3>
-            <p className="text-gray-600 mb-6 text-center flex-grow leading-relaxed">
-                {product.desc}
-            </p>
-            <ul className="space-y-2 text-center">
-                {product.features.map((feature, j) => (
-                    <li
-                        key={j}
-                        className="flex items-center justify-center text-sm sm:text-base text-gray-600"
-                    >
-                        <CheckCircle
-                            size={16}
-                            className="text-green-500 mr-2 flex-shrink-0"
-                        />
-                        {feature}
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 };
 
-const ProductsSection = () => (
-    <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInUp}
-        className="py-20 lg:py-28 bg-gradient-to-br from-slate-50 to-blue-50 relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-        <div className="relative w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-            <div className="text-center mb-20 max-w-3xl">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-blue-800 mb-6 leading-tight">
-                    Services We Offer
-                </h2>
-                <p className="py-10 text-lg sm:text-xl text-gray-600">
-                    Accelerate your digital transformation with our proven,
-                    industry-specific software products designed to scale with
-                    your business.
-                </p>
-            </div>
-            <div className="grid gap-10 w-full sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
-                {PRODUCTS_DATA.map((product, i) => (
-                    <ProductCard key={i} product={product} />
-                ))}
-            </div>
-        </div>
-    </motion.section>
-);
-
-const LongTermSolutionsSection = ({ longTermSolutions }) => {
-    const colorMap = {
-        blue: "from-blue-500 to-cyan-500",
-        green: "from-green-500 to-emerald-500",
-        purple: "from-purple-500 to-pink-500",
-        orange: "from-orange-500 to-red-500",
-    };
-
+const ProductsSection = () => {
     return (
-        <section className="py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50">
-            <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header - Perfectly Centered */}
-                <div className="flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-blue-100 rounded-full text-sm font-semibold text-blue-800 mb-6"
-                    >
-                        <Star className="w-5 h-5" />
-                        Long-Term Impact
-                    </motion.div>
-
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4"
-                    >
-                        Long-Term Solutions That Drive Success
-                    </motion.h2>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
-                    >
-                        Our solutions are designed not just to meet immediate
-                        needs but to deliver lasting benefits that drive
-                        sustainable success.
-                    </motion.p>
+        <section className="py-24 px-4 sm:px-6 lg:px-8  bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 ">
+            <div className="w-full mx-auto">
+                {/* Header */}
+                <div className="text-center mb-16 w-full">
+                    <div className="inline-flex items-center px-4 py-1 bg-blue-100 rounded-full text-sm font-semibold text-blue-800 mb-4">
+                        <Star size={16} className="mr-1" /> Long Term Solutions
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-blue-800 mb-4 leading-tight">
+                        Long-Term Solutions That<br />
+                        Drive Success
+                    </h2>
+                    <p className="text-gray-600 text-base sm:text-lg py-5">
+                        Accelerate your digital transformation with our proven,
+                        industry-specific <br /> software products designed to
+                        scale with your business.
+                    </p>
                 </div>
 
-                {/* Cards Grid */}
-                <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
-                    {longTermSolutions.map((solution, index) => {
-                        const Icon = solution.icon;
-                        const gradient =
-                            colorMap[solution.color] || colorMap.blue;
-
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: index * 0.15,
-                                }}
-                                className="group bg-white rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-500 hover:-translate-y-2"
-                            >
-                                <div className="flex items-start gap-5 mb-6">
-                                    <div
-                                        className={`flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}
-                                    >
-                                        <Icon className="w-7 h-7 text-white" />
-                                    </div>
-                                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                                        {solution.title}
-                                    </h3>
-                                </div>
-
-                                <p className="text-gray-600 leading-relaxed mb-8">
-                                    {solution.description}
-                                </p>
-
-                                <div className="space-y-3">
-                                    {solution.features.map((feature, i) => (
-                                        <div
-                                            key={i}
-                                            className="flex items-center gap-3 text-gray-700"
-                                        >
-                                            <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                                            <span className="text-base">
-                                                {feature}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
+                {/* Cards */}
+                <FadeUp>
+                    <div className="grid gap-6 w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 py-2">
+                        {PRODUCTS_DATA.map((product, i) => (
+                            <ProductCard key={i} product={product} />
+                        ))}
+                    </div>
+                </FadeUp>
             </div>
         </section>
     );
@@ -869,13 +769,18 @@ const ImpactStatCard = ({ item, index }) => (
             delay: index * ANIMATION_CONFIG.impactDelay,
             duration: 0.7,
         }}
-        className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all"
+        className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/20 transition-all flex flex-col items-center gap-3 sm:gap-4"
     >
-        <div className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+        {/* Stat */}
+        <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             {item.stat}
         </div>
-        <div className="text-xl font-semibold mb-2">{item.label}</div>
-        <p className="text-blue-200 text-center max-w-xs">{item.description}</p>
+        {/* Label */}
+        <div className="text-lg sm:text-xl font-semibold text-center">{item.label}</div>
+        {/* Description */}
+        <p className="text-sm sm:text-base text-blue-200 text-center max-w-xs leading-relaxed">
+            {item.description}
+        </p>
     </motion.div>
 );
 
@@ -885,35 +790,35 @@ const ImpactSection = () => (
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
-        className="py-24 px-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden"
+        className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden"
     >
         <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
         </div>
         <div className="w-full flex flex-col items-center justify-center text-center">
-            <div className="mb-16">
-                <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-4">
-                    <Star className="w-5 h-5 mr-2" />
-                    <span className="font-semibold text-sm">OUR IMPACT</span>
+            <div className="mb-12 sm:mb-16">
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full mb-4">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                    <span className="font-semibold text-xs sm:text-sm">OUR IMPACT</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">
                     Our Unmatched Impact
                 </h2>
-                <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+                <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto px-4">
                     We measure our success by the tangible results our partners
                     achieve
                 </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8 mb-16 p-10 w-full max-w-7xl text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 w-full max-w-7xl px-4 sm:px-6 lg:px-10 py-10">
                 {IMPACT_STATS.map((item, index) => (
                     <ImpactStatCard key={index} item={item} index={index} />
                 ))}
             </div>
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 text-center shadow-2xl max-w-4xl w-full">
-                <h3 className="text-3xl md:text-4xl font-bold mb-6">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl sm:rounded-3xl p-8 sm:p-10 lg:p-12 text-center shadow-2xl max-w-4xl w-full mx-4 flex flex-col justify-center items-center ">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
                     Let's Build Your Future Together
                 </h3>
-                <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-2xl text-center">
                     If you're looking for solutions that grow with your
                     organization and provide sustained value, Giga Infosoft is
                     here to partner with you.
@@ -922,7 +827,6 @@ const ImpactSection = () => (
         </div>
     </motion.section>
 );
-
 const TestimonialCard = ({ testimonial }) => (
     <div className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-10 max-w-md w-full h-96 flex flex-col justify-between hover:scale-105 transition-transform overflow-hidden">
         <div className="flex justify-center mb-6">
@@ -990,7 +894,7 @@ const TestimonialsSection = () => {
     };
 
     return (
-        <section className="relative py-32 text-white w-full overflow-hidden">
+        <section className="relative py-16 sm:py-24 lg:py-32 text-white w-full overflow-hidden">
             <div
                 className="absolute inset-0"
                 style={{
@@ -1000,16 +904,16 @@ const TestimonialsSection = () => {
                 }}
             />
             <div className="relative w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-                <h2 className="text-5xl font-extrabold text-center mb-10 ">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-8 sm:mb-10">
                     Client Testimonials
                 </h2>
 
-                <div className="flex justify-center gap-6 flex-wrap mb-16 py-10">
+                <div className="flex justify-center gap-3 sm:gap-6 flex-wrap mb-8 sm:mb-12 lg:mb-16 py-4 sm:py-6 lg:py-10">
                     <button
                         onClick={() =>
                             handleCategoryChange(TESTIMONIAL_CATEGORIES.SCHOOL)
                         }
-                        className={`px-8 py-3 rounded-full font-medium transition ${
+                        className={`px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition ${
                             category === TESTIMONIAL_CATEGORIES.SCHOOL
                                 ? "bg-white text-gray-900"
                                 : "bg-white/20 hover:bg-white/30"
@@ -1021,7 +925,7 @@ const TestimonialsSection = () => {
                         onClick={() =>
                             handleCategoryChange(TESTIMONIAL_CATEGORIES.HR)
                         }
-                        className={`px-8 py-3 rounded-full font-medium transition ${
+                        className={`px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition ${
                             category === TESTIMONIAL_CATEGORIES.HR
                                 ? "bg-white text-gray-900"
                                 : "bg-white/20 hover:bg-white/30"
@@ -1031,11 +935,11 @@ const TestimonialsSection = () => {
                     </button>
                 </div>
 
-                <div className="flex justify-center items-stretch gap-8 mt-32 lg:mt-44 w-full flex-wrap">
+                <div className="flex justify-center items-stretch gap-4 sm:gap-6 lg:gap-8 mt-12 sm:mt-20 lg:mt-32 xl:mt-44 w-full flex-wrap">
                     {getVisibleTestimonials().map((testimonial, idx) => (
                         <div
                             key={idx}
-                            className="flex-1 min-w-[250px] max-w-[350px]"
+                            className="flex-1 min-w-[280px] sm:min-w-[300px] max-w-[350px]"
                         >
                             <TestimonialCard testimonial={testimonial} />
                         </div>
@@ -1044,27 +948,26 @@ const TestimonialsSection = () => {
 
                 <button
                     onClick={handlePrevious}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 bg-white/20 hover:bg-white/40 rounded-full text-3xl lg:text-4xl transition backdrop-blur-sm shadow-lg"
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white/20 hover:bg-white/40 rounded-full text-2xl sm:text-3xl lg:text-4xl transition backdrop-blur-sm shadow-lg"
                     aria-label="Previous testimonial"
                 >
                     ←
                 </button>
                 <button
                     onClick={handleNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 bg-white/20 hover:bg-white/40 rounded-full text-3xl lg:text-4xl transition backdrop-blur-sm shadow-lg"
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white/20 hover:bg-white/40 rounded-full text-2xl sm:text-3xl lg:text-4xl transition backdrop-blur-sm shadow-lg"
                     aria-label="Next testimonial"
                 >
                     →
                 </button>
 
-                <p className="text-center mt-8 text-sm text-white/60 sm:hidden">
+                <p className="text-center mt-6 sm:mt-8 text-xs sm:text-sm text-white/60 sm:hidden">
                     Swipe to see more testimonials
                 </p>
             </div>
         </section>
     );
 };
-
 // ==================== MAIN COMPONENT ====================
 const Home = () => {
     return (
@@ -1072,10 +975,9 @@ const Home = () => {
             <HeroSection />
             <StatsSection />
             <HowWeWorkSection />
-            <ProductsSection />
+            <ProductsSection product={PRODUCTS_DATA} />
             <TopClients clients={clients} />
             <FeaturesSection />
-            <LongTermSolutionsSection longTermSolutions={longTermSolutions} />
             <ImpactSection />
             <TestimonialsSection />
         </main>
