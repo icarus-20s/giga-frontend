@@ -6,35 +6,96 @@ import hr3 from "../assets/service/hrms3.jpg";
 const sections = [
   {
     id: 1,
-    title: "Personal Information System (PIS)",
+    title: "Giga HR – Human Resources Management",
     description:
-      "Centralize employee personal data and records for easy access, secure storage, and seamless management across your organization.",
+      "A complete, modern HR solution that automates leave, attendance, employee records, and payroll processing with accuracy and ease.",
     image: hr1,
-    features: ["Employee Records", "Profile Management", "Document Storage"],
   },
   {
     id: 2,
-    title: "Leave and Attendance Tracking",
-    description:
-      "Automate attendance monitoring and leave management to ensure accurate tracking and efficient HR workflows.",
-    image: hr2,
-    features: ["Leave Requests", "Attendance Logs", "Approval Workflows"],
+    title: "Leave Module",
+    description: "Streamlines leave management for compliance and efficiency.",
+    image: hr3,
+    modules: [
+      {
+        name: "Leave Module",
+        features: [
+          "Leave master setup as per organization leave rule: Defines types, entitlements, and policies.",
+          "Leave balance, opening, and closing transfer: Tracks accruals and carryovers.",
+          "Leave encashment calculation: Automates payouts for unused leaves.",
+          "Online leave application and approval to reduce paperwork and effective leave management: Digital workflows with notifications.",
+        ],
+      },
+    ],
   },
   {
     id: 3,
-    title: "Payroll Processing",
-    description:
-      "Simplify payroll calculations, tax deductions, and salary disbursement with complete accuracy and compliance.",
-    image: hr3,
-    features: ["Salary Computation", "Tax & Deductions", "Payment Processing"],
+    title: "Attendance Management",
+    description: "Ensures accurate staff tracking.",
+    image: hr2,
+    modules: [
+      {
+        name: "Attendance Management",
+        features: [
+          "Holiday settings: Calendars with custom holidays.",
+          "Online attendance options are available: Self-marking via app.",
+          "Download attendance logs calculate attendance and generate reports: Integrates with biometrics.",
+          "Generates late coming and early going reports: Flags deviations.",
+          "Synchronizes users for ZKT biometric devices only: Seamless device integration.",
+          "Generate monthly attendance for salary calculation: Links to payroll.",
+          "Generate Various Attendance Reports such as Daily Present, absent and Leave Status, Periodic Attendance Summary, Periodic Overtime Summary, Periodic In/Out Summary, etc: Comprehensive analytics.",
+        ],
+      },
+    ],
   },
   {
     id: 4,
-    title: "Performance Reviews",
-    description:
-      "Manage employee appraisals, track KPIs, and streamline performance evaluations for a productive workforce.",
+    title: "Employee Management Module (PIS)",
+    description: "Centralizes HR data for better management.",
     image: hr3,
-    features: ["KPI Tracking", "Appraisal Management", "Feedback & Reports"],
+    modules: [
+      {
+        name: "Employee Management Module (PIS)",
+        features: [
+          "Personal Information: Basic details like contact, address.",
+          "Service Information: Employment history, positions.",
+          "Other Official Information: IDs, designations.",
+          "Salary Information: Pay scales, increments.",
+          "Recording Pan, No, PF, CIT, Insurance Number, and Bank Account, etc.: Compliance fields.",
+          "Documents Attachment: Uploads for records.",
+          "Record Family Details: Dependents info.",
+          "Previous Employment Details: Work history.",
+          "Record Education Details: Qualifications.",
+          "Job Allocation Details: Assignments.",
+          "Training Details: Certifications.",
+          "Award Details: Recognitions.",
+          "Research and Publications: Academic contributions.",
+          "Medical Details: Health records.",
+        ],
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Payroll",
+    description: "Automates salary processing for accuracy and timeliness.",
+    image: hr1,
+    modules: [
+      {
+        name: "Payroll",
+        features: [
+          "Can create salary titles according to requirements: Custom components like allowances.",
+          "Complete formula based salary titles, so easily customized with any type of organization: Flexible calculations.",
+          "Payment option for monthly, periodic or on demand etc.: Various cycles.",
+          "Can generate any number of payment sheets in a single month: Handles extras.",
+          "Automatic TDS calculation: Tax deductions.",
+          "Manage temporary/ short time period/seasonal employees' salary, TDS & history: Flexible for casual staff.",
+          "Generate salary slip and send slip in email: Digital distribution.",
+          "Other salary reports such as PF, CIT, bank, tax deposit, advance deductions, etc.: Compliance reports.",
+          "Reports based on various cost centers: Segmented insights.",
+        ],
+      },
+    ],
   },
 ];
 
@@ -47,11 +108,14 @@ const GigaHR = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleSections((prev) => ({ ...prev, [entry.target.dataset.id]: true }));
+            setVisibleSections((prev) => ({
+              ...prev,
+              [entry.target.dataset.id]: true,
+            }));
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1, rootMargin: "-50px 0px" }
     );
 
     sectionRefs.current.forEach((ref) => ref && observer.observe(ref));
@@ -59,80 +123,126 @@ const GigaHR = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-      <div className="relative z-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-        {/* Header */}
-        <header
-          className={`text-center mb-16 sm:mb-20 lg:mb-24 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
-            visibleSections["header"] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-          ref={(el) => (sectionRefs.current[0] = el)}
-          data-id="header"
-        >
-          <h1 className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6">
-            Giga HR
-          </h1>
-        </header>
+    <div className="min-h-screen">
+      <main className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        <div className="w-full mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="space-y-32">
+            {sections.map((section, index) => (
+              <section
+                key={section.id}
+                ref={(el) => (sectionRefs.current[index] = el)}
+                data-id={section.id}
+                className={`opacity-0 translate-y-10 transition-all duration-1000 ease-out ${
+                  visibleSections[section.id] ? "opacity-100 translate-y-0" : ""
+                }`}
+              >
+                {/* Header with Image & Text */}
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+                  {/* Text */}
+                  <div className={index % 2 !== 0 ? "lg:order-2" : ""}>
+                    {/* No icon */}
+                    <div className="mb-6">
+                      <span className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300 bg-blue-900/50 rounded-full border border-blue-800">
+                        Module {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
 
-        {/* Sections */}
-        <div className="w-full mx-auto space-y-20 sm:space-y-24 lg:space-y-32">
-          {sections.map((section, index) => (
-            <article
-              key={section.id}
-              data-id={section.id}
-              ref={(el) => (sectionRefs.current[index + 1] = el)}
-              className={`flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16 xl:gap-20 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
-                visibleSections[section.id] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              } ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
-            >
-              {/* Image */}
-              <div className="w-full lg:w-1/2">
-                <div className="py-5 relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <img
-                    src={section.image}
-                    alt={`${section.title} illustration`}
-                    className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover rounded-3xl transform transition-transform duration-500 hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                      {section.title}
+                    </h2>
+                    <p className="text-lg text-slate-200 leading-relaxed">
+                      {section.description}
+                    </p>
+                  </div>
+
+                  {/* Image – Clean */}
+                  <div className={index % 2 !== 0 ? "lg:order-1" : ""}>
+                    <div className="rounded-2xl overflow-hidden border border-slate-700">
+                      <img
+                        src={section.image}
+                        alt={section.title}
+                        className="w-full h-72 lg:h-80 object-cover"
+                        loading="lazy"
+                      />
+                      <div className="p-5 bg-slate-800">
+                        <div>
+                          <p className="text-white font-semibold">{section.title}</p>
+                          <p className="text-white/60 text-sm">
+                            {section.modules ? section.modules.length : 1} module
+                            {section.modules?.length > 1 ? "s" : ""}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Content */}
-              <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 sm:space-y-8">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                  {section.title}
-                </h2>
-                <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  {section.description}
-                </p>
+                {/* Features List – Only when modules exist */}
+                {section.modules && (
+                  <div className="space-y-8 py-10">
+                    {section.modules.map((module, moduleIdx) => (
+                      <div
+                        key={moduleIdx}
+                        className="bg-slate-800/70 rounded-2xl border border-slate-700"
+                      >
+                        <div className="px-8 py-6 bg-slate-800 border-b border-slate-700">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold">
+                              {String(moduleIdx + 1).padStart(2, "0")}
+                            </div>
+                            <div>
+                              <h3 className="text-xl font-bold text-white">{module.name}</h3>
+                              <p className="text-sm text-slate-400">{module.features.length} Features</p>
+                            </div>
+                          </div>
+                        </div>
 
-                {/* Features */}
-                <div className="py-5 flex flex-wrap justify-center lg:justify-start gap-3">
-                  {section.features.map((feature, idx) => (
-                    <span
-                      key={idx}
-                      className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium border border-white/10"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
+                        <div className="p-8">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            {module.features.map((feature, idx) => {
+                              const [title, ...desc] = feature.split(":");
+                              const description = desc.join(":").trim();
+                              return (
+                                <div
+                                  key={idx}
+                                  className="flex gap-4 p-4 rounded-lg bg-slate-800/50 border border-slate-700"
+                                >
+                                  <div className="flex-shrink-0 mt-1">
+                                    <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
+                                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                          fillRule="evenodd"
+                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                          clipRule="evenodd"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <p className="text-sm font-semibold text-white mb-1">
+                                      {title.trim()}
+                                    </p>
+                                    {description && (
+                                      <p className="text-xs text-slate-400 leading-relaxed">
+                                        {description}
+                                      </p>
+                                    )}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
-        <div className="absolute top-1/3 right-20 w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
-      </div>
-      <div className="absolute top-[-100px] left-[-100px] w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-[-120px] right-[-120px] w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-full animate-pulse delay-2000"></div>
-    </section>
+      </main>
+    </div>
   );
 };
 

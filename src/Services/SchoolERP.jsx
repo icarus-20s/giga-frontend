@@ -2,38 +2,256 @@ import React, { useEffect, useRef, useState } from "react";
 import erp1 from "../assets/service/erp1.jpg";
 import erp2 from "../assets/service/erp2.jpg";
 import erp3 from "../assets/service/erp3.jpg";
+import CallToAction from "../Components/CallToAction";
 
 const sections = [
   {
     id: 1,
-    title: "Academic",
+    title: "Academics",
     description:
-      "Manage all academic operations efficiently, including student lifecycle, class management, and examinations, ensuring seamless education management.",
+      "A complete academic ecosystem covering Student Information System, Exam Management, and Learning Management System to digitize and streamline the entire teaching-learning process.",
     image: erp1,
-    features: [
-      "Student Lifecycle Management",
-      "Attendance Tracking",
-      "Report Card Generation",
-      "Parent-Teacher Portal",
+    modules: [
+      {
+        name: "Student Information System (SIS)",
+        features: [
+          "Pre-admission process (Student enquiry, short list, selection): Streamlines initial inquiries by capturing leads, evaluating candidates through customizable criteria, and automating shortlisting and selection notifications to reduce manual effort and speed up admissions.",
+          "Student admission: Facilitates seamless enrollment with digital forms, document uploads, and automated fee calculations, integrating with payment gateways for immediate processing.",
+          "Generate student ID card with QR-Code: Creates customizable ID cards with embedded QR codes for quick scanning, enabling features like attendance tracking or access control.",
+          "Recording student related documents both personal (citizenships, father's mother's details, etc.) and academic certificates (migration, transcripts, character certificates, etc.): Securely stores and organizes documents in a digital repository, with search functionality and access controls to comply with privacy regulations.",
+          "Tracking student attendance (Manual and Device both options available): Supports manual entry or integration with biometric/RFID devices for real-time attendance logging, generating alerts for absences and reports for analysis.",
+          "Send Email/ Notices to Students: Automates personalized or bulk communications for announcements, reminders, or updates, with tracking for delivery and read receipts.",
+          "Student Portal: Provides a self-service dashboard for students to view grades, schedules, assignments, and personal info, promoting independence and engagement.",
+          "Mobile app for students and parents: Offers on-the-go access via Android/iOS apps, including push notifications for real-time updates on attendance, fees, and events.",
+        ],
+      },
+      {
+        name: "Exam Management",
+        features: [
+          "Define grading criteria as per requirement (Can apply different grading system for different program): Allows customization of grading scales (e.g., GPA, percentage) tailored to specific courses or levels, ensuring alignment with educational standards.",
+          "Define ranking criteria as per requirement (Can apply different ranking system for different program): Sets up ranking based on weighted scores, attendance, or extracurriculars, with options for program-specific variations.",
+          "Define exam type / assessment types: Supports diverse assessments like quizzes, finals, or projects, with templates for quick setup.",
+          "Define exam terms: Organizes exams into terms or semesters, with automated scheduling and conflict checks.",
+          "Manage exam weightage: Assigns weights to different components (e.g., theory vs. practical) for accurate overall scoring.",
+          "Create exam schedule: Generates timetables with room allocations, invigilator assignments, and calendar integrations to avoid overlaps.",
+          "Manage exam remarks (General remarks & student specific remarks; both options available): Adds standardized or personalized feedback to results, aiding in student development tracking.",
+          "Manage exam attendance: Tracks presence during exams via manual or device-based methods, linking to eligibility for results.",
+          "Manage thematic evaluation (As per guidelines of CDC For Nursery to 3 Class): Complies with Curriculum Development Centre standards for early grades, evaluating themes like social skills or creativity.",
+          "Grading for extra activities: Incorporates scores from sports, arts, or clubs into overall evaluations for holistic assessment.",
+          "Marks entry and verification (Admin and teacher both options available): Enables secure input by teachers with admin oversight, including double-verification to minimize errors.",
+          "Result calculation & publishing result: Automates computations and publishes results via portal or app, with options for delayed release.",
+          "Print admit card: Generates printable hall tickets with student details, exam info, and barcodes for verification.",
+          "Print report card (Marksheet / gradesheet): Produces customizable reports with graphs, comments, and historical comparisons.",
+          "Custom report card (Report card can be customized as per school requirement): Allows design tweaks like logos, layouts, or additional fields to match school branding.",
+          "Marks / grade ledger: Maintains a comprehensive record of all scores for auditing, progress tracking, or transcripts.",
+        ],
+      },
+      {
+        name: "Learning Management System",
+        features: [
+          "Course creation, allocation and management: Enables admins to build courses, assign teachers, and manage enrollments with prerequisites.",
+          "Course/ subject wise attendance: Logs attendance per class, integrating with overall student records for comprehensive insights.",
+          "Course content & resources: Uploads and organizes materials like PDFs, videos, or links, with version control and access restrictions.",
+          "Assignment and homework management: Creates, distributes, and collects assignments digitally, with deadlines and automated reminders.",
+          "Ranking and grading of assignments: Automates scoring with rubrics, providing feedback and integrating into final grades.",
+          "Lecture notes and course plan: Shares structured plans and notes, allowing updates and student downloads.",
+          "News & announcement: Posts school-wide or class-specific updates, visible on portals and apps.",
+          "Forums and Discussions: Facilitates threaded discussions for Q&A, peer learning, and moderated interactions.",
+          "Live classes (Integrated with Zoom, Google Meet): Schedules and launches virtual sessions seamlessly, recording for later access.",
+        ],
+      },
     ],
   },
   {
     id: 2,
     title: "Financials",
     description:
-      "Streamline financial operations such as fee collection, accounting, and payroll, providing accurate insights and control across your institution.",
+      "End-to-end financial automation with billing, accounting, inventory, and online payment integration for complete transparency and efficiency.",
     image: erp2,
-    features: ["Fee Management", "Accounting & Ledger", "Payroll Processing", "Multi-Currency Support"],
+    modules: [
+      {
+        name: "Billing Management",
+        features: [
+          "Automatic push data to financial accounting: Syncs billing data in real-time to accounting ledgers for unified financial oversight.",
+          "Online payment integration (eSewa, Khalti, Connect IPS): Enables secure digital payments with instant receipts and reconciliation.",
+          "Managing fee titles: Defines various fee categories (e.g., tuition, lab) for organized structuring.",
+          "Creating fee structure for classes / batches: Customizes fees by grade or group, with bulk application.",
+          "Provide discount/ scholarship to students: Applies rule-based discounts or scholarships, tracking eligibility and impacts.",
+          "Apply fine policy: Automates late fees with customizable rates and waivers.",
+          "Create fee invoice and set payment deadlines (in bulk or individual): Generates invoices with due dates, sending via email/SMS.",
+          "Manage bus fees, hostel fees, canteen fees: Handles ancillary charges with separate tracking and integration.",
+          "Record fee receipts: Logs payments with partial options and generates printable receipts.",
+          "Manage advance payments: Tracks prepayments, applying them to future invoices automatically.",
+          "Miscellaneous fee assign and receipt (Copy, pen, pencil, school uniform etc.): Manages ad-hoc charges with inventory links.",
+          "Student wise statement report: Provides detailed transaction histories per student.",
+          "Daily cash collection report: Summarizes daily inflows for cash management.",
+          "Due reports: Lists outstanding fees with aging for follow-up.",
+          "Fee due aging analysis: Analyzes overdue patterns to inform collection strategies.",
+        ],
+      },
+      {
+        name: "Financial Accounting & Inventory",
+        features: [
+          "Managing chart of account (Up to 11 levels): Structures accounts hierarchically for detailed financial categorization.",
+          "Manage customer/ vendor information: Maintains profiles with contact details and transaction histories.",
+          "Manage cost center (Up to 7 dimensions): Tracks expenses across departments, projects, or locations.",
+          "Budget planning and controlling: Sets budgets with variance alerts and real-time monitoring.",
+          "Reconcile bank statements: Automates matching of transactions for accuracy.",
+          "Journal entries: Supports manual adjustments with audit trails.",
+          "Vendors bill entry: Records invoices with approval workflows.",
+          "Payment entries (Tracking bill wise): Processes payments linked to specific bills.",
+          "Receipt entries (Tracking bill wise): Logs inflows with allocations.",
+          "Fiscal year closing: Automates year-end processes with carryovers.",
+          "Check printing: Generates printable checks with security features.",
+          "Customized document numbering: Defines numbering schemes for invoices/receipts.",
+          "Approval workflow: Routes documents for multi-level approvals.",
+          "Profit and loss statement: Generates P&L reports with filters and comparisons.",
+          "Balance sheet: Provides snapshot of assets/liabilities.",
+          "Cash flow: Tracks liquidity with projections.",
+          "Trial balance: Ensures accounting balance.",
+          "Customer/ vendor ledger: Detailed transaction logs.",
+          "General ledger: Comprehensive account summaries.",
+          "Aging report: Analyzes receivables/payables by age.",
+          "Other analytical reports: Custom dashboards for insights.",
+        ],
+      },
+    ],
   },
   {
     id: 3,
-    title: "Human Resource & Administration",
+    title: "Administration",
     description:
-      "Centralize HR and administrative processes including staff records, leave management, and workflow automation to optimize your school's daily operations.",
+      "Centralized administrative tools including Transportation, Library, Communication, and Custom Reports for seamless daily operations.",
     image: erp3,
-    features: ["Staff Management", "Leave & Attendance Tracking", "Workflow Automation", "Reports & Analytics"],
+    modules: [
+      {
+        name: "Transportation Management",
+        features: [
+          "Define route and bus stops: Maps routes with GPS integration for optimization.",
+          "Record vehicle information: Tracks details like registration, capacity, and insurance.",
+          "Record driver information: Manages licenses, contacts, and assignments.",
+          "Record vehicle activities: Logs trips, fuel usage, and incidents.",
+          "Record vehicle maintenance information: Schedules services with reminders and cost tracking.",
+          "Assign students to route: Links students to buses with capacity checks.",
+          "Charge fee to students (Route / location wise): Automates billing based on distance or zone.",
+        ],
+      },
+      {
+        name: "Library Management System",
+        features: [
+          "Define membership type: Sets categories like student, staff with borrowing limits.",
+          "Manage library membership: Handles registrations and renewals.",
+          "Define book category: Organizes books by genre/subject.",
+          "Define issue rule: Sets loan periods, fines, and limits.",
+          "Create book group/ sub group: Hierarchical categorization for browsing.",
+          "Enter book information: Adds details like ISBN, author, with search.",
+          "Manage book circulation (Issue/ Renew/ Return): Automates transactions with notifications.",
+          "Printing barcode/ QR Code: Generates labels for quick scanning.",
+          "Collect fine: Calculates and records overdue penalties.",
+          "Book reservation: Allows holds with waitlists.",
+          "Daily book transaction report: Summarizes activities.",
+          "Book due report: Lists overdue items.",
+          "Book issue report: Tracks borrowing patterns.",
+          "Book count report: Inventory audits.",
+          "Other custom reports: Tailored analytics.",
+        ],
+      },
+      {
+        name: "Communication",
+        features: [
+          "Sending notices to students (In bulk or individuals): Custom messages via portal.",
+          "Push notification through web & mobile apps (In bulk or individuals): Instant alerts on devices.",
+          "Email notification for different activities such as fee due, exam result, exam schedule, book due etc.: Automated triggers for key events.",
+          "SMS notifications (In bulk or individuals): Text-based alerts for urgent info.",
+        ],
+      },
+      {
+        name: "Custom Reports",
+        features: [
+          "User can create custom report as per their requirements: Drag-and-drop builder.",
+          "Can create custom report template (Invoice, receipt, exam report card etc.): Design reusable formats.",
+        ],
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Human Resources",
+    description:
+      "Comprehensive HR suite with employee management, leave, attendance, and payroll automation tailored for educational institutions.",
+    image: erp1,
+    modules: [
+      {
+        name: "Leave Module",
+        features: [
+          "Leave master setup as per organization leave rule: Defines types, entitlements, and policies.",
+          "Leave balance, opening, and closing transfer: Tracks accruals and carryovers.",
+          "Leave encashment calculation: Automates payouts for unused leaves.",
+          "Online leave application and approval to reduce paperwork and effective leave management: Digital workflows with notifications.",
+        ],
+      },
+      {
+        name: "Attendance Management",
+        features: [
+          "Holiday settings: Calendars with custom holidays.",
+          "Online attendance options are available: Self-marking via app.",
+          "Download attendance logs calculate attendance and generate reports: Integrates with biometrics.",
+          "Generates late coming and early going reports: Flags deviations.",
+          "Synchronizes users for ZKT biometric devices only: Seamless device integration.",
+          "Generate monthly attendance for salary calculation: Links to payroll.",
+          "Generate Various Attendance Reports such as Daily Present, absent and Leave Status, Periodic Attendance Summary, Periodic Overtime Summary, Periodic In/Out Summary, etc: Comprehensive analytics.",
+        ],
+      },
+      {
+        name: "Employee Management Module (PIS)",
+        features: [
+          "Personal Information: Basic details like contact, address.",
+          "Service Information: Employment history, positions.",
+          "Other Official Information: IDs, designations.",
+          "Salary Information: Pay scales, increments.",
+          "Recording Pan, No, PF, CIT, Insurance Number, and Bank Account, etc.: Compliance fields.",
+          "Documents Attachment: Uploads for records.",
+          "Record Family Details: Dependents info.",
+          "Previous Employment Details: Work history.",
+          "Record Education Details: Qualifications.",
+          "Job Allocation Details: Assignments.",
+          "Training Details: Certifications.",
+          "Award Details: Recognitions.",
+          "Research and Publications: Academic contributions.",
+          "Medical Details: Health records.",
+        ],
+      },
+      {
+        name: "Payroll",
+        features: [
+          "Can create salary titles according to requirements: Custom components like allowances.",
+          "Complete formula based salary titles, so easily customized with any type of organization: Flexible calculations.",
+          "Payment option for monthly, periodic or on demand etc.: Various cycles.",
+          "Can generate any number of payment sheets in a single month: Handles extras.",
+          "Automatic TDS calculation: Tax deductions.",
+          "Manage temporary/ short time period/seasonal employees' salary, TDS & history: Flexible for casual staff.",
+          "Generate salary slip and send slip in email: Digital distribution.",
+          "Other salary reports such as PF, CIT, bank, tax deposit, advance deductions, etc.: Compliance reports.",
+          "Reports based on various cost centers: Segmented insights.",
+        ],
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Mobile App (Android & iOS)",
+    description:
+      "Role-based mobile applications for Teachers, Students/Guardians, and Admin Staff — bringing the entire system to your fingertips.",
+    image: erp2,
+    icon: "📱",
+    features: [
+      "Mobile App for Teachers: Tools for attendance, grading, and communication.",
+      "Mobile App for Student/ Guardians: Views for progress, payments, and notices.",
+      "Mobile App For Admin Staffs: Oversight for approvals and reports.",
+    ],
   },
 ];
+
 
 const SchoolERP = () => {
   const sectionRefs = useRef([]);
@@ -44,11 +262,14 @@ const SchoolERP = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleSections((prev) => ({ ...prev, [entry.target.dataset.id]: true }));
+            setVisibleSections((prev) => ({
+              ...prev,
+              [entry.target.dataset.id]: true,
+            }));
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1, rootMargin: "-50px 0px" }
     );
 
     sectionRefs.current.forEach((ref) => ref && observer.observe(ref));
@@ -56,80 +277,145 @@ const SchoolERP = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-      <div className="relative z-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-        {/* Header */}
-        <header
-          className={`text-center mb-16 sm:mb-20 lg:mb-24 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
-            visibleSections["header"] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-          ref={(el) => (sectionRefs.current[0] = el)}
-          data-id="header"
-        >
-          <h1 className="py-10 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6">
-            Giga School ERP
-          </h1>
-        </header>
+    <div className="min-h-screen">
+      {/* Main Content */}
+      <main className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        <div className="w-full mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="space-y-32">
+            {sections.map((section, index) => (
+              <section
+                key={section.id}
+                ref={(el) => (sectionRefs.current[index] = el)}
+                data-id={section.id}
+                className={`opacity-0 translate-y-10 transition-all duration-1000 ease-out ${
+                  visibleSections[section.id] ? "opacity-100 translate-y-0" : ""
+                }`}
+              >
+                {/* Section Header */}
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+                  {/* Text */}
+                  <div className={index % 2 !== 0 ? "lg:order-2" : ""}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300 bg-blue-900/50 rounded-full border border-blue-800">
+                        Module {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                      {section.title}
+                    </h2>
+                    <p className="text-lg text-slate-200 leading-relaxed">
+                      {section.description}
+                    </p>
+                  </div>
 
-        {/* Sections */}
-        <div className="w-full mx-auto space-y-20 sm:space-y-24 lg:space-y-32">
-          {sections.map((section, index) => (
-            <article
-              key={section.id}
-              data-id={section.id}
-              ref={(el) => (sectionRefs.current[index + 1] = el)}
-              className={`flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16 xl:gap-20 transition-transform transition-opacity duration-700 ease-out transform-gpu ${
-                visibleSections[section.id] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              } ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
-            >
-              {/* Image */}
-              <div className="w-full lg:w-1/2">
-                <div className="py-5 relative overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <img
-                    src={section.image}
-                    alt={`${section.title} illustration`}
-                    className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover rounded-3xl transform transition-transform duration-500 hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                  {/* Image - Clean, no glow, no blur, no hover scale */}
+                  <div className={index % 2 !== 0 ? "lg:order-1" : ""}>
+                    <div className="rounded-2xl overflow-hidden border border-slate-700">
+                      <img
+                        src={section.image}
+                        alt={section.title}
+                        className="w-full h-72 lg:h-80 object-cover"
+                        loading="lazy"
+                      />
+                      <div className="p-5 bg-slate-800">
+                        <div className="flex items-center gap-3">
+                          <div>
+                            <p className="text-white font-semibold">{section.title}</p>
+                            <p className="text-white/60 text-sm">
+                              {section.modules?.length || 1} Module{section.modules?.length > 1 ? "s" : ""}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Content */}
-              <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 sm:space-y-8">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                  {section.title}
-                </h2>
-                <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  {section.description}
-                </p>
+                {/* Modules */}
+                {section.modules ? (
+                  <div className="space-y-8 py-10">
+                    {section.modules.map((module, moduleIdx) => (
+                      <div
+                        key={moduleIdx}
+                        className="bg-slate-800/70 rounded-2xl border border-slate-700"
+                      >
+                        {/* Module Header */}
+                        <div className="px-8 py-6 bg-slate-800 border-b border-slate-700">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold">
+                              {String(moduleIdx + 1).padStart(2, "0")}
+                            </div>
+                            <div>
+                              <h3 className="text-xl font-bold text-white">{module.name}</h3>
+                              <p className="text-sm text-slate-400">{module.features.length} Features</p>
+                            </div>
+                          </div>
+                        </div>
 
-                {/* Features */}
-                <div className="py-5 flex flex-wrap justify-center lg:justify-start gap-3">
-                  {section.features.map((feature, idx) => (
-                    <span
-                      key={idx}
-                      className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium border border-white/10"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
+                        {/* Features Grid */}
+                        <div className="p-8">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            {module.features.map((feature, idx) => {
+                              const [title, ...descParts] = feature.split(":");
+                              const description = descParts.join(":").trim();
+                              return (
+                                <div
+                                  key={idx}
+                                  className="flex gap-4 p-4 rounded-lg bg-slate-800/50 border border-slate-700"
+                                >
+                                  <div className="flex-shrink-0 mt-1">
+                                    <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
+                                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <p className="text-sm font-semibold text-white mb-1">
+                                      {title.trim()}
+                                    </p>
+                                    {description && (
+                                      <p className="text-xs text-slate-400 leading-relaxed">
+                                        {description}
+                                      </p>
+                                    )}
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  /* Mobile App Section - Clean Cards */
+                  <div className="grid md:grid-cols-3 gap-8 py-5">
+                    {section.features?.map((feature, idx) => {
+                      const [title, description = ""] = feature.split(":");
+                      return (
+                        <div
+                          key={idx}
+                          className="p-6 rounded-xl bg-slate-800/70 border border-slate-700 text-center"
+                        >
+                          <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-blue-600 flex items-center justify-center">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                          </div>
+                          <h4 className="text-lg font-bold text-white mb-2">{title.trim()}</h4>
+                          {description && <p className="text-sm text-slate-400">{description.trim()}</p>}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </section>
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
-        <div className="absolute top-1/3 right-20 w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
-      </div>
-      <div className="absolute top-[-100px] left-[-100px] w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-[-120px] right-[-120px] w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-full animate-pulse delay-2000"></div>
-    </section>
+      </main>
+    </div>
   );
 };
 

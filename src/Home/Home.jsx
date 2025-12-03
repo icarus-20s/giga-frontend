@@ -204,7 +204,7 @@ const PRODUCTS_DATA = [
 
 const IMPACT_STATS = [
     {
-        stat: "Schools & Corporates",
+        stat: "300+ Clients",
         label: "Trusted Partners",
         description:
             "Trusted by over 200+ schools and 100+ corporates in Nepal, streamlining education and business operations efficiently.",
@@ -216,7 +216,7 @@ const IMPACT_STATS = [
             "Managing over 200k students and employees seamlessly through a single platform.",
     },
     {
-        stat: "Millions+",
+        stat: "10M+ Transactions",
         label: "Transactions Processed",
         description:
             "Processed millions of transactions including fees, payrolls, and invoices with accuracy and speed.",
@@ -323,7 +323,7 @@ const HeroSection = () => (
                     <div className="space-y-4">
                         <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 rounded-full text-sm font-medium text-blue-300 border border-blue-500/30">
                             <Zap size={16} className="mr-2" />
-                            Trusted by 150+ Companies
+                            Trusted by 300+ Companies
                         </div>
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                             Smarter Systems for{" "}
@@ -418,7 +418,7 @@ const HowWeWorkSection = () => (
             <div className="text-center mb-20 w-full">
                 <div className="inline-flex items-center px-5 py-2 bg-blue-100 rounded-full text-sm font-semibold text-blue-800 mb-6">
                     <Award size={18} className="mr-2" />
-                    Industry Leader Since 2022
+                    Industry Leader Since 2000
                 </div>
 
                 <h2 className="text-4xl md:text-5xl  font-extrabold text-blue-800 mb-6">

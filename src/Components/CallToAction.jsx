@@ -7,7 +7,7 @@ const CallToAction = () => {
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] bg-blue-700/30 rounded-full blur-3xl animate-blob"></div>
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-600/30 rounded-full blur-2xl animate-blob animation-delay-2000"></div>
 
-<div className="relative w-full flex flex-col lg:flex-row items-center justify-between gap-10 bg-white/10 backdrop-blur-md rounded-3xl p-10 sm:p-16 shadow-xl">
+<div className="relative w-full flex flex-col lg:flex-row items-center justify-between gap-10 bg-gray-900  p-10 sm:p-16 text-gray-100 shadow-2xl">
         {/* Text Content */}
         <div className="text-center lg:text-left lg:max-w-lg space-y-6">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">

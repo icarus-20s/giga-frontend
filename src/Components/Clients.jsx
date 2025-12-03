@@ -128,7 +128,7 @@ return ( <section className="w-full relative py-24 lg:py-32 overflow-hidden bg-g
   {/* Trust Counter */}
   <div className="w-full flex flex-col items-center justify-center mt-12 text-center py-15">
     <p className="text-2xl sm:text-3xl font-bold text-white">
-      {clients.length}+ <span className="text-cyan-300">Institutions</span> Trust Giga ERP
+      300+ <span className="text-cyan-300">Institutions</span> Trust Giga ERP
     </p>
     <div className="flex items-center justify-center gap-4 mt-4">
       <span className="h-px w-16 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
