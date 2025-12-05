@@ -418,7 +418,7 @@ const HowWeWorkSection = () => (
             <div className="text-center mb-20 w-full">
                 <div className="inline-flex items-center px-5 py-2 bg-blue-100 rounded-full text-sm font-semibold text-blue-800 mb-6">
                     <Award size={18} className="mr-2" />
-                    Industry Leader Since 2000
+                    Industry Leader Since 2020
                 </div>
 
                 <h2 className="text-4xl md:text-5xl  font-extrabold text-blue-800 mb-6">
