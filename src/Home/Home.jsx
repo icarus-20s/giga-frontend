@@ -223,41 +223,44 @@ const IMPACT_STATS = [
     },
 ];
 
+
+ 
+
 const SCHOOL_ERP_TESTIMONIALS = [
     {
         school: "Ace Institute of Management",
         text: "Giga School ERP has made our fee and examination management effortless. Students can now pay fees online without any hassle, and the exam form application system has made the entire exam process smoother and more transparent. It's been a great upgrade for both students and staff.",
         author: "NB Chhetri",
         role: "IT Officer",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
     {
         school: "Uniglobe College",
         text: "We use Giga ERP for internal and external examinations, LMS, attendance, and even fee management. The system keeps everything connected—teachers upload assignments, students track attendance, and our admin team manages staff attendance and payroll, all in one place.",
         author: "Bishal Bist",
         role: "IT Engineer",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
     {
         school: "LRI School",
         text: "Our school uses almost every feature of Giga School ERP. From student admission to examination, library, payroll, and attendance—it has unified our operations. It's reliable, easy to use, and fits perfectly with our daily workflow.",
         author: "Deepak Joshi",
         role: "Chief Admin Officer",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
     {
         school: "Gorkha School",
         text: "We rely on Giga School ERP for every part of our school operation. It keeps our academic, financial, and HR departments in sync. The support team is excellent, and the system keeps improving every year.",
         author: "K. Lama",
         role: "Principal",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
     {
         school: "DAV School",
         text: "Giga ERP has simplified our fees and billing process. Parents can view due amounts and make payments on time, while our finance team saves hours of manual work. It's efficient and very dependable.",
         author: "M. Singh",
         role: "Finance Officer",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
 ];
 
@@ -267,21 +270,21 @@ const HR_TESTIMONIALS = [
         text: "Giga HR has made payroll and HR management simple and fast. We can now process salaries, manage leaves, and track employee records without the usual paperwork. It's accurate and saves a lot of time.",
         author: "Roshan Dahal",
         role: "General Manager",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
     {
         company: "Birat Secuforce Pvt. Ltd.",
         text: "With Giga ERP, we handle accounting, inventory, HR, payroll, and attendance in one integrated system. It's helped us maintain better control over our operations and made reporting much easier.",
         author: "Sudarshan Chaulagain",
         role: "Managing Director",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
     {
         company: "Prabhu Group",
         text: "We use Giga HR for inventory, payroll, attendance, and HR management across multiple branches. The centralized system keeps everything transparent and accessible. It's a powerful solution for a growing organization like ours.",
         author: "Nirmala Chaulagain",
         role: "HR Head",
-        photo: "src/assets/demo.avif",
+        photo: "",
     },
 ];
 
@@ -729,27 +732,34 @@ const ProductCard = ({ product }) => {
 
 const ProductsSection = () => {
     return (
-        <section className="py-24 px-4 sm:px-6 lg:px-8  bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 ">
+        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
             <div className="w-full mx-auto">
+
                 {/* Header */}
                 <div className="text-center mb-16 w-full">
                     <div className="inline-flex items-center px-4 py-1 bg-blue-100 rounded-full text-sm font-semibold text-blue-800 mb-4">
                         <Star size={16} className="mr-1" /> Long Term Solutions
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-blue-800 mb-4 leading-tight">
-                        Long-Term Solutions That<br />
-                        Drive Success
+                        Long-Term Solutions That <br /> Drive Success
                     </h2>
                     <p className="text-gray-600 text-base sm:text-lg py-5">
-                        Accelerate your digital transformation with our proven,
-                        industry-specific <br /> software products designed to
-                        scale with your business.
+                        Accelerate your digital transformation with our proven, industry-specific <br />
+                        software products designed to scale with your business.
                     </p>
                 </div>
 
-                {/* Cards */}
+                {/* Cards — more responsive, no spacing or design changed */}
                 <FadeUp>
-                    <div className="grid gap-6 w-full sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 py-2">
+                    <div className="
+                        grid gap-6 w-full
+                        grid-cols-1 
+                        sm:grid-cols-2 
+                        md:grid-cols-2 
+                        lg:grid-cols-3 
+                        xl:grid-cols-4
+                        place-items-center
+                    ">
                         {PRODUCTS_DATA.map((product, i) => (
                             <ProductCard key={i} product={product} />
                         ))}
@@ -776,7 +786,9 @@ const ImpactStatCard = ({ item, index }) => (
             {item.stat}
         </div>
         {/* Label */}
-        <div className="text-lg sm:text-xl font-semibold text-center">{item.label}</div>
+        <div className="text-lg sm:text-xl font-semibold text-center">
+            {item.label}
+        </div>
         {/* Description */}
         <p className="text-sm sm:text-base text-blue-200 text-center max-w-xs leading-relaxed">
             {item.description}
@@ -799,7 +811,9 @@ const ImpactSection = () => (
             <div className="mb-12 sm:mb-16">
                 <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full mb-4">
                     <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    <span className="font-semibold text-xs sm:text-sm">OUR IMPACT</span>
+                    <span className="font-semibold text-xs sm:text-sm">
+                        OUR IMPACT
+                    </span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">
                     Our Unmatched Impact
@@ -827,24 +841,26 @@ const ImpactSection = () => (
         </div>
     </motion.section>
 );
+
+const DEFAULT_AVATAR = "https://i.ibb.co/MBtjqXQ/user-placeholder.png";
+
 const TestimonialCard = ({ testimonial }) => (
-    <div className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-10 max-w-md w-full h-96 flex flex-col justify-between hover:scale-105 transition-transform overflow-hidden">
+    <div className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-10 w-full h-96 flex flex-col justify-between hover:scale-105 transition-transform overflow-hidden">
+        
         <div className="flex justify-center mb-6">
             <img
-                src={
-                    testimonial.photo ||
-                    `https://ui-avatars.com/api/?name=${encodeURIComponent(
-                        testimonial.author
-                    )}&background=fff&color=6366f1`
-                }
+                src={testimonial.photo || DEFAULT_AVATAR}
+                onError={(e) => (e.currentTarget.src = DEFAULT_AVATAR)}
                 alt={testimonial.author}
                 className="w-20 h-20 rounded-full object-cover border-4 border-white/30 shadow-xl"
             />
         </div>
-        <blockquote className="text-xl text-center italic flex-1 overflow-y-auto px-4 scrollbar-thin scrollbar-thumb-white/30">
+
+        <blockquote className="py-5 text-xl text-center italic flex-1 overflow-y-auto px-3 scrollbar-thin scrollbar-thumb-white/30">
             "{testimonial.text}"
         </blockquote>
-        <div className="text-center mt-6 space-y-1">
+
+        <div className="text-center mt-5 space-y-1">
             <h4 className="font-bold text-lg">{testimonial.author}</h4>
             <p className="text-sm text-blue-200">{testimonial.role}</p>
             <p className="text-white/80 italic">
@@ -854,122 +870,162 @@ const TestimonialCard = ({ testimonial }) => (
     </div>
 );
 
+
 const TestimonialsSection = () => {
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
+    const [current, setCurrent] = useState(0);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [category, setCategory] = useState(TESTIMONIAL_CATEGORIES.SCHOOL);
+
     const activeList =
         category === TESTIMONIAL_CATEGORIES.SCHOOL
             ? SCHOOL_ERP_TESTIMONIALS
             : HR_TESTIMONIALS;
 
+    // Detect resizing for proper responsiveness
+    useEffect(() => {
+        const handleResize = () => setScreenWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // Auto-rotate every few seconds
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentTestimonial((prev) => (prev + 1) % activeList.length);
+            setCurrent((prev) => (prev + 1) % activeList.length);
         }, ANIMATION_CONFIG.testimonialInterval);
+
         return () => clearInterval(interval);
-    }, [activeList.length]);
+    }, [activeList]);
 
-    const handleCategoryChange = (newCategory) => {
-        setCategory(newCategory);
-        setCurrentTestimonial(0);
-    };
+    const visibleCount = screenWidth >= 1024 ? 3 : screenWidth >= 640 ? 2 : 1;
 
-    const handlePrevious = () => {
-        setCurrentTestimonial(
-            (prev) => (prev - 1 + activeList.length) % activeList.length
-        );
-    };
+    // Which testimonials are visible
+    const visibleTestimonials = Array.from(
+        { length: visibleCount },
+        (_, i) => activeList[(current + i) % activeList.length]
+    );
 
-    const handleNext = () => {
-        setCurrentTestimonial((prev) => (prev + 1) % activeList.length);
-    };
-
-    const getVisibleTestimonials = () => {
-        const visibleCount =
-            window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-        return Array.from(
-            { length: visibleCount },
-            (_, i) => activeList[(currentTestimonial + i) % activeList.length]
-        );
+    const switchType = (type) => {
+        setCategory(type);
+        setCurrent(0);
     };
 
     return (
-        <section className="relative py-16 sm:py-24 lg:py-32 text-white w-full overflow-hidden">
+        <section className="relative py-16 sm:py-24 lg:py-32 text-white w-full overflow-x-hidden">
+
+            {/* BG Layer */}
             <div
                 className="absolute inset-0"
                 style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(59,130,246,0.9), rgba(147,51,234,0.9)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f')`,
+                    backgroundImage: `linear-gradient(135deg, rgba(59,130,246,.9), rgba(147,51,234,.9)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
             />
-            <div className="relative w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-8 sm:mb-10">
+
+
+            <div className="relative px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-10">
                     Client Testimonials
                 </h2>
 
-                <div className="flex justify-center gap-3 sm:gap-6 flex-wrap mb-8 sm:mb-12 lg:mb-16 py-4 sm:py-6 lg:py-10">
+                {/* CATEGORY SWITCH */}
+                <div className="flex gap-4 sm:gap-6 flex-wrap mb-14 py-10">
                     <button
-                        onClick={() =>
-                            handleCategoryChange(TESTIMONIAL_CATEGORIES.SCHOOL)
-                        }
-                        className={`px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition ${
+                        onClick={() => switchType(TESTIMONIAL_CATEGORIES.SCHOOL)}
+                        className={`px-6 py-2 rounded-full text-sm sm:text-base transition ${
                             category === TESTIMONIAL_CATEGORIES.SCHOOL
                                 ? "bg-white text-gray-900"
-                                : "bg-white/20 hover:bg-white/30"
+                                : "bg-white/30 hover:bg-white/40"
                         }`}
                     >
                         School ERP
                     </button>
+
                     <button
-                        onClick={() =>
-                            handleCategoryChange(TESTIMONIAL_CATEGORIES.HR)
-                        }
-                        className={`px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition ${
+                        onClick={() => switchType(TESTIMONIAL_CATEGORIES.HR)}
+                        className={`px-6 py-2 rounded-full text-sm sm:text-base transition ${
                             category === TESTIMONIAL_CATEGORIES.HR
                                 ? "bg-white text-gray-900"
-                                : "bg-white/20 hover:bg-white/30"
+                                : "bg-white/30 hover:bg-white/40"
                         }`}
                     >
                         HR & Corporate
                     </button>
                 </div>
 
-                <div className="flex justify-center items-stretch gap-4 sm:gap-6 lg:gap-8 mt-12 sm:mt-20 lg:mt-32 xl:mt-44 w-full flex-wrap">
-                    {getVisibleTestimonials().map((testimonial, idx) => (
+
+                {/* RESPONSIVE CARDS — SWIPE ON MOBILE */}
+                <div className="flex justify-center gap-5 sm:gap-6 lg:gap-8 w-full flex-wrap sm:flex-nowrap overflow-x-auto snap-x sm:snap-none scrollbar-none">
+                    {visibleTestimonials.map((t, i) => (
                         <div
-                            key={idx}
-                            className="flex-1 min-w-[280px] sm:min-w-[300px] max-w-[350px]"
+                            key={i}
+                            className="flex-shrink-0 snap-center min-w-[85%] sm:min-w-[300px] lg:min-w-[350px] max-w-[380px]"
                         >
-                            <TestimonialCard testimonial={testimonial} />
+                            <TestimonialCard testimonial={t} />
                         </div>
                     ))}
                 </div>
 
-                <button
-                    onClick={handlePrevious}
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white/20 hover:bg-white/40 rounded-full text-2xl sm:text-3xl lg:text-4xl transition backdrop-blur-sm shadow-lg"
-                    aria-label="Previous testimonial"
-                >
-                    ←
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white/20 hover:bg-white/40 rounded-full text-2xl sm:text-3xl lg:text-4xl transition backdrop-blur-sm shadow-lg"
-                    aria-label="Next testimonial"
-                >
-                    →
-                </button>
 
-                <p className="text-center mt-6 sm:mt-8 text-xs sm:text-sm text-white/60 sm:hidden">
-                    Swipe to see more testimonials
-                </p>
+{/* NAVIGATION - Beautiful Glass Arrows */}
+<div className="flex items-center gap-4 mt-10 sm:mt-14 py-5">
+
+    {/* Previous */}
+    <button
+        onClick={() => setCurrent((prev) => (prev - 1 + activeList.length) % activeList.length)}
+        className="hidden sm:flex items-center justify-center 
+                   w-12 h-12 lg:w-14 lg:h-14 
+                   rounded-full 
+                   bg-white/15 hover:bg-white/25 
+                   backdrop-blur-md shadow-xl
+                   transition transform hover:scale-110 active:scale-95"
+        aria-label="Previous"
+    >
+        <span className="text-2xl font-bold">‹</span>
+    </button>
+
+    {/* Slider dots - visible in all screens */}
+    <div className="flex gap-2 items-center">
+        {activeList.map((_, i) => (
+            <div
+                key={i}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300
+                    ${i === current ? "bg-white scale-125" : "bg-white/40"}`}
+            />
+        ))}
+    </div>
+
+    {/* Next */}
+    <button
+        onClick={() => setCurrent((prev) => (prev + 1) % activeList.length)}
+        className="hidden sm:flex items-center justify-center 
+                   w-12 h-12 lg:w-14 lg:h-14 
+                   rounded-full 
+                   bg-white/15 hover:bg-white/25
+                   backdrop-blur-md shadow-xl
+                   transition transform hover:scale-110 active:scale-95"
+        aria-label="Next"
+    >
+        <span className="text-2xl font-bold">›</span>
+    </button>
+</div>
+
+{/* Mobile swipe hint — better UI */}
+<p className="text-center mt-4 sm:hidden text-[13px] text-white/70">
+    Swipe left or right ✦
+</p>
+
             </div>
         </section>
     );
 };
+
+
 // ==================== MAIN COMPONENT ====================
 const Home = () => {
+
     return (
         <main className="min-h-screen bg-white">
             <HeroSection />

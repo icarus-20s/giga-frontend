@@ -34,10 +34,10 @@ const Contactus = () => {
                 subject: "",
                 message: "",
             });
-            alert("✅ Thank you! Your message has been sent successfully.");
+            alert("Thank you! Your message has been sent successfully.");
         } catch (error) {
             console.error("❌ Failed to send message:", error);
-            alert("❌ Something went wrong. Please try again later.");
+            alert("Something went wrong. Please try again later.");
         } finally {
             setIsSubmitting(false);
         }

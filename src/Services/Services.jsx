@@ -15,7 +15,12 @@ const services = [
             "A powerful all-in-one platform that fully covers Academic, Financial, HR, and Administrative operations for schools and colleges, ensuring smooth management of students, staff, finances, and daily workflows within a single integrated system.",
         path: "/services/school-erp",
         image: erp,
-        features: ["Academic", "Financials", "Human Resource", "Administration"],
+        features: [
+            "Academic",
+            "Financials",
+            "Human Resource",
+            "Administration",
+        ],
     },
     {
         id: 2,
@@ -118,85 +123,86 @@ const Services = () => {
 
                 {/* Services Grid */}
                 <div className="w-full mx-auto py-5">
-                  {services.map((service, index) => (
-    <article
-        key={service.id}
-        data-id={service.id}
-        ref={(el) => (refs.current[index] = el)}
-        className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 xl:gap-24 mb-32 lg:mb-40 last:mb-0 transition-all duration-700 ease-out ${
-            visibleIds.includes(service.id)
-                ? "translate-y-0 opacity-100"
-                : "translate-y-16 opacity-0"
-        } ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
-    >
-        {/* Image Section */}
-        <div className="w-full lg:w-1/2">
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500">
-                <img
-                    src={service.image}
-                    alt={`${service.title} illustration`}
-                    className="w-full h-72 sm:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-3xl"
-                    loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-3xl pointer-events-none"></div>
-            </div>
-        </div>
+                    {services.map((service, index) => (
+                        <article
+                            key={service.id}
+                            data-id={service.id}
+                            ref={(el) => (refs.current[index] = el)}
+                            className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 xl:gap-24 mb-32 lg:mb-40 last:mb-0 transition-all duration-700 ease-out ${
+                                visibleIds.includes(service.id)
+                                    ? "translate-y-0 opacity-100"
+                                    : "translate-y-16 opacity-0"
+                            } ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""}`}
+                        >
+                            {/* Image Section */}
+                            <div className="w-full lg:w-1/2 py-7">
+                                <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500">
+                                    <img
+                                        src={service.image}
+                                        alt={`${service.title} illustration`}
+                                        className="w-full h-72 sm:h-80 lg:h-96 xl:h-[28rem] object-cover rounded-3xl"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-3xl pointer-events-none"></div>
+                                </div>
+                            </div>
 
-        {/* Content Section */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left space-y-8">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500 bg-clip-text text-transparent">
-                    {service.title}
-                </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                {service.description}
-            </p>
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                {service.features.map((feature, idx) => (
-                    <span
-                        key={idx}
-                        className="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium border border-white/20"
-                    >
-                        {feature}
-                    </span>
-                ))}
-            </div>
+                            {/* Content Section */}
+                            <div className="w-full lg:w-1/2 text-center lg:text-left space-y-8">
+                                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                                    <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500 bg-clip-text text-transparent">
+                                        {service.title}
+                                    </span>
+                                </h2>
+                                <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                                    {service.description}
+                                </p>
+                                <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                                    {service.features.map((feature, idx) => (
+                                        <span
+                                            key={idx}
+                                            className="px-5 py-3 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium border border-white/20"
+                                        >
+                                            {feature}
+                                        </span>
+                                    ))}
+                                </div>
 
-{/* Custom Buttons for Giga School ERP */}
-{service.title === "Giga School ERP" && (
-    <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-        <a
-            href="https://gigademo.gigaschoolerp.com/auth/login?ReturnUrl=%2F"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 text-blue-400 font-semibold text-lg hover:text-cyan-300 transition-colors duration-300"
-        >
-            See Demo <span className="text-xl">→</span>
-        </a>
-        <Link
-            to={service.path}
-            className="inline-flex items-center gap-3 text-blue-400 font-semibold text-lg hover:text-cyan-300 transition-colors duration-300"
-        >
-            Learn More <span className="text-xl">→</span>
-        </Link>
-    </div>
-)}
+                                {/* Custom Buttons for Giga School ERP */}
+                                {service.title === "Giga School ERP" && (
+                                    <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                                        <a
+                                            href="https://gigademo.gigaschoolerp.com/auth/login?ReturnUrl=%2F"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-3 text-blue-400 font-semibold text-lg hover:text-cyan-300 transition-colors duration-300"
+                                        >
+                                            See Demo{" "}
+                                            <span className="text-xl">→</span>
+                                        </a>
+                                        <Link
+                                            to={service.path}
+                                            className="py-3 inline-flex items-center gap-3 text-blue-400 font-semibold text-lg hover:text-cyan-300 transition-colors duration-300"
+                                        >
+                                            Learn More{" "}
+                                            <span className="text-xl">→</span>
+                                        </Link>
+                                    </div>
+                                )}
 
-{/* Other services */}
-{service.title !== "Giga School ERP" && (
-    <Link
-        to={service.path}
-        className="inline-flex items-center gap-3 text-blue-400 font-semibold text-lg hover:text-cyan-300 transition-colors duration-300"
-    >
-        Learn More <span className="text-xl">→</span>
-    </Link>
-)}
-
-        </div>
-    </article>
-))}
-
+                                {/* Other services */}
+                                {service.title !== "Giga School ERP" && (
+                                    <Link
+                                        to={service.path}
+                                        className="py-3 inline-flex items-center gap-3 text-blue-400 font-semibold text-lg hover:text-cyan-300 transition-colors duration-300"
+                                    >
+                                        Learn More{" "}
+                                        <span className="text-xl">→</span>
+                                    </Link>
+                                )}
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
 

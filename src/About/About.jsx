@@ -407,19 +407,19 @@ const WhatSetsUsApartSection = ({ items, isVisible }) => (
 // ==================== TEAM SECTION ====================
 const TeamCard = ({ member, delay, isVisible }) => (
     <div
-        className={`transform transition-all duration-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
-        style={{ transitionDelay: `${delay * 120}ms` }}
+    className={`transform transition-all duration-700 ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+    }`}
+    style={{ transitionDelay: `${delay * 120}ms` }}
     >
         <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100">
             {/* Photo */}
             <div className="relative w-full h-72 overflow-hidden rounded-t-3xl">
                 <img
-                    src={member.photo}
+                    src={member.photo || "https://i.ibb.co/MBtjqXQ/user-placeholder.png"}
                     alt={member.name}
                     className="w-full h-full object-cover"
-                />
+                    />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             </div>
 
@@ -436,6 +436,7 @@ const TeamCard = ({ member, delay, isVisible }) => (
                         {member.description}
                     </p>
                 )}
+
             </div>
         </div>
     </div>
@@ -506,7 +507,6 @@ const TeamSection = ({ teamMembers, isVisible }) => {
 // ==================== MAIN COMPONENT ====================
 const About = () => {
     const [isVisible, setIsVisible] = useState({});
-
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -600,70 +600,70 @@ const About = () => {
         {
             name: "Mr. Govinda Pandey",
             position: "Managing Director",
-            photo: "https://randomuser.me/api/portraits/men/11.jpg",
+            photo: "",
             description: "20+ years of experience in educational technology.",
         },
         {
             name: "Mr. Keshav Gautam",
             position: "Chief Executive Officer (CEO)",
-            photo: "https://randomuser.me/api/portraits/men/22.jpg",
+            photo: "",
             description:
                 "15+ years of experience in ERP and educational technology.",
         },
         {
             name: "Mr. Suman Paudyal",
             position: "Chief Technology Officer (CTO)",
-            photo: "https://randomuser.me/api/portraits/men/33.jpg",
+            photo: suman,
             description: "10+ years of experience in software development.",
         },
         {
             name: "Mr. Santosh Pandey",
             position: "Chief Operation Officer (COO)",
-            photo: "https://randomuser.me/api/portraits/men/44.jpg",
+            photo: santosh,
             description:
                 "10+ years of experience in finance and operation management.",
         },
         {
             name: "Mr. Saurav Bhattarai",
             position: "Chief Implementation Officer (CIO)",
-            photo: "https://randomuser.me/api/portraits/men/55.jpg",
+            photo: saurav,
             description: "8+ years of experience in system implementation.",
         },
         {
             name: "Mr. Ishwor Pandey",
             position: "Chief Customer Relationship Officer (CRO)",
-            photo: "https://randomuser.me/api/portraits/men/66.jpg",
+            photo: "",
             description:
                 "10+ years of experience in system implementation and customer relation.",
         },
         {
             name: "Mr. Gaurav Bhusal",
             position: "Senior Developer",
-            photo: "https://randomuser.me/api/portraits/men/77.jpg",
+            photo: "",
             description: "8+ years of experience in software development.",
         },
         {
             name: "Mr. Yogesh Sapkota",
             position: "Senior Developer",
-            photo: "https://randomuser.me/api/portraits/men/88.jpg",
+            photo: yogesh,
             description: "7+ years of experience in software development.",
         },
         {
             name: "Mr. Shandip Sharma",
             position: "Software Developer",
-            photo: "https://randomuser.me/api/portraits/men/99.jpg",
+            photo: "",
             description: "4+ years of experience in software development.",
         },
         {
             name: "Mr. Ravi Sapkota",
             position: "Software Implementation Officer",
-            photo: "https://randomuser.me/api/portraits/men/12.jpg",
+            photo: "",
             description: "3+ years of experience in software implementation.",
         },
         {
             name: "Ms. Manisha Adhikari",
             position: "Office Assistant",
-            photo: "https://randomuser.me/api/portraits/women/45.jpg",
+            photo: "",
             description: "",
         },
     ];
