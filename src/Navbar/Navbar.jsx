@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom"; // ← Added useLocation
+import React, { useState, useEffect, useRef } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../Components/Context/AuthContextProvider";
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const location = useLocation(); // ← This tracks current route
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+    const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const auth = useAuth();
 
-    // Sync active item with current URL (even on reload)
     const currentPath = location.pathname;
 
     useEffect(() => {
@@ -24,6 +26,17 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsAboutDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
     const navItems = [
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },
@@ -31,12 +44,19 @@ const Navbar = () => {
         { name: "Career", path: "/career" },
         { name: "Clients", path: "/clients" },
         { name: "Notices", path: "/notices" },
-        { name: "About", path: "/about" },
+        { name: "About", path: "/about", hasDropdown: true },
         { name: "Contact Us", path: "/contactus" },
+    ];
+
+    const aboutDropdownItems = [
+        { name: "About", path: "/about" },
+        { name: "Privacy Policy", path: "/privacy-policy" },
     ];
 
     const handleNavClick = (path) => {
         setIsOpen(false);
+        setIsAboutDropdownOpen(false);
+        setIsMobileAboutOpen(false);
         navigate(path);
     };
 
@@ -46,12 +66,15 @@ const Navbar = () => {
         setIsOpen(false);
     };
 
-    // Check if current path matches (supports exact match)
     const isActive = (path) => {
         if (path === "/") {
             return currentPath === "/";
         }
         return currentPath.startsWith(path);
+    };
+
+    const isAboutSectionActive = () => {
+        return currentPath === "/about" || currentPath === "/privacy-policy";
     };
 
     return (
@@ -85,43 +108,100 @@ const Navbar = () => {
 
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center space-x-1">
-                            {navItems.map((item) => (
-                                <a
-                                    key={item.name}
-                                    href={item.path}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        handleNavClick(item.path);
-                                    }}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative group ${
-                                        isActive(item.path)
-                                            ? isScrolled
-                                                ? "text-blue-600"
-                                                : "text-blue-300"
-                                            : isScrolled
-                                            ? "text-gray-700 hover:text-blue-600"
-                                            : "text-white hover:text-blue-300"
-                                    }`}
-                                >
-                                    {item.name}
-                                    {isActive(item.path) && (
+                            {navItems.map((item) => {
+                                if (item.hasDropdown) {
+                                    return (
                                         <div
-                                            className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-[2px] rounded-full ${
+                                            key={item.name}
+                                            className="relative"
+                                            ref={dropdownRef}
+                                        >
+                                            <button
+                                                onClick={() =>
+                                                    setIsAboutDropdownOpen(!isAboutDropdownOpen)
+                                                }
+                                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative group flex items-center gap-1 ${
+                                                    isAboutSectionActive()
+                                                        ? isScrolled
+                                                            ? "text-blue-600"
+                                                            : "text-blue-300"
+                                                        : isScrolled
+                                                        ? "text-gray-700 hover:text-blue-600"
+                                                        : "text-white hover:text-blue-300"
+                                                }`}
+                                            >
+                                                {item.name}
+                                                <ChevronDown
+                                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                                        isAboutDropdownOpen ? "rotate-180" : ""
+                                                    }`}
+                                                />
+                                            </button>
+
+                                            {/* Dropdown Menu */}
+                                            {isAboutDropdownOpen && (
+                                                <div className="absolute top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden">
+                                                    {aboutDropdownItems.map((dropdownItem) => (
+                                                        <a
+                                                            key={dropdownItem.name}
+                                                            href={dropdownItem.path}
+                                                            onClick={(e) => {
+                                                                e.preventDefault();
+                                                                handleNavClick(dropdownItem.path);
+                                                            }}
+                                                            className={`block px-4 py-3 text-sm font-medium transition-colors duration-200 ${
+                                                                isActive(dropdownItem.path)
+                                                                    ? "text-blue-600 bg-blue-50"
+                                                                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                                                            }`}
+                                                        >
+                                                            {dropdownItem.name}
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                }
+
+                                return (
+                                    <a
+                                        key={item.name}
+                                        href={item.path}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleNavClick(item.path);
+                                        }}
+                                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative group ${
+                                            isActive(item.path)
+                                                ? isScrolled
+                                                    ? "text-blue-600"
+                                                    : "text-blue-300"
+                                                : isScrolled
+                                                ? "text-gray-700 hover:text-blue-600"
+                                                : "text-white hover:text-blue-300"
+                                        }`}
+                                    >
+                                        {item.name}
+                                        {isActive(item.path) && (
+                                            <div
+                                                className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-[2px] rounded-full ${
+                                                    isScrolled
+                                                        ? "bg-blue-600"
+                                                        : "bg-blue-300"
+                                                }`}
+                                            ></div>
+                                        )}
+                                        <div
+                                            className={`absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${
                                                 isScrolled
-                                                    ? "bg-blue-600"
-                                                    : "bg-blue-300"
+                                                    ? "via-blue-500"
+                                                    : "via-blue-300"
                                             }`}
                                         ></div>
-                                    )}
-                                    <div
-                                        className={`absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${
-                                            isScrolled
-                                                ? "via-blue-500"
-                                                : "via-blue-300"
-                                        }`}
-                                    ></div>
-                                </a>
-                            ))}
+                                    </a>
+                                );
+                            })}
 
                             {/* Logout Button */}
                             {auth.isAuthenticated && (
@@ -178,31 +258,80 @@ const Navbar = () => {
                         }`}
                     >
                         <div className="px-2 pt-2 pb-3 space-y-1 bg-amber-50/90 rounded-lg mt-2 shadow-lg border border-gray-100">
-                            {navItems.map((item, index) => (
-                                <a
-                                    key={item.name}
-                                    href={item.path}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        handleNavClick(item.path);
-                                    }}
-                                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 transform hover:scale-[1.02] ${
-                                        isActive(item.path)
-                                            ? "text-blue-600 bg-blue-50 border-l-4 border-blue-600"
-                                            : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                                    }`}
-                                    style={{
-                                        animationDelay: `${index * 50}ms`,
-                                    }}
-                                >
-                                    <span className="flex items-center justify-between">
-                                        {item.name}
-                                        {isActive(item.path) && (
-                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        )}
-                                    </span>
-                                </a>
-                            ))}
+                            {navItems.map((item, index) => {
+                                if (item.hasDropdown) {
+                                    return (
+                                        <div key={item.name}>
+                                            <button
+                                                onClick={() =>
+                                                    setIsMobileAboutOpen(!isMobileAboutOpen)
+                                                }
+                                                className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                                                    isAboutSectionActive()
+                                                        ? "text-blue-600 bg-blue-50 border-l-4 border-blue-600"
+                                                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                                                }`}
+                                            >
+                                                <span>{item.name}</span>
+                                                <ChevronDown
+                                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                                        isMobileAboutOpen ? "rotate-180" : ""
+                                                    }`}
+                                                />
+                                            </button>
+
+                                            {/* Mobile Dropdown Items */}
+                                            {isMobileAboutOpen && (
+                                                <div className="ml-4 mt-1 space-y-1">
+                                                    {aboutDropdownItems.map((dropdownItem) => (
+                                                        <a
+                                                            key={dropdownItem.name}
+                                                            href={dropdownItem.path}
+                                                            onClick={(e) => {
+                                                                e.preventDefault();
+                                                                handleNavClick(dropdownItem.path);
+                                                            }}
+                                                            className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                                                                isActive(dropdownItem.path)
+                                                                    ? "text-blue-600 bg-blue-50"
+                                                                    : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                                                            }`}
+                                                        >
+                                                            {dropdownItem.name}
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                }
+
+                                return (
+                                    <a
+                                        key={item.name}
+                                        href={item.path}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleNavClick(item.path);
+                                        }}
+                                        className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 transform hover:scale-[1.02] ${
+                                            isActive(item.path)
+                                                ? "text-blue-600 bg-blue-50 border-l-4 border-blue-600"
+                                                : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                                        }`}
+                                        style={{
+                                            animationDelay: `${index * 50}ms`,
+                                        }}
+                                    >
+                                        <span className="flex items-center justify-between">
+                                            {item.name}
+                                            {isActive(item.path) && (
+                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            )}
+                                        </span>
+                                    </a>
+                                );
+                            })}
 
                             {auth.isAuthenticated && (
                                 <button
