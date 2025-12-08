@@ -296,7 +296,13 @@ const ProfessionalFooter = () => {
                                 >
                                     Privacy Policy
                                 </button>
-                                |<span>Crafted with passion in Nepal</span>
+                                |
+                                <a
+                                    href="https://ayushsk.com.np"
+                                    className="hover:text-white transition-colors duration-300"
+                                >
+                                    Crafted with passion in Nepal
+                                </a>
                             </p>
                         </div>
                     </div>
