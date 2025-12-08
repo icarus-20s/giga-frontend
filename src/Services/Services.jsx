@@ -107,7 +107,7 @@ const Services = () => {
             {/* Main Content Container */}
             <div className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
                 {/* Header */}
-                <div className="max-w-7xl mx-auto">
+                <div className="w-full mx-auto">
                     <FadeUp>
                         <h1 className="text-2xl sm:text-2xl lg:text-2xl xl:text-6xl font-bold tracking-tighter">
                             <span className="text-white">Explore </span>
