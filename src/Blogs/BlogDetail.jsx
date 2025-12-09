@@ -198,35 +198,56 @@ const TableOfContents = ({ content }) => {
     if (headings.length < 2) return null;
 
     return (
-        <nav
-            aria-label="Table of contents"
-            className="sticky top-28 text-sm text-slate-300"
-        >
-            <div className="overflow-hidden rounded-2xl border border-blue-500/25 bg-slate-950/85 p-5 shadow-sm backdrop-blur">
-                <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-blue-400">
-                    On this page
-                </div>
-                <ol className="space-y-2">
+        <div className="w-full max-w-[360px] mx-auto mb-6">
+            <div
+                className="
+                bg-slate-900/70 backdrop-blur-xl
+                border border-white/10 shadow-lg
+                rounded-2xl px-6 py-6
+                text-[15px] leading-relaxed
+            "
+            >
+                <p className="mb-5 text-sm font-semibold tracking-wide text-blue-300">
+                    📄 Table of Contents
+                </p>
+
+                <ol className="space-y-3">
                     {headings.slice(0, 30).map((heading) => {
                         const isActive = heading.id === activeId;
                         const isH2 = heading.level === "h2";
-
-                        const baseClasses =
-                            "block border-l pl-3 text-xs transition-colors duration-150";
-                        const levelClasses = isH2
-                            ? "font-medium"
-                            : "ml-3 text-[11px]";
-                        const stateClasses = isActive
-                            ? "border-blue-500 text-blue-300"
-                            : "border-transparent text-slate-400 hover:text-slate-100";
 
                         return (
                             <li key={heading.id}>
                                 <a
                                     href={`#${heading.id}`}
-                                    className={`${baseClasses} ${levelClasses} ${stateClasses}`}
+                                    className={`
+                                        flex items-center gap-3 px-2 py-2 rounded-lg
+                                        transition-all duration-200 hover:bg-white/10
+                                        ${
+                                            isActive
+                                                ? "text-blue-400 font-semibold"
+                                                : "text-slate-300"
+                                        }
+                                    `}
                                 >
-                                    <span className="line-clamp-2">
+                                    <span
+                                        className={`
+                                            w-2 h-2 rounded-full transition-all duration-300 
+                                            ${
+                                                isActive
+                                                    ? "bg-blue-400 scale-125"
+                                                    : "bg-slate-500/40"
+                                            }
+                                        `}
+                                    ></span>
+
+                                    <span
+                                        className={`${
+                                            isH2
+                                                ? "text-[15px]"
+                                                : "text-[13px] ml-4 opacity-80"
+                                        }`}
+                                    >
                                         {heading.text}
                                     </span>
                                 </a>
@@ -235,7 +256,7 @@ const TableOfContents = ({ content }) => {
                     })}
                 </ol>
             </div>
-        </nav>
+        </div>
     );
 };
 
@@ -786,7 +807,7 @@ const BlogDetail = () => {
                 )}
 
                 {/* Main Content + Table of Contents */}
-                <section className="mx-auto w-full max-w-7xl px-4 pb-20 pt-8 sm:px-6 lg:pt-12">
+                <section className="mx-auto w-full px-4 pb-20 pt-8 sm:px-6 lg:pt-12">
                     <div className="grid grid-cols-1 gap-12 xl:grid-cols-[1fr_280px]">
                         {/* Blog Content with Staggered Animations */}
                         <div className="min-w-0">
@@ -794,7 +815,8 @@ const BlogDetail = () => {
                         </div>
 
                         {/* Table of Contents - Desktop Only */}
-                        <aside className="hidden xl:block">
+                        {/* Table of Contents - Desktop Only */}
+                        <aside className="hidden xl:block xl:sticky xl:top-24 self-start">
                             <Fadeup delay={0.6}>
                                 <TableOfContents content={fixedContent} />
                             </Fadeup>
