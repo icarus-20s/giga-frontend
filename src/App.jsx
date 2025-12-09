@@ -26,6 +26,8 @@ import GigaCorporateERP from "./Services/GigaCorporateERP";
 import Clients from "./Components/Clients";
 import NoRoutePage from "./Components/NoRoutePage";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
+import BlogList from "./Blogs/BlogList";
+import BlogDetail from "./Blogs/BlogDetail";
 const App = () => {
     return (
         <>
@@ -66,6 +68,8 @@ const App = () => {
 
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/career" element={<Career />} />
+                <Route path="/blogs" element={<BlogList />} />
+                <Route path="/blogs/:slug" element={<BlogDetail />} />
                 <Route path="/login" element={<LoginForm />} />
             </Routes>
 
