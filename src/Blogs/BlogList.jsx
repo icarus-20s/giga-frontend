@@ -243,51 +243,57 @@ const BlogCard = ({ blog, index, imageLoaded, onImageLoad }) => (
 
             </div>
 
-            <div className="p-6 flex flex-col flex-1">
-                <div className="flex items-center gap-2 text-slate-500 text-sm mb-3">
-                    <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                    </svg>
-                    {formatDate(blog.created_at)}
-                </div>
+         <div className="p-6 flex flex-col flex-1">
+    <div className="flex items-center gap-2 text-slate-500 text-sm mb-3">
+        <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+        </svg>
+        {formatDate(blog.created_at)}
+    </div>
 
-                <h3 className="text-xl font-bold text-white mb-3 leading-tight line-clamp-2 group-hover:text-blue-300 transition-colors duration-300">
-                    {blog.title}
-                </h3>
+    <h3 className="text-xl font-bold text-white mb-3 leading-tight line-clamp-2 group-hover:text-blue-300 transition-colors duration-300">
+        {blog.title}
+    </h3>
 
-                <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 flex-1 mb-4">
-                    {blog.short_description}
-                </p>
+    <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 flex-1 mb-4">
+        {blog.short_description}
+    </p>
 
-                <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-300">
-                        Read More
-                        <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                            />
-                        </svg>
-                    </span>
-                </div>
-            </div>
+    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+        <span className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-300">
+            Read More
+            <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                />
+            </svg>
+        </span>
+
+        {/* Author Name on the right */}
+        <span className="text-slate-400 text-sm font-medium">
+            {blog.author_name}
+        </span>
+    </div>
+</div>
+
         </Link>
     </FadeUp>
 );
