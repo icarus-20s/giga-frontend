@@ -91,10 +91,12 @@ const Navbar = () => {
         return currentPath === "/about" || currentPath === "/privacy-policy";
     };
 
-    const handleDemoClick = () => {
-        window.location.href =
-            "https://gigademo.gigaschoolerp.com/auth/login?ReturnUrl=%2F";
-    };
+const handleDemoClick = () => {
+  window.open(
+    "https://gigademo.gigaschoolerp.com/auth/login?ReturnUrl=%2F",
+    "_blank"
+  );
+};
 
     return (
         <>
@@ -108,20 +110,20 @@ const Navbar = () => {
                 <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-2">
                     <div className="flex items-center justify-between h-14 lg:h-16">
                         {/* Logo - Left */}
-                            <a
-                                href="/"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleNavClick("/");
-                                }}
-                                className="flex items-center group"
-                            >
-                                <img
-                                    alt="Company Logo"
-                                    class="w-20 h-20 lg:w-28 lg:h-28 rounded-xl object-contain transform group-hover:scale-105 transition-transform duration-200"
-                                    src={logo}
-                                />
-                            </a>
+                        <a
+                            href="/"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleNavClick("/");
+                            }}
+                            className="flex items-center group"
+                        >
+                            <img
+                                alt="Company Logo"
+                                class="w-20 h-20 lg:w-28 lg:h-28 rounded-xl object-contain transform group-hover:scale-105 transition-transform duration-200"
+                                src={logo}
+                            />
+                        </a>
 
                         {/* Desktop Navigation - Center */}
                         <div className="hidden lg:flex items-center justify-center flex-1">
@@ -394,62 +396,62 @@ const Navbar = () => {
                                                     />
                                                 </button>
 
-                                                    {isMobileAboutOpen && (
-                                                        <motion.div
-                                                            initial={{
-                                                                height: 0,
-                                                                opacity: 0,
-                                                            }}
-                                                            animate={{
-                                                                height: "auto",
-                                                                opacity: 1,
-                                                            }}
-                                                            exit={{
-                                                                height: 0,
-                                                                opacity: 0,
-                                                            }}
-                                                            transition={{
-                                                                duration: 0.2,
-                                                            }}
-                                                            className="overflow-hidden"
-                                                        >
-                                                            <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4">
-                                                                {aboutDropdownItems.map(
-                                                                    (
-                                                                        dropdownItem
-                                                                    ) => (
-                                                                        <a
-                                                                            key={
-                                                                                dropdownItem.name
-                                                                            }
-                                                                            href={
+                                                {isMobileAboutOpen && (
+                                                    <motion.div
+                                                        initial={{
+                                                            height: 0,
+                                                            opacity: 0,
+                                                        }}
+                                                        animate={{
+                                                            height: "auto",
+                                                            opacity: 1,
+                                                        }}
+                                                        exit={{
+                                                            height: 0,
+                                                            opacity: 0,
+                                                        }}
+                                                        transition={{
+                                                            duration: 0.2,
+                                                        }}
+                                                        className="overflow-hidden"
+                                                    >
+                                                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4">
+                                                            {aboutDropdownItems.map(
+                                                                (
+                                                                    dropdownItem
+                                                                ) => (
+                                                                    <a
+                                                                        key={
+                                                                            dropdownItem.name
+                                                                        }
+                                                                        href={
+                                                                            dropdownItem.path
+                                                                        }
+                                                                        onClick={(
+                                                                            e
+                                                                        ) => {
+                                                                            e.preventDefault();
+                                                                            handleNavClick(
                                                                                 dropdownItem.path
-                                                                            }
-                                                                            onClick={(
-                                                                                e
-                                                                            ) => {
-                                                                                e.preventDefault();
-                                                                                handleNavClick(
-                                                                                    dropdownItem.path
-                                                                                );
-                                                                            }}
-                                                                            className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                                                                                isActive(
-                                                                                    dropdownItem.path
-                                                                                )
-                                                                                    ? "text-blue-600 bg-blue-50"
-                                                                                    : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
-                                                                            }`}
-                                                                        >
-                                                                            {
-                                                                                dropdownItem.name
-                                                                            }
-                                                                        </a>
-                                                                    )
-                                                                )}
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
+                                                                            );
+                                                                        }}
+                                                                        className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                                                                            isActive(
+                                                                                dropdownItem.path
+                                                                            )
+                                                                                ? "text-blue-600 bg-blue-50"
+                                                                                : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                                                                        }`}
+                                                                    >
+                                                                        {
+                                                                            dropdownItem.name
+                                                                        }
+                                                                    </a>
+                                                                )
+                                                            )}
+                                                        </div>
+                                                    </motion.div>
+                                                )}
                                             </div>
                                         );
                                     }

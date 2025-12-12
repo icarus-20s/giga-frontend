@@ -208,7 +208,7 @@ const TableOfContents = ({ content }) => {
             "
             >
                 <p className="mb-5 text-sm font-semibold tracking-wide text-blue-300">
-                    📄 Table of Contents
+                    Table of Contents
                 </p>
 
                 <ol className="space-y-3">

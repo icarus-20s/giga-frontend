@@ -28,11 +28,14 @@ import NoRoutePage from "./Components/NoRoutePage";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 import BlogList from "./Blogs/BlogList";
 import BlogDetail from "./Blogs/BlogDetail";
+import { ClientsProvider } from "./Components/Context/ClientsContext";
 const App = () => {
     return (
         <>
             <Navbar />
             <ScrollToTop />
+            <ClientsProvider>
+
             <Routes>
                 <Route path="*" element={<NoRoutePage />} />
                 <Route path="/" element={<Home />} />
@@ -43,7 +46,7 @@ const App = () => {
                     <Route
                         path="/products/giga-accounting"
                         element={<GigaAccounting />}
-                    />
+                        />
                     <Route path="/products/giga-erp" element={<GigaERP />} />
                     <Route path="/products/giga-hrms" element={<GigaHRMS />} />
                     <Route path="/products/giga-ims" element={<GigaIMS />} />
@@ -63,7 +66,7 @@ const App = () => {
                 <Route
                     path="/services/corporate-erp"
                     element={<GigaCorporateERP />}
-                />
+                    />
                 <Route path="/services/accounting" element={<Accounting />} />
 
                 <Route path="/gallery" element={<Gallery />} />
@@ -72,6 +75,7 @@ const App = () => {
                 <Route path="/blogs/:slug" element={<BlogDetail />} />
                 <Route path="/login" element={<LoginForm />} />
             </Routes>
+                    </ClientsProvider>
 
             <GigaFooter />
         </>

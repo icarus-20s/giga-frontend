@@ -1,7 +1,7 @@
 import React from "react";
 
 const Loader = ({ size = 48 }) => {
-  const colors = ["#06D001", "#9BEC00", "#F3FF90", "#059212"]; // colorful segments
+  const colors = ["#06D001", "#9BEC00", "#F3FF90", "#059212"];
 
   return (
     <div className="flex items-center justify-center">

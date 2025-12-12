@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from "react";
 import {
     Users,
-    BookOpen,
     Award,
     CheckCircle,
     Building2,
     Target,
     Eye,
-    TrendingUp,
     Layers,
     Heart,
     Sparkles,
     Rocket,
     Brain,
     LifeBuoy,
-    UserRound,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import Clients from "../Components/Clients";
 import welcome from "../assets/welcome.jpg";
-import { useNavigate } from "react-router-dom";
-import sandip from "../assets/Team/sandip.jpg";
-import saurav from "../assets/Team/saurav.jpg";
-import yogesh from "../assets/Team/yogesh.jpg";
-import suman from "../assets/Team/suman.jpg";
-import santosh from "../assets/Team/santosh.jpg";
+import api from "../Components/Api";
 
 // ==================== SECTION HEADER COMPONENT ====================
 const SectionHeader = ({
@@ -66,10 +60,10 @@ const HeroSection = ({ isVisible }) => (
     >
         {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
             </div>
         </div>
 
@@ -96,7 +90,7 @@ const HeroSection = ({ isVisible }) => (
                     We are the partner that makes it happen.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center"></div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center" />
             </div>
         </div>
     </section>
@@ -134,6 +128,7 @@ const StatsBanner = ({ stats, isVisible }) => (
         </div>
     </section>
 );
+
 // ==================== WELCOME SECTION ====================
 const WelcomeSection = () => {
     const navigate = useNavigate();
@@ -142,8 +137,8 @@ const WelcomeSection = () => {
         <section className="w-full py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
             {/* Full-Width Background with subtle wave or accent */}
             <div className="absolute inset-0 overflow-hidden opacity-30">
-                <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"></div>
+                <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-400 rounded-full blur-3xl" />
+                <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-400 rounded-full blur-3xl" />
             </div>
 
             <div className="relative w-full max-w-none">
@@ -156,7 +151,7 @@ const WelcomeSection = () => {
                                 alt="Giga Infosoft Team in Action"
                                 className="w-full h-auto rounded-3xl shadow-2xl object-cover lg:h-[600px] xl:h-[700px]"
                             />
-                            {/* Floating Trust Badge - Updated */}
+                            {/* Floating Trust Badge */}
                             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-8 lg:-translate-x-0 lg:bottom-8 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4">
                                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
                                     <Sparkles className="w-6 h-6 text-white" />
@@ -173,7 +168,7 @@ const WelcomeSection = () => {
                         </div>
                     </div>
 
-                    {/* Right: Content - Updated Text Only */}
+                    {/* Right: Content */}
                     <div className="order-1 lg:order-2 text-center lg:text-left space-y-8">
                         <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold">
                             <Rocket className="w-5 h-5" />
@@ -246,6 +241,7 @@ const WelcomeSection = () => {
         </section>
     );
 };
+
 // ==================== MISSION & VISION ====================
 const MissionVisionSection = ({ isVisible }) => (
     <section id="mission" className="py-24 px-0">
@@ -306,7 +302,7 @@ const MissionVisionSection = ({ isVisible }) => (
                     }`}
                 >
                     <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl blur-2xl opacity-20"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-3xl blur-2xl opacity-20" />
                         <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-8 md:p-10 text-white shadow-2xl">
                             <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
                                 <Eye className="w-5 h-5 mr-2" />
@@ -382,7 +378,7 @@ const WhatSetsUsApartSection = ({ items, isVisible }) => (
                     >
                         <div
                             className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}
-                        ></div>
+                        />
 
                         <div className="relative z-10">
                             <div
@@ -404,23 +400,27 @@ const WhatSetsUsApartSection = ({ items, isVisible }) => (
         </div>
     </section>
 );
+
 // ==================== TEAM SECTION ====================
 const TeamCard = ({ member, delay, isVisible }) => (
     <div
-    className={`transform transition-all duration-700 ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-    }`}
-    style={{ transitionDelay: `${delay * 120}ms` }}
+        className={`transform transition-all duration-700 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        }`}
+        style={{ transitionDelay: `${delay * 120}ms` }}
     >
         <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all overflow-hidden border border-gray-100">
             {/* Photo */}
             <div className="relative w-full h-72 overflow-hidden rounded-t-3xl">
                 <img
-                    src={member.photo || "https://i.ibb.co/MBtjqXQ/user-placeholder.png"}
+                    src={
+                        member.photo ||
+                        "https://i.ibb.co/MBtjqXQ/user-placeholder.png"
+                    }
                     alt={member.name}
                     className="w-full h-full object-cover"
-                    />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
             </div>
 
             {/* Info */}
@@ -436,13 +436,57 @@ const TeamCard = ({ member, delay, isVisible }) => (
                         {member.description}
                     </p>
                 )}
-
             </div>
         </div>
     </div>
 );
 
-const TeamSection = ({ teamMembers, isVisible }) => {
+const useTeamMembers = () => {
+    const [teamMembers, setTeamMembers] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        let isMounted = true;
+
+        const fetchTeamMembers = async () => {
+            try {
+                const res = await api.get("team-members/"); // backend endpoint
+                if (isMounted) {
+                    setTeamMembers(res.data);
+                }
+            } catch (err) {
+                console.error("Error fetching team members:", err);
+            } finally {
+                if (isMounted) {
+                    setLoading(false);
+                }
+            }
+        };
+
+        fetchTeamMembers();
+
+        return () => {
+            isMounted = false;
+        };
+    }, []);
+
+    return { teamMembers, loading };
+};
+
+const TeamSection = ({ isVisible }) => {
+    const { teamMembers, loading } = useTeamMembers();
+
+    if (loading) {
+        return (
+            <section
+                id="team"
+                className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50"
+            >
+                <p className="text-center py-20">Loading team members...</p>
+            </section>
+        );
+    }
+
     const topTwo = teamMembers.slice(0, 2);
     const midFive = teamMembers.slice(2, 7);
     const lastFour = teamMembers.slice(7, 11);
@@ -461,22 +505,20 @@ const TeamSection = ({ teamMembers, isVisible }) => {
                     badgeColor="blue"
                 />
 
-                {/* === TOP EXECUTIVES ROW (2) === */}
+                {/* TOP EXECUTIVES ROW (2) */}
                 <div className="mt-16 flex justify-center gap-10">
                     {topTwo.map((member, index) => (
-                        <div className="w-full max-w-xs">
+                        <div className="w-full max-w-xs" key={index}>
                             <TeamCard
-                                key={index}
                                 member={member}
                                 delay={index}
                                 isVisible={isVisible.team}
-                                highlight
                             />
                         </div>
                     ))}
                 </div>
 
-                {/* === MID MANAGEMENT ROW (5) === */}
+                {/* MID MANAGEMENT ROW (5) */}
                 <div className="py-10 mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
                     {midFive.map((member, index) => (
                         <TeamCard
@@ -488,7 +530,7 @@ const TeamSection = ({ teamMembers, isVisible }) => {
                     ))}
                 </div>
 
-                {/* === OTHER TEAM (4) === */}
+                {/* OTHER TEAM (4) */}
                 <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                     {lastFour.map((member, index) => (
                         <TeamCard
@@ -507,6 +549,7 @@ const TeamSection = ({ teamMembers, isVisible }) => {
 // ==================== MAIN COMPONENT ====================
 const About = () => {
     const [isVisible, setIsVisible] = useState({});
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -525,6 +568,7 @@ const About = () => {
         document
             .querySelectorAll("section[id]")
             .forEach((el) => observer.observe(el));
+
         return () => observer.disconnect();
     }, []);
 
@@ -532,22 +576,22 @@ const About = () => {
         {
             number: "300+",
             label: "Happy Clients",
-            icon: Users, // represents people/clients
+            icon: Users,
         },
         {
             number: "5+",
             label: "Years of Excellence",
-            icon: Award, // award icon fits excellence/achievement
+            icon: Award,
         },
         {
             number: "200K+",
             label: "Active Users",
-            icon: Users, // represents active users (slightly different from generic Users)
+            icon: Users,
         },
         {
             number: "40+",
             label: "Team Members",
-            icon: Building2, // office/team representation
+            icon: Building2,
         },
     ];
 
@@ -596,78 +640,6 @@ const About = () => {
         },
     ];
 
-    const teamMembers = [
-        {
-            name: "Mr. Govinda Pandey",
-            position: "Managing Director",
-            photo: "",
-            description: "20+ years of experience in educational technology.",
-        },
-        {
-            name: "Mr. Keshav Gautam",
-            position: "Chief Executive Officer (CEO)",
-            photo: "",
-            description:
-                "15+ years of experience in ERP and educational technology.",
-        },
-        {
-            name: "Mr. Suman Paudyal",
-            position: "Chief Technology Officer (CTO)",
-            photo: suman,
-            description: "10+ years of experience in software development.",
-        },
-        {
-            name: "Mr. Santosh Pandey",
-            position: "Chief Operation Officer (COO)",
-            photo: santosh,
-            description:
-                "10+ years of experience in finance and operation management.",
-        },
-        {
-            name: "Mr. Saurav Bhattarai",
-            position: "Chief Implementation Officer (CIO)",
-            photo: saurav,
-            description: "8+ years of experience in system implementation.",
-        },
-        {
-            name: "Mr. Ishwor Pandey",
-            position: "Chief Customer Relationship Officer (CRO)",
-            photo: "",
-            description:
-                "10+ years of experience in system implementation and customer relation.",
-        },
-        {
-            name: "Mr. Gaurav Bhusal",
-            position: "Senior Developer",
-            photo: "",
-            description: "8+ years of experience in software development.",
-        },
-        {
-            name: "Mr. Yogesh Sapkota",
-            position: "Senior Developer",
-            photo: yogesh,
-            description: "7+ years of experience in software development.",
-        },
-        {
-            name: "Mr. Shandip Sharma",
-            position: "Software Developer",
-            photo: "",
-            description: "4+ years of experience in software development.",
-        },
-        {
-            name: "Mr. Ravi Sapkota",
-            position: "Software Implementation Officer",
-            photo: "",
-            description: "3+ years of experience in software implementation.",
-        },
-        {
-            name: "Ms. Manisha Adhikari",
-            position: "Office Assistant",
-            photo: "",
-            description: "",
-        },
-    ];
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-x-hidden">
             <HeroSection isVisible={isVisible} />
@@ -678,7 +650,7 @@ const About = () => {
                 items={whatSetsUsApart}
                 isVisible={isVisible}
             />
-            <TeamSection teamMembers={teamMembers} isVisible={isVisible} />
+            <TeamSection isVisible={isVisible} />
             <Clients />
         </div>
     );
